@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Script from "next/script";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import ReactQueryProvider from "./lib/ReactQueryProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +20,37 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <head>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <link href="/assets/lib/animate/animate.min.css" rel="stylesheet" />
+        <link href="/assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/assets/css/style.css" />
+
+      </head>
+      <body className={inter.className}>
+        <ReactQueryProvider>
+          <Header />
+          {children}
+          <Footer />
+        </ReactQueryProvider>
+
+      </body>
+      <Script src="https://code.jquery.com/jquery-3.4.1.min.js" />
+      <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" />
+      <Script src="/assets/lib/wow/wow.min.js" />
+      <Script src="/assets/lib/easing/easing.min.js" />
+      <Script src="/assets/lib/waypoints/waypoints.min.js" />
+      <Script src="/assets/lib/owlcarousel/owl.carousel.min.js" />
+      <Script src="/assets/js/main.js" />
+
+
+
     </html>
   );
 }
