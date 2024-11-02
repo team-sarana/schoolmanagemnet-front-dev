@@ -13,7 +13,7 @@ export default function Header() {
             </div>
             {/* Spinner End */}
             {/* Topbar Start */}
-            <div className="container-fluid bg-dark text-light p-0">
+            <div className="container-fluid       bg-dark text-light p-0">
                 <div className="row gx-0 d-none d-lg-flex">
                     <div className="col-lg-7 px-5 text-start">
                         <div className="h-100 d-inline-flex align-items-center me-4">
