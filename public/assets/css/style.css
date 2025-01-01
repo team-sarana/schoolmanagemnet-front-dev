@@ -1,6 +1,6 @@
 /********** Template CSS **********/
 :root {
-    --primary: #F3BD00;
+    --primary: #48aeec;
     --secondary: #757575;
     --light: #F3F6F8;
     --dark: #0C2B4B;
@@ -31,6 +31,50 @@
     visibility: hidden;
     transition: opacity .5s ease-out, visibility 0s linear .5s;
     z-index: 99999;
+}
+
+.bg-primary {
+    background-color: #48aeec !important;
+}
+
+.btn-primary {
+    background-color: #48aeec;
+    border-color: #48aeec;
+}
+
+.text-primary {
+    color: #48aeec !important;
+}
+
+.btn-link {
+    font-weight: 400;
+    color: #48aeec !important;
+    text-decoration: none;
+}
+
+.btn-outline-primary {
+    color: #48aeec;
+    border-color: #48aeec;
+}
+
+.btn-outline-primary:hover {
+    color: #000;
+    background-color: #48aeec;
+    border-color: #48aeec;
+}
+
+.btn-primary:hover {
+    color: #000;
+    background-color: #48aeec;
+    border-color: #48aeec;
+}
+
+.form-control:focus {
+    color: #757575;
+    background-color: #fff;
+    border-color: #48aeec;
+    outline: 0;
+    box-shadow: 0 0 0 .25rem rgba(72, 174, 236, 0.25);
 }
 
 #spinner.show {

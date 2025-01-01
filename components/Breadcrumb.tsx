@@ -17,14 +17,14 @@ export default function Breadcrumb() {
         else if (pathname.toLocaleLowerCase().includes("/about")) {
             setBreadcrumb({ title: "About", url: "/about" })
         }
-        else if (pathname.toLocaleLowerCase().includes("/coursesr")) {
+        else if (pathname.toLocaleLowerCase().includes("/courses")) {
             setBreadcrumb({ title: "Courses", url: "/courses" })
         }
         else if (pathname.toLocaleLowerCase().includes("/feature")) {
             setBreadcrumb({ title: "Feature", url: "/feature" })
         }
         else if (pathname.toLocaleLowerCase().includes("/appointment")) {
-            setBreadcrumb({ title: "/appointment", url: "/appointment" })
+            setBreadcrumb({ title: "Appointment", url: "/appointment" })
         }
         else if (pathname.toLocaleLowerCase().includes("/testimonial")) {
             setBreadcrumb({ title: "Testimonial", url: "/testimonial" })

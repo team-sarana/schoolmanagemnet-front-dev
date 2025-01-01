@@ -1,5 +1,6 @@
 "use client"
 import React from 'react'
+import Image from 'next/image'
 
 export default function Footer() {
     return (
@@ -12,10 +13,14 @@ export default function Footer() {
                 <div className="container">
                     <div className="row g-5">
                         <div className="col-lg-3 col-md-6">
-                            <h4 className="text-white mb-4">Get In Touch</h4>
-                            <h2 className="text-primary mb-4">
-                                <i className="fa fa-car text-white me-2" />
-                                Drivin
+                            <h4 className="text-white">Get In Touch</h4>
+                            <h2 className="text-primary d-flex justify-content-center">
+                                <Image
+                                    src="/assets/img/logo.png"
+                                    width={100}
+                                    height={100}
+                                    alt="logo"
+                                />
                             </h2>
                             <p className="mb-2">
                                 <i className="fa fa-map-marker-alt me-3" />
@@ -106,15 +111,14 @@ export default function Footer() {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            © <a href="#">Your Site Name</a>, All Right Reserved.
+                            © <a href="#">School</a>, All Right Reserved.
                         </div>
                         <div className="col-md-6 text-center text-md-end">
-                            {/*/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. *** /*/}
-                            Designed By <a href="https://htmlcodex.com">HTML Codex</a>
+                            Designed By <a href="/">Group2</a>
                             <br />
-                            Distributed By:{" "}
-                            <a href="https://themewagon.com" target="_blank">
-                                ThemeWagon
+                            Distributed By:
+                            <a href="/" target="_blank">
+                                Teacher
                             </a>
                         </div>
                     </div>
