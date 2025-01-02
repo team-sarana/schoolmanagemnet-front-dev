@@ -85,7 +85,7 @@ export default function NavbarMenu() {
                             </a>
                         ))}
                     </div>
-                    <a href="/" className="btn btn-primary py-4 px-lg-5 d-none d-lg-block">
+                    <a href="/appointment" className="btn btn-primary py-4 px-lg-5 d-none d-lg-block">
                         Get Started
                         <i className="fa fa-arrow-right ms-3" />
                     </a>

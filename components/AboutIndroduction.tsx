@@ -5,7 +5,7 @@ export default function AboutIndroduction() {
     return (
         <>
             {/* About Start */}
-            <div className="container-xxl py-6">
+            <div className="container-xxl py-4">
                 <div className="container">
                     <div className="row g-5">
                         <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -15,15 +15,15 @@ export default function AboutIndroduction() {
                             >
                                 <img
                                     className="position-absolute w-100 h-100"
-                                    src="/assets/img/about-1.jpg"
+                                    src="/assets/img/about/about2.jpg"
                                     alt=""
                                     style={{ objectFit: "cover" }}
                                 />
                                 <img
                                     className="position-absolute top-0 start-0 bg-white pe-3 pb-3"
-                                    src="/assets/img/about-2.jpg"
+                                    src="/assets/img/about/about1.jpg"
                                     alt=""
-                                    style={{ width: 200, height: 200 }}
+                                    style={{ width: "200px", height: "200px", objectFit: "cover" }}
                                 />
                             </div>
                         </div>

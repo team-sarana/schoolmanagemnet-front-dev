@@ -37,29 +37,29 @@ export default function Footer() {
                         </div>
                         <div className="col-lg-3 col-md-6">
                             <h4 className="text-light mb-4">Quick Links</h4>
-                            <a className="btn btn-link" href="">
-                                About Us
+                            <a className="btn btn-link" href="/">
+                                Home
                             </a>
-                            <a className="btn btn-link" href="">
-                                Contact Us
+                            <a className="btn btn-link" href="/about">
+                                About
                             </a>
-                            <a className="btn btn-link" href="">
-                                Our Services
+                            <a className="btn btn-link" href="/courses">
+                                Courses
                             </a>
-                            <a className="btn btn-link" href="">
-                                Terms &amp; Condition
+                            <a className="btn btn-link" href="/feature">
+                                Feature
                             </a>
-                            <a className="btn btn-link" href="">
-                                Support
+                            <a className="btn btn-link" href="/appointment">
+                                Appointment
                             </a>
                         </div>
                         <div className="col-lg-3 col-md-6">
                             <h4 className="text-light mb-4">Popular Links</h4>
-                            <a className="btn btn-link" href="">
-                                About Us
+                            <a className="btn btn-link" href="/testimonial">
+                                Testimonial
                             </a>
-                            <a className="btn btn-link" href="">
-                                Contact Us
+                            <a className="btn btn-link" href="/contact">
+                                Contact
                             </a>
                             <a className="btn btn-link" href="">
                                 Our Services
@@ -72,18 +72,7 @@ export default function Footer() {
                             </a>
                         </div>
                         <div className="col-lg-3 col-md-6">
-                            <h4 className="text-light mb-4">Newsletter</h4>
-                            <form action="">
-                                <div className="input-group">
-                                    <input
-                                        type="text"
-                                        className="form-control p-3 border-0"
-                                        placeholder="Your Email Address"
-                                    />
-                                    <button className="btn btn-primary">Sign Up</button>
-                                </div>
-                            </form>
-                            <h6 className="text-white mt-4 mb-3">Follow Us</h6>
+                            <h4 className="text-white mb-4">Follow Us</h4>
                             <div className="d-flex pt-2">
                                 <a className="btn btn-square btn-outline-light me-1" href="">
                                     <i className="fab fa-twitter" />

@@ -15,10 +15,10 @@ export default function FactsHome() {
                             >
                                 <div className="d-flex">
                                     <div className="flex-shrink-0 btn-lg-square bg-primary">
-                                        <i className="fa fa-car text-white" />
+                                        <i className="fa fa-book text-white" aria-hidden="true"></i>
                                     </div>
                                     <div className="ps-4">
-                                        <h5>Easy Driving Learn </h5>
+                                        <h5>Easy Learning </h5>
                                         <span>
                                             Clita erat ipsum lorem sit sed stet duo justo erat amet
                                         </span>

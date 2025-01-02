@@ -31,6 +31,20 @@ export default function FeatureItemComponent() {
             iconClass: 'fa-check',
             delay: '0.4s',
         },
+        {
+            id: 5,
+            title: 'Fully Licensed',
+            description: 'Magna sea eos sit dolor, ipsum amet ipsum lorem diam eos',
+            iconClass: 'fa-check',
+            delay: '0.1s',
+        },
+        {
+            id: 6,
+            title: 'Online Tracking',
+            description: 'Magna sea eos sit dolor, ipsum amet ipsum lorem diam eos',
+            iconClass: 'fa-check',
+            delay: '0.2s',
+        },
     ];
 
     return (

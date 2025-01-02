@@ -1,13 +1,12 @@
 "use client"
 import React from 'react'
-import Appointment from './Appointment'
 import CourseItem from './CourseItem'
 
 export default function CourseItemHome() {
     return (
         <>
             {/* Courses Start */}
-            <div className="container-xxl courses my-6 py-6 pb-0">
+            <div className="container-xxl courses my-5 py-5 pb-5">
                 <div className="container">
                     <div
                         className="text-center mx-auto mb-5 wow fadeInUp"
@@ -16,12 +15,11 @@ export default function CourseItemHome() {
                     >
                         <h6 className="text-primary text-uppercase mb-2">Tranding Courses</h6>
                         <h1 className="display-6 mb-4">
-                            Our Courses Upskill You With Driving Training
+                            Our Courses Upskill You With Studying
                         </h1>
                     </div>
                     <div className="row g-4 justify-content-center">
                         <CourseItem />
-                        <Appointment />
                     </div>
                 </div>
             </div>
