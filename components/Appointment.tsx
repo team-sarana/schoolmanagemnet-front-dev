@@ -1,40 +1,22 @@
 "use client"
 import React from 'react'
 
-export default function AppointmentComponent() {
+export default function Appointment() {
     return (
         <>
-            <>
-                <div className="container-xxl">
-                    <div className="container">
-                        <div className="row g-5">
-                            <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                                <div
-                                    className="position-relative overflow-hidden ps-5 pt-5 h-100"
-                                    style={{ minHeight: 400 }}
-                                >
-                                    <img
-                                        className="position-absolute w-100 h-100"
-                                        src="/assets/img/course/course1.jpg"
-                                        alt=""
-                                        style={{ objectFit: "cover" }}
-                                    />
-
-                                </div>
-                            </div>
-                            <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
-                                <h6 className="text-primary text-uppercase mb-2">Appointment</h6>
-                                <h5 className="display-6 mb-4">
-                                    Make An Appointment To Pass Test &amp; Get A License On The First
-                                    Try
-                                </h5>
+            <div className="container-xxl courses">
+                <div className="container">
+                    <div className="row g-4 justify-content-center pb-5">
+                        <div className="col-lg-8 my-6 mb-0 wow fadeInUp" data-wow-delay="0.1s">
+                            <div className="bg-primary text-center p-5">
+                                <h1 className="mb-4" style={{ color: "#ffff" }}>Make Appointment</h1>
                                 <form>
                                     <div className="row g-3">
                                         <div className="col-sm-6">
                                             <div className="form-floating">
                                                 <input
                                                     type="text"
-                                                    className="form-control border-0 bg-light"
+                                                    className="form-control border-0"
                                                     id="gname"
                                                     placeholder="Gurdian Name"
                                                 />
@@ -45,7 +27,7 @@ export default function AppointmentComponent() {
                                             <div className="form-floating">
                                                 <input
                                                     type="email"
-                                                    className="form-control border-0 bg-light"
+                                                    className="form-control border-0"
                                                     id="gmail"
                                                     placeholder="Gurdian Email"
                                                 />
@@ -56,38 +38,38 @@ export default function AppointmentComponent() {
                                             <div className="form-floating">
                                                 <input
                                                     type="text"
-                                                    className="form-control border-0 bg-light"
+                                                    className="form-control border-0"
                                                     id="cname"
                                                     placeholder="Child Name"
                                                 />
-                                                <label htmlFor="cname">Courses Type</label>
+                                                <label htmlFor="cname">Phone Number</label>
                                             </div>
                                         </div>
                                         <div className="col-sm-6">
                                             <div className="form-floating">
                                                 <input
                                                     type="text"
-                                                    className="form-control border-0 bg-light"
+                                                    className="form-control border-0"
                                                     id="cage"
                                                     placeholder="Child Age"
                                                 />
-                                                <label htmlFor="cage">Car Type</label>
+                                                <label htmlFor="cage">Courses</label>
                                             </div>
                                         </div>
                                         <div className="col-12">
                                             <div className="form-floating">
                                                 <textarea
-                                                    className="form-control border-0 bg-light"
+                                                    className="form-control border-0"
                                                     placeholder="Leave a message here"
                                                     id="message"
-                                                    style={{ height: 150 }}
+                                                    style={{ height: 100 }}
                                                     defaultValue={""}
                                                 />
                                                 <label htmlFor="message">Message</label>
                                             </div>
                                         </div>
                                         <div className="col-12">
-                                            <button className="btn btn-primary w-100 py-3" type="submit">
+                                            <button className="btn btn-dark w-100 py-3" type="submit">
                                                 Submit
                                             </button>
                                         </div>
@@ -97,8 +79,7 @@ export default function AppointmentComponent() {
                         </div>
                     </div>
                 </div>
-            </>
-
+            </div>
         </>
     )
 }

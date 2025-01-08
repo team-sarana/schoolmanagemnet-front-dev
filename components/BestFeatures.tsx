@@ -2,12 +2,13 @@
 import React from 'react'
 import FeatureItemComponent from './FeatureItemComponent'
 
-export default function FeatureComponent() {
+export default function BestFeatures() {
     return (
         <>
-            <div className="container-xxl">
+            {/* Features Start */}
+            <div className="container-xxl py-5">
                 <div className="container">
-                    <div className="row g-5">
+                    <div className="row g-5 d-flex justify-content-center">
                         <div className="col-lg-12 wow fadeInUp" data-wow-delay="0.1s">
                             <h6 className="text-primary text-uppercase mb-2">Why Choose Us!</h6>
                             <h1 className="display-6 mb-4">
@@ -26,7 +27,5 @@ export default function FeatureComponent() {
             </div>
             {/* Features End */}
         </>
-
-
     )
 }

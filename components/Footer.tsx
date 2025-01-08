@@ -1,5 +1,6 @@
 "use client"
 import React from 'react'
+import Image from 'next/image'
 
 export default function Footer() {
     return (
@@ -12,10 +13,14 @@ export default function Footer() {
                 <div className="container">
                     <div className="row g-5">
                         <div className="col-lg-3 col-md-6">
-                            <h4 className="text-white mb-4">Get In Touch</h4>
-                            <h2 className="text-primary mb-4">
-                                <i className="fa fa-car text-white me-2" />
-                                Drivin
+                            <h4 className="text-white">Get In Touch</h4>
+                            <h2 className="text-primary d-flex justify-content-center">
+                                <Image
+                                    src="/assets/img/logo.png"
+                                    width={100}
+                                    height={100}
+                                    alt="logo"
+                                />
                             </h2>
                             <p className="mb-2">
                                 <i className="fa fa-map-marker-alt me-3" />
@@ -32,29 +37,29 @@ export default function Footer() {
                         </div>
                         <div className="col-lg-3 col-md-6">
                             <h4 className="text-light mb-4">Quick Links</h4>
-                            <a className="btn btn-link" href="">
-                                About Us
+                            <a className="btn btn-link" href="/">
+                                Home
                             </a>
-                            <a className="btn btn-link" href="">
-                                Contact Us
+                            <a className="btn btn-link" href="/about">
+                                About
                             </a>
-                            <a className="btn btn-link" href="">
-                                Our Services
+                            <a className="btn btn-link" href="/courses">
+                                Courses
                             </a>
-                            <a className="btn btn-link" href="">
-                                Terms &amp; Condition
+                            <a className="btn btn-link" href="/feature">
+                                Feature
                             </a>
-                            <a className="btn btn-link" href="">
-                                Support
+                            <a className="btn btn-link" href="/appointment">
+                                Appointment
                             </a>
                         </div>
                         <div className="col-lg-3 col-md-6">
                             <h4 className="text-light mb-4">Popular Links</h4>
-                            <a className="btn btn-link" href="">
-                                About Us
+                            <a className="btn btn-link" href="/testimonial">
+                                Testimonial
                             </a>
-                            <a className="btn btn-link" href="">
-                                Contact Us
+                            <a className="btn btn-link" href="/contact">
+                                Contact
                             </a>
                             <a className="btn btn-link" href="">
                                 Our Services
@@ -67,18 +72,7 @@ export default function Footer() {
                             </a>
                         </div>
                         <div className="col-lg-3 col-md-6">
-                            <h4 className="text-light mb-4">Newsletter</h4>
-                            <form action="">
-                                <div className="input-group">
-                                    <input
-                                        type="text"
-                                        className="form-control p-3 border-0"
-                                        placeholder="Your Email Address"
-                                    />
-                                    <button className="btn btn-primary">Sign Up</button>
-                                </div>
-                            </form>
-                            <h6 className="text-white mt-4 mb-3">Follow Us</h6>
+                            <h4 className="text-white mb-4">Follow Us</h4>
                             <div className="d-flex pt-2">
                                 <a className="btn btn-square btn-outline-light me-1" href="">
                                     <i className="fab fa-twitter" />
@@ -106,15 +100,14 @@ export default function Footer() {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            © <a href="#">Your Site Name</a>, All Right Reserved.
+                            © <a href="#">School</a>, All Right Reserved.
                         </div>
                         <div className="col-md-6 text-center text-md-end">
-                            {/*/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. *** /*/}
-                            Designed By <a href="https://htmlcodex.com">HTML Codex</a>
+                            Designed By <a href="/">Group2</a>
                             <br />
-                            Distributed By:{" "}
-                            <a href="https://themewagon.com" target="_blank">
-                                ThemeWagon
+                            Distributed By:
+                            <a href="/" target="_blank">
+                                Teacher
                             </a>
                         </div>
                     </div>
