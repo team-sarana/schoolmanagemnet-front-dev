@@ -22,12 +22,12 @@ export default function NavbarMenu() {
             case "/feature":
                 setActiveItem("Feature");
                 break;
-            case "/appointment":
-                setActiveItem("Appointment");
-                break;
-            case "/testimonial":
-                setActiveItem("Testimonial");
-                break;
+            // case "/appointment":
+            //     setActiveItem("Appointment");
+            //     break;
+            // case "/testimonial":
+            //     setActiveItem("Testimonial");
+            //     break;
             case "/contact":
                 setActiveItem("Contact");
                 break;
@@ -71,8 +71,8 @@ export default function NavbarMenu() {
                             { name: "About", path: "/about" },
                             { name: "Courses", path: "/courses" },
                             { name: "Feature", path: "/feature" },
-                            { name: "Appointment", path: "/appointment" },
-                            { name: "Testimonial", path: "/testimonial" },
+                            // { name: "Appointment", path: "/appointment" },
+                            // { name: "Testimonial", path: "/testimonial" },
                             { name: "Contact", path: "/contact" },
                         ].map((menu) => (
                             <a
@@ -86,7 +86,7 @@ export default function NavbarMenu() {
                         ))}
                     </div>
                     <a href="/appointment" className="btn btn-primary py-4 px-lg-5 d-none d-lg-block">
-                        Get Started
+                        Register
                         <i className="fa fa-arrow-right ms-3" />
                     </a>
                 </div>

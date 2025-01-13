@@ -1,7 +1,7 @@
-"use client"
+"use client";
 import { useBreadcrumbStore } from '@/app/lib/BreadCrumb';
 import { usePathname } from 'next/navigation';
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
 import Link from 'next/link';
 
 export default function Breadcrumb() {
@@ -10,37 +10,38 @@ export default function Breadcrumb() {
     const pathname = usePathname();
 
     useEffect(() => {
-
         if (pathname === "/") {
-            setBreadcrumb({ title: "Home", url: "/" });
+            setBreadcrumb({ title: "Home", url: "/", image: "/assets/img/carousel-1.jpg" });
+        } else if (pathname.toLocaleLowerCase().includes("/about")) {
+            setBreadcrumb({ title: "About", url: "/about", image: "/assets/img/carousel-1.jpg" });
+        } else if (pathname.toLocaleLowerCase().includes("/courses")) {
+            setBreadcrumb({ title: "Courses", url: "/courses", image: "/assets/img/carousel-2.jpg" });
+        } else if (pathname.toLocaleLowerCase().includes("/feature")) {
+            setBreadcrumb({ title: "Feature", url: "/feature", image: "/assets/img/carousel-1.jpg" });
+        } else if (pathname.toLocaleLowerCase().includes("/appointment")) {
+            setBreadcrumb({ title: "Appointment", url: "/appointment", image: "/assets/img/carousel-2.jpg" });
+        } else if (pathname.toLocaleLowerCase().includes("/testimonial")) {
+            setBreadcrumb({ title: "Testimonial", url: "/testimonial", image: "/assets/img/carousel-1.jpg" });
+        } else if (pathname.toLocaleLowerCase().includes("/contact")) {
+            setBreadcrumb({
+                title: "Contact", url: "/contact", image: "/assets/img/carousel-2.jpg"
+            });
+        } else {
+            setBreadcrumb({ title: "Home", url: "/", image: "/assets/img/carousel-1.jpg" });
         }
-        else if (pathname.toLocaleLowerCase().includes("/about")) {
-            setBreadcrumb({ title: "About", url: "/about" })
-        }
-        else if (pathname.toLocaleLowerCase().includes("/courses")) {
-            setBreadcrumb({ title: "Courses", url: "/courses" })
-        }
-        else if (pathname.toLocaleLowerCase().includes("/feature")) {
-            setBreadcrumb({ title: "Feature", url: "/feature" })
-        }
-        else if (pathname.toLocaleLowerCase().includes("/appointment")) {
-            setBreadcrumb({ title: "Appointment", url: "/appointment" })
-        }
-        else if (pathname.toLocaleLowerCase().includes("/testimonial")) {
-            setBreadcrumb({ title: "Testimonial", url: "/testimonial" })
-        }
-        else if (pathname.toLocaleLowerCase().includes("/contact")) {
-            setBreadcrumb({ title: "Contact", url: "/contact" })
-        }
-        else {
-            setBreadcrumb({ title: "Home", url: "/" });
-        }
-    }, [pathname]);
+    }, [pathname, setBreadcrumb]);
+
     return (
         <>
             <div
                 className="container-fluid page-header py-6 my-6 mt-0 wow fadeIn"
                 data-wow-delay="0.1s"
+                style={{
+                    background: breadcrumb.image
+                        ? `linear-gradient(rgba(0, 0, 0, .75), rgba(0, 0, 0, .75)), url(${breadcrumb.image}) center center no-repeat`
+                        : "linear-gradient(rgba(0, 0, 0, .75), rgba(0, 0, 0, .75))",
+                    backgroundSize: "cover",
+                }}
             >
                 <div className="container text-center">
                     <h1 className="display-4 text-white animated slideInDown mb-4">
@@ -53,11 +54,6 @@ export default function Breadcrumb() {
                                     Home
                                 </Link>
                             </li>
-                            {/* <li className="breadcrumb-item">
-                                <Link className="text-white" href={breadcrumb.url}>
-                                    {breadcrumb.title}
-                                </Link>
-                            </li> */}
                             <li
                                 className="breadcrumb-item text-primary active"
                                 aria-current="page"
@@ -69,5 +65,5 @@ export default function Breadcrumb() {
                 </div>
             </div>
         </>
-    )
+    );
 }
