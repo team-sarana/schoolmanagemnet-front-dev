@@ -29,6 +29,7 @@ export default function Breadcrumb() {
         } else {
             setBreadcrumb({ title: "Home", url: "/", image: "/assets/img/carousel-1.jpg" });
         }
+
     }, [pathname, setBreadcrumb]);
 
     return (
