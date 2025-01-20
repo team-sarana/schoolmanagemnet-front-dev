@@ -33,7 +33,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "app/layout.tsx",
-    "app/page.tsx"
+    "app/page.tsx",
+    "components/GreetingComponent.js"
   ],
   "exclude": [
     "node_modules"

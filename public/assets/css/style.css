@@ -258,10 +258,10 @@
     }
 }
 
-.page-header {
+/* .page-header {
     background: linear-gradient(rgba(0, 0, 0, .75), rgba(0, 0, 0, .75)), url(../img/carousel-1.jpg) center center no-repeat;
     background-size: cover;
-}
+} */
 
 .breadcrumb-item+.breadcrumb-item::before {
     color: #999999;
@@ -460,4 +460,19 @@
     position: absolute;
     right: 0;
     top: -4px;
+}
+
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-collapse {
+        display: flex !important;
+        flex-basis: auto;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-nav .dropdown-menu {
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }

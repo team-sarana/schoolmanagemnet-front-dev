@@ -113,7 +113,7 @@ export default function CourseItemComponent() {
         },
     ];
 
-    const itemsPerPage = 4; // Number of items per page
+    const itemsPerPage = 8; // Number of items per page
     const [currentPage, setCurrentPage] = useState(1);
 
     // Calculate the indices for the items to be displayed on the current page

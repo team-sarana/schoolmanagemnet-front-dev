@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 
-export default function AppointmentComponent() {
+export default function RegisterComponent() {
     return (
         <>
             <>
@@ -23,9 +23,9 @@ export default function AppointmentComponent() {
                                 </div>
                             </div>
                             <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
-                                <h6 className="text-primary text-uppercase mb-2">Appointment</h6>
+                                <h6 className="text-primary text-uppercase mb-2">Register</h6>
                                 <h5 className="display-6 mb-4">
-                                    Make An Appointment To Pass Test &amp; Get A License On The First
+                                    Make Register To Pass Test &amp; Get A License On The First
                                     Try
                                 </h5>
                                 <form>
