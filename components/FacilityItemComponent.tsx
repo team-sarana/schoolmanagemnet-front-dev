@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 
-export default function FeatureItemComponent() {
+export default function FacilityItemComponent() {
     const features = [
         {
             id: 1,

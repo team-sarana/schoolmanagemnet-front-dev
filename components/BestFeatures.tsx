@@ -1,6 +1,6 @@
 "use client"
 import React from 'react'
-import FeatureItemComponent from './FeatureItemComponent'
+import FeatureItemComponent from './FacilityItemComponent'
 
 export default function BestFeatures() {
     return (

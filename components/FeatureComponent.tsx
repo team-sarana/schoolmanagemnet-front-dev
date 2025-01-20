@@ -1,8 +1,8 @@
 "use client"
 import React from 'react'
-import FeatureItemComponent from './FeatureItemComponent'
+import FacilityItemComponent from './FacilityItemComponent'
 
-export default function FeatureComponent() {
+export default function FacilityComponent() {
     return (
         <>
             <div className="container-xxl">
@@ -18,7 +18,7 @@ export default function FeatureComponent() {
                                 diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet
                                 lorem sit clita duo justo magna dolore erat amet
                             </p>
-                            <FeatureItemComponent />
+                            <FacilityItemComponent />
                         </div>
 
                     </div>
