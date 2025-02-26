@@ -10,44 +10,45 @@ export default function Breadcrumb() {
     const pathname = usePathname();
 
     useEffect(() => {
+        if (!pathname) return; // Handle null pathname gracefully
+
         if (pathname === "/") {
             setBreadcrumb({ title: "Home", url: "/", image: "/assets/img/carousel-1.jpg" });
         }
-        else if (pathname.toLocaleLowerCase().includes("/about")) {
+        else if (pathname.toLowerCase().includes("/about")) {
             setBreadcrumb({ title: "About", url: "/about", image: "/assets/img/carousel-1.jpg" });
         }
-        else if (pathname.toLocaleLowerCase().includes("/courses")) {
+        else if (pathname.toLowerCase().includes("/courses")) {
             setBreadcrumb({ title: "Courses", url: "/courses", image: "/assets/img/carousel-2.jpg" });
         }
-        else if (pathname.toLocaleLowerCase().includes("/facility")) {
+        else if (pathname.toLowerCase().includes("/facility")) {
             setBreadcrumb({ title: "Facility", url: "/facility", image: "/assets/img/carousel-1.jpg" });
         }
-        else if (pathname.toLocaleLowerCase().includes("/history_logo")) {
+        else if (pathname.toLowerCase().includes("/history_logo")) {
             setBreadcrumb({ title: "History & Logo Meaning", url: "/history_logo", image: "/assets/img/carousel-1.jpg" });
         }
-        else if (pathname.toLocaleLowerCase().includes("/school_structure")) {
+        else if (pathname.toLowerCase().includes("/school_structure")) {
             setBreadcrumb({ title: "School Structure", url: "/school_structure", image: "/assets/img/carousel-1.jpg" });
         }
-        else if (pathname.toLocaleLowerCase().includes("/vision_mission_corevalue")) {
+        else if (pathname.toLowerCase().includes("/vision_mission_corevalue")) {
             setBreadcrumb({ title: "Vision Mission & Core Values", url: "/vision_mission_corevalue", image: "/assets/img/carousel-1.jpg" });
         }
-        else if (pathname.toLocaleLowerCase().includes("/location")) {
+        else if (pathname.toLowerCase().includes("/location")) {
             setBreadcrumb({ title: "Location", url: "/location", image: "/assets/img/carousel-1.jpg" });
         }
-        else if (pathname.toLocaleLowerCase().includes("/partner")) {
+        else if (pathname.toLowerCase().includes("/partner")) {
             setBreadcrumb({ title: "Partner", url: "/partner", image: "/assets/img/carousel-1.jpg" });
         }
-        else if (pathname.toLocaleLowerCase().includes("/blog")) {
+        else if (pathname.toLowerCase().includes("/blog")) {
             setBreadcrumb({ title: "Blogs", url: "/blog", image: "/assets/img/carousel-2.jpg" });
         }
-        else if (pathname.toLocaleLowerCase().includes("/register")) {
+        else if (pathname.toLowerCase().includes("/register")) {
             setBreadcrumb({ title: "Register", url: "/register", image: "/assets/img/carousel-2.jpg" });
-
         }
-        else if (pathname.toLocaleLowerCase().includes("/testimonial")) {
+        else if (pathname.toLowerCase().includes("/testimonial")) {
             setBreadcrumb({ title: "Testimonial", url: "/testimonial", image: "/assets/img/carousel-1.jpg" });
         }
-        else if (pathname.toLocaleLowerCase().includes("/contact")) {
+        else if (pathname.toLowerCase().includes("/contact")) {
             setBreadcrumb({
                 title: "Contact", url: "/contact", image: "/assets/img/carousel-2.jpg"
             });

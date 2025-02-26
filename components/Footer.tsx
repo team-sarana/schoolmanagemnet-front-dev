@@ -14,14 +14,14 @@ export default function Footer() {
                     <div className="row g-5">
                         <div className="col-lg-3 col-md-6">
                             <h4 className="text-white">Get In Touch</h4>
-                            <h2 className="text-primary d-flex justify-content-center">
+                            <div className="text-primary d-flex justify-content-center">
                                 <Image
-                                    src="/assets/img/logo.png"
-                                    width={100}
-                                    height={100}
+                                    src="/assets/img/logo.jpg"
+                                    width={75}
+                                    height={75}
                                     alt="logo"
                                 />
-                            </h2>
+                            </div>
                             <p className="mb-2">
                                 <i className="fa fa-map-marker-alt me-3" />
                                 123 Street, New York, USA
