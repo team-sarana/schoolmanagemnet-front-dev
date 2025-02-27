@@ -58,9 +58,9 @@ export default function NavbarMenu() {
             >
                 <h2 className="m-0">
                     <Image
-                        src="/assets/img/logo.png"
-                        width={100}
-                        height={100}
+                        src="/assets/img/logo.jpg"
+                        width={75}
+                        height={75}
                         alt="logo"
                     />
                 </h2>
