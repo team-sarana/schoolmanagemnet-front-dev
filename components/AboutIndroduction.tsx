@@ -10,21 +10,16 @@ export default function AboutIndroduction() {
                     <div className="row g-5">
                         <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                             <div
-                                className="position-relative overflow-hidden ps-5 pt-5 h-100"
+                                className="position-relative overflow-hidden ps-5 h-100"
                                 style={{ minHeight: 400 }}
                             >
                                 <img
                                     className="position-absolute w-100 h-100"
-                                    src="/assets/img/about/about2.jpg"
+                                    src="/assets/img/course/course5.jpg"
                                     alt=""
                                     style={{ objectFit: "cover" }}
                                 />
-                                <img
-                                    className="position-absolute top-0 start-0 bg-white pe-3 pb-3"
-                                    src="/assets/img/about/about1.jpg"
-                                    alt=""
-                                    style={{ width: "200px", height: "200px", objectFit: "cover" }}
-                                />
+
                             </div>
                         </div>
                         <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">

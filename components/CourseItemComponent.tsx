@@ -1,5 +1,7 @@
 "use client";
 import React, { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function CourseItemComponent() {
     const courses = [
@@ -131,29 +133,25 @@ export default function CourseItemComponent() {
                                 {/* <div className="d-inline-block price-course bg-primary text-white ms-2 py-1 mt-1 px-4">
                                     {course.price}
                                 </div> */}
-                                <img className="img-fluid" src={course.image} alt={course.title} />
+                                <Image
+                                    className="img-fluid"
+                                    src={course.image}
+                                    fill
+                                    alt={course.title}
+                                />
                                 <div className="courses-overlay">
                                     <a className="btn btn-outline-primary border-2" href="/">
                                         Read More
                                     </a>
                                 </div>
                             </div>
-                            <div className="text-center p-4 pt-2 dec-item-course">
-                                <h5 className="mb-3 des-title">{course.title}</h5>
-                                <p className="des">{course.description}</p>
-                                <ol
-                                    className="breadcrumb justify-content-center align-items-center mb-0"
-                                    style={{ fontSize: "13px" }}
-                                >
-                                    <li className="breadcrumb-item small">
-                                        <i className="fa fa-signal text-primary me-2" />
-                                        {course.level}
-                                    </li>
-                                    <li className="breadcrumb-item small">
-                                        <i className="fa fa-calendar-alt text-primary me-2" />
-                                        {course.duration}
-                                    </li>
-                                </ol>
+                            <div className="text-center p-4 pt-2 dec-item-course relative">
+                                <Link href="" className="mb-3 des-title">{course.title}</Link>
+                                <p className="des mt-2">{course.description}</p>
+                                <div className="absolute bottom-[16px] right-[17px] w-[88%]">
+                                    <div className="border-line"></div>
+                                    <a className="detail_item" href="/happening-now-detail?id=50">View Detail</a>
+                                </div>
                             </div>
                         </div>
                     </div>

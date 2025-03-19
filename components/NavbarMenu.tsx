@@ -21,9 +21,8 @@ interface MenuItem {
 
 export default function NavbarMenu() {
     const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
-    const pathname = usePathname(); // Get the current pathname
+    const pathname = usePathname();
 
-    // Simulate fetching menu items from an API or database
     useEffect(() => {
         const data: MenuItem[] = [
             { id: 1, label: "Home", href: "/" },
@@ -33,7 +32,7 @@ export default function NavbarMenu() {
                 href: "/about",
                 submenu: [
                     { id: 1, label: "History & Logo Meaning", href: "/history_logo" },
-                    { id: 2, label: "School Structure", href: "school_structure" },
+                    { id: 2, label: "School Structure", href: "/school_structure" },
                     { id: 3, label: "Vision Mission & Core Values", href: "/vision_mission_corevalue" },
                     { id: 4, label: "Location", href: "/location" },
                 ],
@@ -43,13 +42,13 @@ export default function NavbarMenu() {
                 label: "Courses",
                 href: "/courses",
                 submenu: [
-                    { id: 1, label: "Part-Time Computer", href: "/" },
-                    { id: 2, label: "Part-Time English", href: "/" },
-                    { id: 3, label: "Part-Time Chinese", href: "/" },
-                    { id: 4, label: "Part-Time Thi", href: "/" },
+                    { id: 1, label: "Part-Time Computer", href: "/courses" },
+                    { id: 2, label: "Part-Time English", href: "/courses" },
+                    { id: 3, label: "Part-Time Chinese", href: "/courses" },
+                    { id: 4, label: "Part-Time Thi", href: "/courses" },
                 ],
             },
-            { id: 5, label: "Facility", href: "/facility" },
+            { id: 4, label: "Facility", href: "/facility" },
             { id: 5, label: "Partner", href: "/partner" },
             { id: 6, label: "News", href: "/news" },
             { id: 7, label: "Contact", href: "/contact" },
@@ -57,7 +56,6 @@ export default function NavbarMenu() {
         setMenuItems(data);
     }, []);
 
-    // Check if a submenu item is active
     const isActive = (href: string) => pathname === href;
 
     return (
@@ -75,6 +73,7 @@ export default function NavbarMenu() {
                     />
                 </h2>
             </a>
+
             <button
                 type="button"
                 className="navbar-toggler me-4"
@@ -83,24 +82,28 @@ export default function NavbarMenu() {
             >
                 <span className="navbar-toggler-icon" />
             </button>
+
             <div className="collapse navbar-collapse" id="navbarCollapse">
                 <div className="navbar-nav p-4 p-lg-0">
                     {menuItems.map((item) =>
                         item.submenu ? (
                             <div className="nav-item dropdown" key={item.id}>
-                                {/* Prevent default behavior and use a button for dropdown */}
-                                <button
-                                    className={`nav-link dropdown-toggle ${isActive(item.href || "") ? "active" : ""}`}
+                                <Link
+                                    href={item.href || "#"}
+                                    className={`nav-link dropdown-toggle ${isActive(item.href || "") ? "text-[#2e73ba] font-semibold" : ""
+                                        }`}
+                                    role="button"
                                     data-bs-toggle="dropdown"
                                 >
                                     {item.label}
-                                </button>
+                                </Link>
                                 <div className="dropdown-menu bg-light m-0">
                                     {item.submenu.map((subitem) => (
                                         <Link
                                             key={subitem.id}
                                             href={subitem.href}
-                                            className={`dropdown-item ${isActive(subitem.href) ? "active" : ""}`}
+                                            className={`dropdown-item ${isActive(subitem.href) ? "text-[#2e73ba] font-semibold" : ""
+                                                }`}
                                         >
                                             {subitem.label}
                                         </Link>
@@ -110,8 +113,9 @@ export default function NavbarMenu() {
                         ) : (
                             <Link
                                 key={item.id}
-                                href={item.href!} // Non-null assertion operator for href
-                                className={`nav-item nav-link ${isActive(item.href!) ? "active" : ""}`}
+                                href={item.href!}
+                                className={`nav-item nav-link ${isActive(item.href!) ? "text-[#2e73ba] font-semibold" : ""
+                                    }`}
                             >
                                 {item.label}
                             </Link>
@@ -119,7 +123,11 @@ export default function NavbarMenu() {
                     )}
                 </div>
             </div>
-            <Link href="/register" className="btn btn-primary py-4 px-lg-5 d-none d-lg-block">
+
+            <Link
+                href="/register"
+                className="btn btn-primary py-4 px-lg-5 d-none d-lg-block"
+            >
                 Register
                 <i className="fa fa-arrow-right ms-3" />
             </Link>

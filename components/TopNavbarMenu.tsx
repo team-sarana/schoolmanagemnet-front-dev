@@ -23,30 +23,30 @@ export default function TopNavbarMenu() {
 
                     <div className="h-100 d-inline-flex align-items-center mx-n2">
                         <span
-                            className="btn btn-link rounded-0 border-0 border-end border-secondary"
+                            className="btn btn-link rounded-0 border-0 border-end"
                         >
                             Follow Us:
                         </span>
                         <a
-                            className="btn btn-square btn-link rounded-0 border-0 border-end border-secondary"
+                            className="btn btn-square btn-link rounded-0 border-0 border-end"
                             href=""
                         >
                             <i className="fab fa-facebook-f" />
                         </a>
                         <a
-                            className="btn btn-square btn-link rounded-0 border-0 border-end border-secondary"
+                            className="btn btn-square btn-link rounded-0 border-0 border-end"
                             href=""
                         >
                             <i className="fab fa-twitter" />
                         </a>
                         <a
-                            className="btn btn-square btn-link rounded-0 border-0 border-end border-secondary"
+                            className="btn btn-square btn-link rounded-0 border-0 border-end"
                             href=""
                         >
                             <i className="fab fa-linkedin-in" />
                         </a>
                         <a
-                            className="btn btn-square btn-link rounded-0 border-0 border-end border-secondary"
+                            className="btn btn-square btn-link rounded-0 border-0 border-end"
                             href=""
                         >
                             <i className="fab fa-instagram" />
