@@ -1,10 +1,5 @@
 /********** Template CSS **********/
-:root {
-    --primary: #48aeec;
-    --secondary: #757575;
-    --light: #F3F6F8;
-    --dark: #0C2B4B;
-}
+
 
 .py-6 {
     padding-top: 6rem;
@@ -38,8 +33,8 @@
 }
 
 .btn-primary {
-    background-color: #48aeec;
-    border-color: #48aeec;
+    background-color: #2e73ba;
+    border-color: #ffff;
 }
 
 .text-primary {
@@ -48,7 +43,7 @@
 
 .btn-link {
     font-weight: 400;
-    color: #48aeec !important;
+    color: #ffff !important;
     text-decoration: none;
 }
 
@@ -244,15 +239,18 @@
     border: 10px solid var(--primary);
 }
 
+
+
 .slide_home {
     width: 100%;
-    height: 100vh !important;
-    object-fit: contain;
+    height: 550px;
 }
+
 
 .slide_home img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 
 /* @media (max-width: 768px) { */
@@ -288,11 +286,14 @@
     }
 }
 
+.bg_header_top {
+    background: #2e73ba;
+}
 
 /*** Courses ***/
 .courses {
     min-height: 100vh;
-    background: linear-gradient(rgba(255, 255, 255, .9), rgba(255, 255, 255, .9)), url(../img/course/course4.jpg) center center no-repeat;
+    background: linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, .8)), url(../img/course/course4.jpg) center center no-repeat;
     background-attachment: fixed;
     background-size: cover;
 }
@@ -342,6 +343,10 @@
 .team-item:hover::after {
     height: 100%;
     background: var(--primary);
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
 }
 
 .team-item .team-social {
@@ -409,6 +414,10 @@
     transition: .3s;
 }
 
+.bg_footer {
+    background: #2e73ba;
+}
+
 .footer .btn.btn-link::before {
     position: relative;
     content: "\f105";
@@ -424,8 +433,13 @@
     box-shadow: none;
 }
 
-.copyright {
+/* .copyright {
     background: #092139;
+} */
+
+.copyright {
+    background: #ffff;
+    color: #2e73ba;
 }
 
 .copyright a {
@@ -453,6 +467,14 @@
     bottom: 0;
 }
 
+.dec-item-course {
+    border: 1px solid #D7D7D7;
+    border-radius: 0px 0px 8px 8px;
+    padding: 17px;
+    background: #fff;
+    height: 200px;
+}
+
 .dec-item-course .des {
     font-size: 14px;
 }
@@ -465,6 +487,8 @@
 .img-course .img-fluid {
     width: 100%;
     height: 100%;
+    border-radius: 8px 8px 0px 0px;
+    object-fit: cover;
 }
 
 .price-course {
@@ -486,4 +510,27 @@
         left: 50%;
         transform: translateX(-50%);
     }
+}
+
+
+.border-line {
+    border: 1px solid #D7D7D7;
+}
+
+.detail_item {
+    padding-top: 16px;
+    font-size: 14.5px;
+    font-weight: 500;
+    text-align: right;
+    display: block;
+    text-decoration: none;
+    color: #2e73ba !important;
+    transition: all 0.3s ease-in-out;
+}
+
+.des-title {
+    font-size: 16.88px;
+    font-weight: 500;
+    line-height: 24px;
+    color: #2e73ba;
 }

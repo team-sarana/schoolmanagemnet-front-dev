@@ -14,13 +14,13 @@ export default function HomeIndexComponent() {
 
         <>
             <SlideHome />
-            {/* <FactsHome /> */}
+            <FactsHome />
             <AboutIndroduction />
             <CourseItemHome />
-            <BestFeatures />
-            <TeacherComponent />
-            <ClientsSay />
-            <Appointment />
+            {/* <BestFeatures /> */}
+            {/* <TeacherComponent /> */}
+            {/* <ClientsSay /> */}
+            {/* <Appointment /> */}
         </>
 
     )
