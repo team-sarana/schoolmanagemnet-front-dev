@@ -12,9 +12,9 @@ export default function CoursesComponent() {
                         data-wow-delay="0.1s"
                         style={{ maxWidth: 500 }}
                     >
-                        <h6 className="text-primary text-uppercase mb-2">Trending Courses</h6>
+                        <h6 className="text-primary text-uppercase mb-2">Courses</h6>
                         <h1 className="display-6 mb-4">
-                            Our Courses Upskill You With Driving Training
+                            Our Courses Upskill
                         </h1>
                     </div>
                     <CourseItemComponent />

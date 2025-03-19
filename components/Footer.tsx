@@ -7,7 +7,7 @@ export default function Footer() {
         <>
             {/* Footer Start */}
             <div
-                className="container-fluid bg-dark text-light footer my-6 mb-0 py-6 wow fadeIn"
+                className="container-fluid bg_footer text-light footer my-6 mb-0 py-6 wow fadeIn"
                 data-wow-delay="0.1s"
             >
                 <div className="container">
@@ -94,22 +94,12 @@ export default function Footer() {
             {/* Footer End */}
             {/* Copyright Start */}
             <div
-                className="container-fluid copyright text-light py-4 wow fadeIn"
+                className="container-fluid copyright  py-4 wow fadeIn"
                 data-wow-delay="0.1s"
             >
                 <div className="container">
-                    <div className="row">
-                        <div className="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            © <a href="#">School</a>, All Right Reserved.
-                        </div>
-                        <div className="col-md-6 text-center text-md-end">
-                            Designed By <a href="/">Group2</a>
-                            <br />
-                            Distributed By:
-                            <a href="/" target="_blank">
-                                Teacher
-                            </a>
-                        </div>
+                    <div className=" text-center">
+                        Copyright © 2024 All rights reserved | SITS INFORMATION TECHNOLOGY SCHOOL | Design By Thesis Team
                     </div>
                 </div>
             </div>

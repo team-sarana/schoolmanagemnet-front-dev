@@ -1,10 +1,10 @@
 "use client"
 import React from 'react'
 
-export default function BlogComponent() {
+export default function NewsComponent() {
     return (
         <>
-            <div>BlogComponent</div>
+            <div>NewsComponent</div>
         </>
     )
 }

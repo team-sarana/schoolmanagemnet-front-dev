@@ -38,10 +38,20 @@ export default function NavbarMenu() {
                     { id: 4, label: "Location", href: "/location" },
                 ],
             },
-            { id: 3, label: "Courses", href: "/courses" },
+            {
+                id: 3,
+                label: "Courses",
+                href: "/courses",
+                submenu: [
+                    { id: 1, label: "Part-Time Computer", href: "/" },
+                    { id: 2, label: "Part-Time English", href: "/" },
+                    { id: 3, label: "Part-Time Chinese", href: "/" },
+                    { id: 4, label: "Part-Time Thi", href: "/" },
+                ],
+            },
             { id: 5, label: "Facility", href: "/facility" },
             { id: 5, label: "Partner", href: "/partner" },
-            { id: 6, label: "Blogs", href: "/blogs" },
+            { id: 6, label: "News", href: "/news" },
             { id: 7, label: "Contact", href: "/contact" },
         ];
         setMenuItems(data);
@@ -58,9 +68,9 @@ export default function NavbarMenu() {
             >
                 <h2 className="m-0">
                     <Image
-                        src="/assets/img/logo.jpg"
-                        width={75}
-                        height={75}
+                        src="/assets/img/logo_long.jpg"
+                        width={100}
+                        height={100}
                         alt="logo"
                     />
                 </h2>

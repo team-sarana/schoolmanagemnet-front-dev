@@ -8,7 +8,6 @@ export default function CourseItem() {
             id: 1,
             title: "Automatic Lessons",
             description: "Learn the basics of English with our expert instructors.",
-            price: "$99",
             level: "Beginner",
             duration: "3 Week",
             image: "/assets/img/course/course1.jpg",
@@ -18,7 +17,6 @@ export default function CourseItem() {
             id: 2,
             title: "Highway Lessons",
             description: "It is a long established fact that a reader will be distracted by the readable.",
-            price: "$120",
             level: "Intermediate",
             duration: "4 Week",
             image: "/assets/img/course/course2.jpg",
@@ -28,7 +26,6 @@ export default function CourseItem() {
             id: 3,
             title: "International Lessons",
             description: "Contrary to popular belief, Lorem Ipsum is not simply random text.",
-            price: "$150",
             level: "Advanced",
             duration: "5 Week",
             image: "/assets/img/course/course3.jpg",
@@ -46,9 +43,9 @@ export default function CourseItem() {
                 >
                     <div className="courses-item d-flex flex-column bg-white overflow-hidden h-100">
                         <div className="position-relative img-course mt-auto">
-                            <div className="d-inline-block price-course bg-primary text-white ms-2 py-1 mt-1 px-4">
+                            {/* <div className="d-inline-block price-course bg-primary text-white ms-2 py-1 mt-1 px-4">
                                 {course.price}
-                            </div>
+                            </div> */}
                             <img className="img-fluid" src={course.image} alt={course.title} />
                             <div className="courses-overlay">
                                 <a className="btn btn-outline-primary border-2" href="/">
