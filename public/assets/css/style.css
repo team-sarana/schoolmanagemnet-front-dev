@@ -1,4 +1,9 @@
 /********** Template CSS **********/
+/* @import url('https://fonts.googleapis.com/css2?family=Siemreap&display=swap');
+
+body {
+    font-family: 'Siemreap', sans-serif;
+} */
 
 
 .py-6 {
@@ -533,4 +538,10 @@
     font-weight: 500;
     line-height: 24px;
     color: #2e73ba;
+}
+
+.logo_patner {
+    width: 100%;
+    height: 100%;
+    position: relative;
 }

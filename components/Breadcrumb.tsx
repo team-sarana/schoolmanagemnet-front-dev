@@ -39,8 +39,8 @@ export default function Breadcrumb() {
         else if (pathname.toLowerCase().includes("/partner")) {
             setBreadcrumb({ title: "Partner", url: "/partner", image: "/assets/img/course/course9.jpg" });
         }
-        else if (pathname.toLowerCase().includes("/blog")) {
-            setBreadcrumb({ title: "Blogs", url: "/blog", image: "/assets/img/course/course10.jpg" });
+        else if (pathname.toLowerCase().includes("/news")) {
+            setBreadcrumb({ title: "News", url: "/news", image: "/assets/img/course/course10.jpg" });
         }
         else if (pathname.toLowerCase().includes("/register")) {
             setBreadcrumb({ title: "Register", url: "/register", image: "/assets/img/course/course1.jpg" });

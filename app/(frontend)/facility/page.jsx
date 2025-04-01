@@ -1,10 +1,10 @@
-import FeatureComponent from '@/components/FeatureComponent'
+import FacilityComponent from '@/components/FacilityComponent'
 import React from 'react'
 
 export default function Facility() {
     return (
         <>
-            <FeatureComponent />
+            <FacilityComponent />
         </>
     )
 }

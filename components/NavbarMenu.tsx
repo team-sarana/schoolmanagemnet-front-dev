@@ -45,7 +45,7 @@ export default function NavbarMenu() {
                     { id: 1, label: "Part-Time Computer", href: "/courses" },
                     { id: 2, label: "Part-Time English", href: "/courses" },
                     { id: 3, label: "Part-Time Chinese", href: "/courses" },
-                    { id: 4, label: "Part-Time Thi", href: "/courses" },
+                    { id: 4, label: "Part-Time Thai", href: "/courses" },
                 ],
             },
             { id: 4, label: "Facility", href: "/facility" },
