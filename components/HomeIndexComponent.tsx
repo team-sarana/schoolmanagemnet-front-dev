@@ -8,6 +8,7 @@ import BestFeatures from './BestFeatures'
 import TeacherComponent from './TeacherComponent'
 import ClientsSay from './ClientsSay'
 import Appointment from './Appointment'
+import PartnerComponent from './PartnerComponent'
 
 export default function HomeIndexComponent() {
     return (
@@ -17,10 +18,11 @@ export default function HomeIndexComponent() {
             <FactsHome />
             <AboutIndroduction />
             <CourseItemHome />
-            <BestFeatures />
-            <TeacherComponent />
+            {/* <BestFeatures /> */}
+            {/* <TeacherComponent /> */}
             <ClientsSay />
-            <Appointment />
+            <PartnerComponent />
+            {/* <Appointment /> */}
         </>
 
     )

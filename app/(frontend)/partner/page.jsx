@@ -1,10 +1,10 @@
 import React from 'react'
-import PartnerComponent from '@/components/PartnerComponent';
+import PartnerComponentPage from '@/components/PartnerComponentPage';
 
 export default function Partner() {
     return (
         <>
-            <PartnerComponent />
+            <PartnerComponentPage />
         </>
     )
 }
