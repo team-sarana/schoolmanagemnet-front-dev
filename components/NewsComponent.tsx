@@ -1,115 +1,102 @@
-"use client";
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
 
-export default function NewsComponent() {
-    // Mockup data directly within the function
-    const courses = [
-        {
-            id: 1,
-            title: "Automatic Lessons",
-            description: "រៀនមូលដ្ឋាននៃភាសាអង់គ្លេសជាមួយគ្រូបង្រៀនជំនាញរបស់យើង។",
-            image: "/assets/img/course/course1.jpg",
-            date: "25 មីនា 2025",
-            time: "10:00 ព្រឹក"
-        },
-        {
-            id: 2,
-            title: "Highway Lessons",
-            description: "ជាការពិតមួយដែលបានបង្កើតឡើងយូរមកហើយថា អ្នកអាចរងការលេងសើចដោយអត្ថបទដែលអាចអានបាន។",
-            image: "/assets/img/course/course2.jpg",
-            date: "22 មីនា 2025",
-            time: "2:30 ល្ងាច"
-        },
-        {
-            id: 3,
-            title: "International Lessons",
-            description: "ផ្ទុយពីការជឿទូទៅ Lorem Ipsum មិនមែនគ្រាន់តែជាអត្ថបទចៃដន្យ។",
-            image: "/assets/img/course/course3.jpg",
-            date: "20 មីនា 2025",
-            time: "11:45 ព្រឹក"
-        },
-        {
-            id: 4,
-            title: "International Lessons",
-            description: "ផ្ទុយពីការជឿទូទៅ Lorem Ipsum មិនមែនគ្រាន់តែជាអត្ថបទចៃដន្យ។",
-            image: "/assets/img/course/course4.jpg",
-            date: "18 មីនា 2025",
-            time: "4:15 ល្ងាច"
-        },
-        {
-            id: 5,
-            title: "Automatic Lessons",
-            description: "រៀនមូលដ្ឋាននៃភាសាអង់គ្លេសជាមួយគ្រូបង្រៀនជំនាញរបស់យើង។",
-            image: "/assets/img/course/course5.jpg",
-            date: "17 មីនា 2025",
-            time: "9:00 ព្រឹក"
-        },
-        {
-            id: 6,
-            title: "Highway Lessons",
-            description: "ជាការពិតមួយដែលបានបង្កើតឡើងយូរមកហើយថា អ្នកអាចរងការលេងសើចដោយអត្ថបទដែលអាចអានបាន។",
-            image: "/assets/img/course/course6.jpg",
-            date: "15 មីនា 2025",
-            time: "3:20 ល្ងាច"
-        },
-        {
-            id: 7,
-            title: "International Lessons",
-            description: "ផ្ទុយពីការជឿទូទៅ Lorem Ipsum មិនមែនគ្រាន់តែជាអត្ថបទចៃដន្យ។",
-            image: "/assets/img/course/course7.jpg",
-            date: "14 មីនា 2025",
-            time: "12:10 ថ្ងៃត្រង់"
-        },
-        {
-            id: 8,
-            title: "International Lessons",
-            description: "ផ្ទុយពីការជឿទូទៅ Lorem Ipsum មិនមែនគ្រាន់តែជាអត្ថបទចៃដន្យ។",
-            image: "/assets/img/course/course8.jpg",
-            date: "12 មីនា 2025",
-            time: "5:45 ល្ងាច"
-        },
-    ];
+// Dummy News Data
+const newsItems = [
+    {
+        id: 1,
+        title: "News",
+        image: "/assets/img/course/course1.jpg",
+        content:
+            "ក្រសួងសាធារណការ ធ្វើដំណើរ សកម្មភាពដើម្បីអនុវត្តផែនការជាតិឆ្លើយតបទៅនឹងការផ្លាស់ប្តូរអាកាសធាតុ ដោយមានការចូលរួមរបស់ស្ថាប័នសាធារណៈនិងឯកជន ។ ក្រសួងក៏បានរៀបចំផែនការជាតិឆ្លើយតបទៅនឹងការផ្លាស់ប្តូរអាកាសធាតុ ឆ្នាំ២០២១-២០២២។"
+    },
+    {
+        id: 2,
+        title: "Training",
+        image: "/assets/img/course/course2.jpg",
+        content:
+            "ថ្ងៃទី ២២ ខែ មិថុនា ឆ្នាំ២០២៤ ក្រសួងបានរៀបចំវគ្គបណ្ដុះបណ្ដាលស្តីពី “អភិវឌ្ឍន៍អាជីវកម្ម និងពាណិជ្ជកម្មឌីជីថល” ដើម្បីជម្រុញការប្រើប្រាស់បច្ចេកវិទ្យាទំនើបក្នុងការធ្វើអាជីវកម្ម និងលក់ផលិតផលតាមប្រព័ន្ធ E-Commerce។"
+    },
+    {
+        id: 3,
+        title: "Ceremony",
+        image: "/assets/img/course/course3.jpg",
+        content:
+            "វិញ្ញាសាសញ្ញាបត្រសញ្ញាប័ត្រសំខាន់ៗក្នុងការបញ្ចប់វគ្គបណ្តុះបណ្ដាល បានបញ្ជាក់ពីសក្ដានុពលនៃការអភិវឌ្ឍបច្ចេកទេស និងជំនាញរបស់អ្នកចូលរួម អភិវឌ្ឍន៍គ្រឹះស្ថានការងារបច្ចុប្បន្ន។"
+    }
+];
 
+// Sidebar Data
+const relatedLinks = [
+    "អំពីច្បាប់តេស្តថ្មី",
+    "កម្មវិធីសិក្សា",
+    "ចំណេះដឹងថ្មីៗមួយដ៏សំខាន់",
+    "ធនធានសិក្សា"
+];
+
+const shortCourses = [
+    "វគ្គសិក្សា ប្រើប្រាស់កម្មវិធីអ៊ីនធឺណិត",
+    "វគ្គសិក្សា យល់ដឹងអំពីជំនាញ SEO និង ប្រព័ន្ធ",
+    "វគ្គសិក្សា Internet of Things (IoTs)",
+    "វគ្គសិក្សា ការសរសេរ Programming"
+];
+
+export default function NewsPage() {
     return (
-        <>
-            <div className="container">
-                <div className="row">
-                    {courses.map((course) => (
-                        <div
-                            key={course.id}
-                            className={`col-lg-3 col-md-6 mb-4 wow fadeInUp`}
-                            data-wow-delay="0.5s"
-                        >
-                            <div className="courses-item d-flex flex-column bg-white overflow-hidden h-100">
-                                <div className="position-relative img-course mt-auto">
-                                    <Image
-                                        className="img-fluid"
-                                        src={course.image}
-                                        fill
-                                        alt={course.title} />
-                                    <div className="courses-overlay">
-                                        <a className="btn btn-outline-primary border-2" href="/">
-                                            View Detail
-                                        </a>
-                                    </div>
-                                </div>
-                                <div className="p-4 pt-2 dec-item-course relative">
-                                    <p className="text-gray-500 text-sm">{course.date}</p>
-                                    <Link href="" className="mb-3 des-title">{course.title}</Link>
-                                    <p className="des mt-2">{course.description}</p>
+        <div className="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
 
-                                    <div className="absolute bottom-[16px] right-[17px] w-[88%]">
-                                        <div className="border-line"></div>
-                                        <a className="detail_item" href="/happening-now-detail?id=50">View Detail</a>
-                                    </div>
-                                </div>
+            {/* Main News Section */}
+            <div className="lg:col-span-2 space-y-8">
+                {newsItems.map((item) => (
+                    <>
+                        <div key={item.id} className="flex flex-col lg:flex-row gap-4">
+                            <div className="w-full lg:w-1/3">
+                                <Image
+                                    src={item.image}
+                                    alt={item.title}
+                                    width={500}
+                                    height={300}
+                                    className="w-full object-cover rounded-md"
+                                />
+                            </div>
+                            <div className="lg:w-2/3 text-justify leading-relaxed">
+                                <p>{item.content}</p>
                             </div>
                         </div>
-                    ))}
-                </div >
+                        <hr />
+                    </>
+                ))}
             </div>
-        </>
+
+            {/* Sidebar Section */}
+            <div className="space-y-6">
+                {/* Related Links */}
+                <SidebarBox title="ភ្ជាប់រួមគ្នា" items={relatedLinks} bg="bg-blue-800" />
+                {/* Short Courses */}
+                <SidebarBox title="វគ្គបណ្ដុះបណ្ដាលខ្លីៗពេញនិយម" items={shortCourses} bg="bg-blue-600" />
+            </div>
+        </div>
+    );
+}
+
+// Sidebar Reusable Component
+function SidebarBox({
+    title,
+    items,
+    bg
+}: {
+    title: string;
+    items: string[];
+    bg: string;
+}) {
+    return (
+        <div className={`${bg} text-white rounded-lg shadow-md p-4`}>
+            <h3 className="text-lg font-semibold mb-2">{title}</h3>
+            <ul className="space-y-1 list-disc list-inside">
+                {items.map((item, idx) => (
+                    <li key={idx}>{item}</li>
+                ))}
+            </ul>
+        </div>
     );
 }
