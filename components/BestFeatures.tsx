@@ -1,6 +1,5 @@
 "use client"
 import React from 'react'
-import FeatureItemComponent from './FacilityItemComponent'
 
 export default function BestFeatures() {
     return (
@@ -19,7 +18,7 @@ export default function BestFeatures() {
                                 diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet
                                 lorem sit clita duo justo magna dolore erat amet
                             </p>
-                            <FeatureItemComponent />
+                            {/* <FeatureItemComponent /> */}
                         </div>
 
                     </div>

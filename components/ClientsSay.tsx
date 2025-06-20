@@ -65,7 +65,7 @@ export default function ClientsSay() {
                                                 <i className="fa fa-quote-left fa-2x text-primary" />
                                             </div>
                                         </div>
-                                        <p className="fs-4">"{testimonial.message}"</p>
+                                        <p className="fs-4">&quot;{testimonial.message}&quot;</p>
                                         <hr className="w-25 mx-auto" />
                                         <h5>{testimonial.name}</h5>
                                         <span>{testimonial.profession}</span>
