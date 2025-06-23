@@ -5,6 +5,10 @@ body {
     font-family: 'Siemreap', sans-serif;
 } */
 
+ul, li {
+    margin: 0 !important;
+    padding: 0 !important;
+}
 
 .py-6 {
     padding-top: 6rem;
@@ -68,7 +72,9 @@ body {
     background-color: #48aeec;
     border-color: #48aeec;
 }
-
+.menu_active {
+    color: #48aeec !important;
+}
 .form-control:focus {
     color: #757575;
     background-color: #fff;
