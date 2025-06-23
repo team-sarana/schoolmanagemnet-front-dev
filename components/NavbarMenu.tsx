@@ -23,7 +23,7 @@ export default function NavbarMenu() {
   const pathname = usePathname();
 
   console.log(pathname)
-  
+
 
   useEffect(() => {
     const data: MenuItem[] = [
@@ -58,70 +58,12 @@ export default function NavbarMenu() {
     setMenuItems(data);
   }, []);
 
-<<<<<<< HEAD
-    return (
-        <nav className="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
-            <a
-                href="/"
-                className="navbar-brand d-flex align-items-center border-end px-4 px-lg-5"
-            >
-                <h2 className="m-0">
-                    <Image
-                        src="/assets/img/logo.png"
-                        width={75}
-                        height={75}
-                        alt="logo"
-                    />
-                </h2>
-            </a>
-=======
   const isActive = (href: string) => {
     // Exact match or starts with
     return pathname === href || pathname.startsWith(href + "/");
   };
->>>>>>> 77aa0ed15e4e7f699ee409a0c53ca15834dc7d43
 
 
-<<<<<<< HEAD
-            <div className="collapse navbar-collapse" id="navbarCollapse">
-                <div className="navbar-nav p-4 p-lg-0">
-                    {menuItems.map((item) =>
-                        item.submenu ? (
-                            <div className="nav-item dropdown" key={item.id}>
-                                <Link
-                                    href={item.href || "#"}
-                                    className={`nav-link dropdown-toggle ${isActive(item.href || "") ? "menu_active" : ""
-                                        }`}
-                                    role="button"
-                                    data-bs-toggle="dropdown"
-                                >
-                                    {item.label}
-                                </Link>
-                                <div className="dropdown-menu bg-light m-0">
-                                    {item.submenu.map((subitem) => (
-                                        <Link
-                                            key={subitem.id}
-                                            href={subitem.href}
-                                            className={`dropdown-item ${isActive(subitem.href) ? "menu_active" : ""
-                                                }`}
-                                        >
-                                            {subitem.label}
-                                        </Link>
-                                    ))}
-                                </div>
-                            </div>
-                        ) : (
-                            <Link
-                                key={item.id}
-                                href={item.href!}
-                                className={`nav-item nav-link ${isActive(item.href!) ? "text-[#2e73ba] font-semibold" : ""
-                                    }`}
-                            >
-                                {item.label}
-                            </Link>
-                        )
-                    )}
-=======
 
 
   return (
@@ -172,7 +114,6 @@ export default function NavbarMenu() {
                       {subitem.label}
                     </Link>
                   ))}
->>>>>>> 77aa0ed15e4e7f699ee409a0c53ca15834dc7d43
                 </div>
               </div>
             ) : (
