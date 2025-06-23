@@ -4,4 +4,8 @@ module.exports = {
         locales: ['en', 'km'], // List of languages
         defaultLocale: 'en', // Default language
     },
+
+    images: {
+        domains: ['sits.local'],
+    }
 }

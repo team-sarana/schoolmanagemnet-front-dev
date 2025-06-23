@@ -581,6 +581,10 @@ body {
     margin-bottom: 10px;
 }
 
+.menu_active {
+    color: #2e73ba;
+}
+
 .comming h1 {
     font-size: 200px;
     font-weight: 400;

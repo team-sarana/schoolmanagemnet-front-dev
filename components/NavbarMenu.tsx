@@ -66,9 +66,9 @@ export default function NavbarMenu() {
             >
                 <h2 className="m-0">
                     <Image
-                        src="/assets/img/logo_long.jpg"
-                        width={100}
-                        height={100}
+                        src="/assets/img/logo.png"
+                        width={75}
+                        height={75}
                         alt="logo"
                     />
                 </h2>
@@ -90,7 +90,7 @@ export default function NavbarMenu() {
                             <div className="nav-item dropdown" key={item.id}>
                                 <Link
                                     href={item.href || "#"}
-                                    className={`nav-link dropdown-toggle ${isActive(item.href || "") ? "text-[#2e73ba] font-semibold" : ""
+                                    className={`nav-link dropdown-toggle ${isActive(item.href || "") ? "menu_active" : ""
                                         }`}
                                     role="button"
                                     data-bs-toggle="dropdown"
@@ -102,7 +102,7 @@ export default function NavbarMenu() {
                                         <Link
                                             key={subitem.id}
                                             href={subitem.href}
-                                            className={`dropdown-item ${isActive(subitem.href) ? "text-[#2e73ba] font-semibold" : ""
+                                            className={`dropdown-item ${isActive(subitem.href) ? "menu_active" : ""
                                                 }`}
                                         >
                                             {subitem.label}
