@@ -4,8 +4,22 @@
 body {
     font-family: 'Siemreap', sans-serif;
 } */
+div,
+p {
+    color: #515151;
+}
 
-ul, li {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #05073c;
+}
+
+ul,
+li {
     margin: 0 !important;
     padding: 0 !important;
 }
@@ -72,9 +86,11 @@ ul, li {
     background-color: #48aeec;
     border-color: #48aeec;
 }
+
 .menu_active {
     color: #48aeec !important;
 }
+
 .form-control:focus {
     color: #757575;
     background-color: #fff;
@@ -622,3 +638,25 @@ ul, li {
 }
 
 /* end not-found */
+
+/* new */
+.image_border img {
+    width: 300px;
+    height: 205px;
+    object-fit: cover;
+}
+
+.banner_border {
+    border-radius: 10px;
+    background: white;
+    padding: 7px 7px 0px 7px;
+}
+
+.line-desc {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+/* end new */

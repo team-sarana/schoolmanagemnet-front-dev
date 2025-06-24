@@ -33,7 +33,7 @@ export default function RootLayout({
         <link rel="stylesheet" href="/assets/css/style.css" />
 
       </head>
-      <body className={inter.className}>
+      <body className={inter.className} style={{ background: "#f0f4f8 " }}>
         <ReactQueryProvider>
           <Header />
 

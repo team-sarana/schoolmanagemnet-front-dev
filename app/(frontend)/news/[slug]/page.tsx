@@ -1,6 +1,7 @@
 
 import axios from 'axios';
 import Image from 'next/image';
+import Link from 'next/link';
 import { notFound, useRouter } from 'next/navigation';
 import React from 'react'
 
@@ -30,27 +31,53 @@ export default async function DetailPost(props: Props) {
     if (!post) return notFound;
 
     return (
-        <main className="max-w-3xl mx-auto p-6">
-            <Image
-                width={600}
-                height={300}
-                src={post.acf?.image?.url}
-                alt={post.acf?.image?.alt || post.title.rendered}
-                className="w-full h-auto rounded-lg mb-6"
-            />
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">
-                {post.title.rendered}
-            </h1>
-            <p className="text-gray-600 mb-4">{post.acf?.short_description}</p>
-            <div className="text-gray-800 leading-relaxed">
-                {post.acf?.short_description}
+        <>
+            <div className='section-padding'>
+                <div className='container'>
+                    <div className='row'>
+                        <div className="col-lg-8">
+                            <div>
+                                <Image
+                                    width={600}
+                                    height={300}
+                                    src={post.acf?.image?.url}
+                                    alt={post.acf?.image?.alt || post.title.rendered}
+                                    className="w-full h-auto rounded-lg mb-6"
+                                />
+                                <h1 className="text-3xl font-bold text-gray-900 mb-2">
+                                    {post.title.rendered}
+                                </h1>
+                                <p className="text-gray-600 mb-4">{post.acf?.short_description}</p>
+                                <div className="text-gray-800 leading-relaxed">
+                                    {post.acf?.short_description}
+                                </div>
+                            </div>
+                        </div>
+                        <div className='col-lg-4'>
+                            <h4 className='mb-3'>Related News</h4>
+                            <Link href={`news/${post.slug}`} className='row'>
+                                <div className='col-5'>
+                                    <Image
+                                        width={500}
+                                        height={300}
+                                        src={post.acf?.image?.url}
+                                        alt={post.acf?.image?.alt || post.title.rendered}
+                                        className="w-full h-auto rounded-lg mb-6"
+                                    />
+                                </div>
+                                <div className='col-7'>
+                                    <h3 className="text-3xl font-bold text-gray-900 mb-2">
+                                        {post.title.rendered}
+                                    </h3>
+                                    <p className="text-gray-600 mb-4 line-desc">{post.acf?.short_description}</p>
+                                </div>
+                            </Link>
+                        </div>
+                    </div>
+                </div>
             </div>
-            {/* <button
-                onClick={() => router.back()}
-                className="mt-8 px-4 py-2 bg-gray-400 hover:bg-gray-300 rounded cursor-pointer"
-            >
-                ← Previous Page
-            </button> */}
-        </main>
+        </>
     );
 }
+
+

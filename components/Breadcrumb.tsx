@@ -61,7 +61,7 @@ export default function Breadcrumb() {
     return (
         <>
             <div
-                className="container-fluid page-header py-6 my-6 mt-0 wow fadeIn"
+                className="container-fluid page-header py-6 mt-0 wow fadeIn"
                 data-wow-delay="0.1s"
                 style={{
                     background: breadcrumb.image

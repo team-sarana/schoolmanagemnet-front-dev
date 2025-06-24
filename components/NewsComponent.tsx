@@ -28,20 +28,7 @@ import Link from "next/link";
 //     }
 // ];
 
-// Sidebar Data
-// const relatedLinks = [
-//     "អំពីច្បាប់តេស្តថ្មី",
-//     "កម្មវិធីសិក្សា",
-//     "ចំណេះដឹងថ្មីៗមួយដ៏សំខាន់",
-//     "ធនធានសិក្សា"
-// ];
 
-// const shortCourses = [
-//     "វគ្គសិក្សា ប្រើប្រាស់កម្មវិធីអ៊ីនធឺណិត",
-//     "វគ្គសិក្សា យល់ដឹងអំពីជំនាញ SEO និង ប្រព័ន្ធ",
-//     "វគ្គសិក្សា Internet of Things (IoTs)",
-//     "វគ្គសិក្សា ការសរសេរ Programming"
-// ];
 
 
 
@@ -64,57 +51,37 @@ export default async function NewsPage() {
 
     return (
         <>
-            <div className="container">
-                <div className="row">
-                    {posts.map((post) => (
-                        <div className="col-lg-6">
-                            <div key={post.id}>
-                                <Link href={`news/${post.slug}`} className="flex flex-col lg:flex-row gap-4">
-                                    <div>
-                                        {post.acf?.image?.url && (
-                                            <Image
-                                                src={post.acf.image.url}
-                                                alt={post.acf.image.alt || post.title.rendered}
-                                                width={500}
-                                                height={300}
-                                                className="w-full object-cover rounded-md"
-                                            />
-                                        )}
-                                    </div>
-                                    <div className="lg:w-2/3 text-justify leading-relaxed">
-                                        <h1>{post.title.rendered}</h1>
-                                        <p>{post.acf.short_description}</p>
-                                    </div>
-                                </Link>
-                                <hr />
+            <div className="section-padding">
+                <div className="container">
+                    <div className="row">
+                        {posts.map((post) => (
+                            <div className="col-lg-6">
+                                <div className="banner_border shadow-md" key={post.id}>
+                                    <Link href={`news/${post.slug}`} className="flex flex-col lg:flex-row gap-4">
+                                        <div className="image_border">
+                                            {post.acf?.image?.url && (
+                                                <Image
+                                                    src={post.acf.image.url}
+                                                    alt={post.acf.image.alt || post.title.rendered}
+                                                    width={300}
+                                                    height={300}
+                                                    className="rounded-md"
+                                                />
+                                            )}
+                                        </div>
+                                        <div className="lg:w-2/3 text-justify leading-relaxed">
+                                            <h3>{post.title.rendered}</h3>
+                                            <p>{post.acf.short_description}</p>
+                                        </div>
+                                    </Link>
+                                </div>
                             </div>
-                        </div>
-                    ))}
-                </div>
+                        ))}
+                    </div>
 
+                </div>
             </div>
         </>
     );
 }
 
-// Sidebar Reusable Component
-// function SidebarBox({
-//     title,
-//     items,
-//     bg
-// }: {
-//     title: string;
-//     items: string[];
-//     bg: string;
-// }) {
-//     return (
-//         <div className={`${bg} text-white rounded-lg shadow-md p-4`}>
-//             <h3 className="text-lg font-semibold mb-2">{title}</h3>
-//             <ul className="space-y-1 list-disc list-inside">
-//                 {items.map((item, idx) => (
-//                     <li key={idx}>{item}</li>
-//                 ))}
-//             </ul>
-//         </div>
-//     );
-// }
