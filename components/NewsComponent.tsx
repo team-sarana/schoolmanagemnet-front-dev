@@ -71,7 +71,7 @@ export default async function NewsPage() {
                                         </div>
                                         <div className="lg:w-2/3 text-justify leading-relaxed">
                                             <h3>{post.title.rendered}</h3>
-                                            <p>{post.acf.short_description}</p>
+                                            <div className="desc">{post.acf.short_description}</div>
                                         </div>
                                     </Link>
                                 </div>

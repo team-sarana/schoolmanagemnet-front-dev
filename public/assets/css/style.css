@@ -1,11 +1,12 @@
 /********** Template CSS **********/
-/* @import url('https://fonts.googleapis.com/css2?family=Siemreap&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Siemreap&display=swap'); */
 
 body {
     font-family: 'Siemreap', sans-serif;
-} */
-div,
-p {
+    color: #515151;
+}
+
+.desc {
     color: #515151;
 }
 
@@ -430,6 +431,34 @@ li {
 
 
 /*** Footer ***/
+.menu-columns {
+    column-count: 2;
+    column-gap: 0px !important;
+}
+
+.menu-columns li {
+    break-inside: avoid;
+    padding-bottom: 10px !important;
+}
+
+.menu-columns a {
+    padding: 5px 0px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.menu-columns a:hover {
+    text-decoration: underline;
+}
+
+.menu_footer li {
+    padding: 5px 0px;
+}
+
+.menu_footer li a {
+    color: #ffffff;
+}
+
 .footer .btn.btn-link {
     display: block;
     margin-bottom: 5px;
@@ -649,7 +678,7 @@ li {
 .banner_border {
     border-radius: 10px;
     background: white;
-    padding: 7px 7px 0px 7px;
+    padding: 7px;
 }
 
 .line-desc {
