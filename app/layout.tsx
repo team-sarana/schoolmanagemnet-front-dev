@@ -9,8 +9,8 @@ import ReactQueryProvider from "./lib/ReactQueryProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "School",
-  description: "School",
+  title: "SITS Information Technology School",
+  description: "SITS Information Technology School",
 };
 
 export default function RootLayout({

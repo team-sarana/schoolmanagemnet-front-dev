@@ -15,7 +15,7 @@ export default function HomeIndexComponent() {
 
         <>
             <SlideHome />
-            <FactsHome />
+            {/* <FactsHome /> */}
             <AboutIndroduction />
             <CourseItemHome />
             {/* <BestFeatures /> */}

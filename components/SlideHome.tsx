@@ -1,16 +1,21 @@
 "use client";
-import React, { useState, useEffect } from "react";
+
+import React, { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation, EffectFade } from "swiper/modules";
 import Image from "next/image";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+
 import "swiper/css";
+import "swiper/css/effect-fade";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
+import { GrFormPrevious } from "react-icons/gr";
+import { MdNavigateNext } from "react-icons/md";
 
 interface Slide {
     id: number;
     image: string;
     title: string;
+    description?: string;
     buttons: {
         text: string;
         href: string;
@@ -20,6 +25,10 @@ interface Slide {
 
 export default function SlideHome() {
     const [slides, setSlides] = useState<Slide[]>([]);
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    const prevRef = useRef<HTMLButtonElement | null>(null);
+    const nextRef = useRef<HTMLButtonElement | null>(null);
 
     useEffect(() => {
         const data: Slide[] = [
@@ -27,44 +36,104 @@ export default function SlideHome() {
                 id: 1,
                 image: "/assets/img/course/course2.jpg",
                 title: "Learn To Study With Confidence",
+                description: "Achieve your goals with our top-notch courses.",
                 buttons: [{ text: "Our Courses", href: "#courses", style: "btn-light" }],
             },
             {
                 id: 2,
                 image: "/assets/img/course/course9.jpg",
                 title: "Study Is Our Top Priority",
-                buttons: [{ text: "Our Courses", href: "#courses", style: "btn-light" }],
+                description: "Empowering students through knowledge.",
+                buttons: [{ text: "Explore More", href: "#courses", style: "btn-primary" }],
             },
             {
                 id: 3,
                 image: "/assets/img/course/course7.jpg",
-                title: "Study Is Our Top Priority",
-                buttons: [{ text: "Our Courses", href: "#courses", style: "btn-light" }],
+                title: "Your Future Begins Here",
+                description: "Join thousands of learners.",
+                buttons: [{ text: "Get Started", href: "#courses", style: "btn-success" }],
             },
         ];
         setSlides(data);
     }, []);
 
     return (
-        <div className="container-fluid p-0">
-            <Swiper
-                modules={[Navigation, Pagination, Autoplay]}
-                navigation
-                pagination={{ clickable: true }}
-                // autoplay={{ delay: 3000, disableOnInteraction: false }}
-                loop={true}
-                className="mySwiper"
+        <div className="container relative w-full h-[80vh] overflow-hidden">
+            {/* Custom Navigation Buttons */}
+            <button
+                ref={prevRef}
+                className="absolute btn_slide_home left-4 top-1/2 z-20 transform -translate-y-1/2 "
             >
-                {slides.map((slide) => (
-                    <SwiperSlide key={slide.id} className="slide_home_banner">
-                        <div className="slide_home">
+                <GrFormPrevious size={30} />
+            </button>
+            <button
+                ref={nextRef}
+                className="absolute btn_slide_home right-4 top-1/2 z-20 transform -translate-y-1/2"
+            >
+                <MdNavigateNext size={30} />
+            </button>
+
+            <Swiper
+                modules={[Autoplay, Navigation, EffectFade]}
+                effect="fade"
+                fadeEffect={{ crossFade: true }}
+                speed={1000}
+                slidesPerView={1}
+                loop={true}
+                autoplay={{ delay: 4000, disableOnInteraction: false }}
+                pagination={false}
+                navigation={{
+                    prevEl: prevRef.current,
+                    nextEl: nextRef.current,
+                }}
+                onBeforeInit={(swiper) => {
+                    if (swiper.params.navigation && typeof swiper.params.navigation !== "boolean") {
+                        swiper.params.navigation.prevEl = prevRef.current;
+                        swiper.params.navigation.nextEl = nextRef.current;
+                    }
+                }}
+                onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+                className="w-full h-full"
+            >
+                {slides.map((slide, index) => (
+                    <SwiperSlide key={slide.id}>
+                        <div className="relative w-full h-[90vh]">
                             <Image
                                 src={slide.image}
                                 alt={slide.title}
                                 fill
-                                sizes="100vw"
-                                className="custom-img"
+                                className={`object-cover ${index === activeIndex ? "animate-zoom-fade" : ""}`}
+                                priority
                             />
+                            <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-start text-white px-10 z-10">
+                                <div className="container">
+                                    <h2
+                                        className={`text-white font-bold mb-4 ${index === activeIndex ? "animate-fade-up" : ""
+                                            }`}
+                                    >
+                                        {slide.title}
+                                    </h2>
+                                    {slide.description && (
+                                        <p
+                                            className={`text-lg md:text-xl mb-6 max-w-xl ${index === activeIndex ? "animate-fade-up delay-100" : ""
+                                                }`}
+                                        >
+                                            {slide.description}
+                                        </p>
+                                    )}
+                                    {/* <div className={`flex gap-4 ${index === activeIndex ? "animate-fade-up delay-200" : ""}`}>
+                                        {slide.buttons.map((btn, btnIndex) => (
+                                            <a
+                                                key={btnIndex}
+                                                href={btn.href}
+                                                className={`px-6 py-2 rounded ${btn.style}`}
+                                            >
+                                                {btn.text}
+                                            </a>
+                                        ))}
+                                    </div> */}
+                                </div>
+                            </div>
                         </div>
                     </SwiperSlide>
                 ))}

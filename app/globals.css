@@ -28,3 +28,45 @@ body {
     text-wrap: balance;
   }
 }
+
+/* slide home  */
+
+@keyframes zoomFade {
+  from {
+    transform: scale(1.08);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-zoom-fade {
+  animation: zoomFade 1.4s ease-out forwards;
+}
+
+.animate-fade-up {
+  animation: fadeUp 1s ease-out forwards;
+}
+
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
