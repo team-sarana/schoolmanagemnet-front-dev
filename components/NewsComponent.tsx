@@ -1,115 +1,87 @@
-"use client";
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
+import axios from "axios";
+import Link from "next/link";
 
-export default function NewsComponent() {
-    // Mockup data directly within the function
-    const courses = [
-        {
-            id: 1,
-            title: "Automatic Lessons",
-            description: "រៀនមូលដ្ឋាននៃភាសាអង់គ្លេសជាមួយគ្រូបង្រៀនជំនាញរបស់យើង។",
-            image: "/assets/img/course/course1.jpg",
-            date: "25 មីនា 2025",
-            time: "10:00 ព្រឹក"
-        },
-        {
-            id: 2,
-            title: "Highway Lessons",
-            description: "ជាការពិតមួយដែលបានបង្កើតឡើងយូរមកហើយថា អ្នកអាចរងការលេងសើចដោយអត្ថបទដែលអាចអានបាន។",
-            image: "/assets/img/course/course2.jpg",
-            date: "22 មីនា 2025",
-            time: "2:30 ល្ងាច"
-        },
-        {
-            id: 3,
-            title: "International Lessons",
-            description: "ផ្ទុយពីការជឿទូទៅ Lorem Ipsum មិនមែនគ្រាន់តែជាអត្ថបទចៃដន្យ។",
-            image: "/assets/img/course/course3.jpg",
-            date: "20 មីនា 2025",
-            time: "11:45 ព្រឹក"
-        },
-        {
-            id: 4,
-            title: "International Lessons",
-            description: "ផ្ទុយពីការជឿទូទៅ Lorem Ipsum មិនមែនគ្រាន់តែជាអត្ថបទចៃដន្យ។",
-            image: "/assets/img/course/course4.jpg",
-            date: "18 មីនា 2025",
-            time: "4:15 ល្ងាច"
-        },
-        {
-            id: 5,
-            title: "Automatic Lessons",
-            description: "រៀនមូលដ្ឋាននៃភាសាអង់គ្លេសជាមួយគ្រូបង្រៀនជំនាញរបស់យើង។",
-            image: "/assets/img/course/course5.jpg",
-            date: "17 មីនា 2025",
-            time: "9:00 ព្រឹក"
-        },
-        {
-            id: 6,
-            title: "Highway Lessons",
-            description: "ជាការពិតមួយដែលបានបង្កើតឡើងយូរមកហើយថា អ្នកអាចរងការលេងសើចដោយអត្ថបទដែលអាចអានបាន។",
-            image: "/assets/img/course/course6.jpg",
-            date: "15 មីនា 2025",
-            time: "3:20 ល្ងាច"
-        },
-        {
-            id: 7,
-            title: "International Lessons",
-            description: "ផ្ទុយពីការជឿទូទៅ Lorem Ipsum មិនមែនគ្រាន់តែជាអត្ថបទចៃដន្យ។",
-            image: "/assets/img/course/course7.jpg",
-            date: "14 មីនា 2025",
-            time: "12:10 ថ្ងៃត្រង់"
-        },
-        {
-            id: 8,
-            title: "International Lessons",
-            description: "ផ្ទុយពីការជឿទូទៅ Lorem Ipsum មិនមែនគ្រាន់តែជាអត្ថបទចៃដន្យ។",
-            image: "/assets/img/course/course8.jpg",
-            date: "12 មីនា 2025",
-            time: "5:45 ល្ងាច"
-        },
-    ];
+// Dummy News Data
+// const newsItems = [
+//     {
+//         id: 1,
+//         title: "News",
+//         image: "/assets/img/course/course1.jpg",
+//         content:
+//             "ក្រសួងសាធារណការ ធ្វើដំណើរ សកម្មភាពដើម្បីអនុវត្តផែនការជាតិឆ្លើយតបទៅនឹងការផ្លាស់ប្តូរអាកាសធាតុ ដោយមានការចូលរួមរបស់ស្ថាប័នសាធារណៈនិងឯកជន ។ ក្រសួងក៏បានរៀបចំផែនការជាតិឆ្លើយតបទៅនឹងការផ្លាស់ប្តូរអាកាសធាតុ ឆ្នាំ២០២១-២០២២។"
+//     },
+//     {
+//         id: 2,
+//         title: "Training",
+//         image: "/assets/img/course/course2.jpg",
+//         content:
+//             "ថ្ងៃទី ២២ ខែ មិថុនា ឆ្នាំ២០២៤ ក្រសួងបានរៀបចំវគ្គបណ្ដុះបណ្ដាលស្តីពី “អភិវឌ្ឍន៍អាជីវកម្ម និងពាណិជ្ជកម្មឌីជីថល” ដើម្បីជម្រុញការប្រើប្រាស់បច្ចេកវិទ្យាទំនើបក្នុងការធ្វើអាជីវកម្ម និងលក់ផលិតផលតាមប្រព័ន្ធ E-Commerce។"
+//     },
+//     {
+//         id: 3,
+//         title: "Ceremony",
+//         image: "/assets/img/course/course3.jpg",
+//         content:
+//             "វិញ្ញាសាសញ្ញាបត្រសញ្ញាប័ត្រសំខាន់ៗក្នុងការបញ្ចប់វគ្គបណ្តុះបណ្ដាល បានបញ្ជាក់ពីសក្ដានុពលនៃការអភិវឌ្ឍបច្ចេកទេស និងជំនាញរបស់អ្នកចូលរួម អភិវឌ្ឍន៍គ្រឹះស្ថានការងារបច្ចុប្បន្ន។"
+//     }
+// ];
+
+
+
+
+
+const getPosts = async (): Promise<Post[]> => {
+    try {
+        const res = await axios.get("http://sits.local/wp-json/wp/v2/posts");
+        console.log(res.data);
+
+        return res.data;
+    } catch (error) {
+        console.error("Failed to fetch posts:", error);
+        return [];
+    }
+};
+
+
+export default async function NewsPage() {
+    const posts = await getPosts();
+
 
     return (
         <>
-            <div className="container">
-                <div className="row">
-                    {courses.map((course) => (
-                        <div
-                            key={course.id}
-                            className={`col-lg-3 col-md-6 mb-4 wow fadeInUp`}
-                            data-wow-delay="0.5s"
-                        >
-                            <div className="courses-item d-flex flex-column bg-white overflow-hidden h-100">
-                                <div className="position-relative img-course mt-auto">
-                                    <Image
-                                        className="img-fluid"
-                                        src={course.image}
-                                        fill
-                                        alt={course.title} />
-                                    <div className="courses-overlay">
-                                        <a className="btn btn-outline-primary border-2" href="/">
-                                            View Detail
-                                        </a>
-                                    </div>
-                                </div>
-                                <div className="p-4 pt-2 dec-item-course relative">
-                                    <p className="text-gray-500 text-sm">{course.date}</p>
-                                    <Link href="" className="mb-3 des-title">{course.title}</Link>
-                                    <p className="des mt-2">{course.description}</p>
-
-                                    <div className="absolute bottom-[16px] right-[17px] w-[88%]">
-                                        <div className="border-line"></div>
-                                        <a className="detail_item" href="/happening-now-detail?id=50">View Detail</a>
-                                    </div>
+            <div className="section-padding">
+                <div className="container">
+                    <div className="row">
+                        {posts.map((post) => (
+                            <div className="col-lg-6">
+                                <div className="banner_border shadow-md" key={post.id}>
+                                    <Link href={`news/${post.slug}`} className="flex flex-col lg:flex-row gap-4">
+                                        <div className="image_border">
+                                            {post.acf?.image?.url && (
+                                                <Image
+                                                    src={post.acf.image.url}
+                                                    alt={post.acf.image.alt || post.title.rendered}
+                                                    width={300}
+                                                    height={300}
+                                                    className="rounded-md"
+                                                />
+                                            )}
+                                        </div>
+                                        <div className="lg:w-2/3 text-justify leading-relaxed">
+                                            <h3>{post.title.rendered}</h3>
+                                            <div className="desc">{post.acf.short_description}</div>
+                                        </div>
+                                    </Link>
                                 </div>
                             </div>
-                        </div>
-                    ))}
-                </div >
+                        ))}
+                    </div>
+
+                </div>
             </div>
         </>
     );
 }
+

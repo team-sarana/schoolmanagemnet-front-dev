@@ -1,10 +1,29 @@
 /********** Template CSS **********/
-/* @import url('https://fonts.googleapis.com/css2?family=Siemreap&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Siemreap&display=swap'); */
 
 body {
     font-family: 'Siemreap', sans-serif;
-} */
+    color: #515151;
+}
 
+.desc {
+    color: #515151;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #05073c;
+}
+
+ul,
+li {
+    margin: 0 !important;
+    padding: 0 !important;
+}
 
 .py-6 {
     padding-top: 6rem;
@@ -67,6 +86,10 @@ body {
     color: #000;
     background-color: #48aeec;
     border-color: #48aeec;
+}
+
+.menu_active {
+    color: #48aeec !important;
 }
 
 .form-control:focus {
@@ -408,6 +431,34 @@ body {
 
 
 /*** Footer ***/
+.menu-columns {
+    column-count: 2;
+    column-gap: 0px !important;
+}
+
+.menu-columns li {
+    break-inside: avoid;
+    padding-bottom: 10px !important;
+}
+
+.menu-columns a {
+    padding: 5px 0px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.menu-columns a:hover {
+    text-decoration: underline;
+}
+
+.menu_footer li {
+    padding: 5px 0px;
+}
+
+.menu_footer li a {
+    color: #ffffff;
+}
+
 .footer .btn.btn-link {
     display: block;
     margin-bottom: 5px;
@@ -581,6 +632,10 @@ body {
     margin-bottom: 10px;
 }
 
+.menu_active {
+    color: #2e73ba;
+}
+
 .comming h1 {
     font-size: 200px;
     font-weight: 400;
@@ -612,3 +667,25 @@ body {
 }
 
 /* end not-found */
+
+/* new */
+.image_border img {
+    width: 300px;
+    height: 205px;
+    object-fit: cover;
+}
+
+.banner_border {
+    border-radius: 10px;
+    background: white;
+    padding: 7px;
+}
+
+.line-desc {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+/* end new */
