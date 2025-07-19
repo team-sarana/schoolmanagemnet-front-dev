@@ -1,5 +1,5 @@
 import React from 'react'
-import AboutComponent from "../../../components/AboutComponent"
+import AboutComponent from "../../../components/about/AboutComponent"
 
 
 export default function About() {

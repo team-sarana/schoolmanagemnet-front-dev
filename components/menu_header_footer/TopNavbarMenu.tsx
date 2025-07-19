@@ -1,6 +1,5 @@
 "use client";
 import React from 'react';
-import LanguageSwitcher from '../components/LanguageSwitcher';
 import Link from 'next/link';
 
 export default function TopNavbarMenu() {
@@ -38,9 +37,9 @@ export default function TopNavbarMenu() {
                                     <Link href="/term-condition">Term & Condition</Link>
                                 </li>
                             </ul>
-                            <span className='ms-2'>
+                            {/* <span className='ms-2'>
                                 <LanguageSwitcher />
-                            </span>
+                            </span> */}
                         </div>
                     </div>
                 </div>
