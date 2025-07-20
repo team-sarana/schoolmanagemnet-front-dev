@@ -42,12 +42,12 @@ export default function NavbarMenu() {
       {
         id: 3,
         label: "Curriculums",
-        href: "/courses",
+        href: "/curriculums",
         submenu: [
-          { id: 1, label: "Computer Course", href: "/courses" },
-          { id: 2, label: "English Course", href: "/courses" },
-          { id: 3, label: "Chinese Course", href: "/courses" },
-          { id: 4, label: "Thai Course", href: "/courses" },
+          { id: 1, label: "Computer Course", href: "/curriculums" },
+          { id: 2, label: "English Course", href: "/curriculums" },
+          { id: 3, label: "Chinese Course", href: "/curriculums" },
+          { id: 4, label: "Thai Course", href: "/curriculums" },
         ],
       },
       { id: 4, label: "News", href: "/news" },

@@ -5,13 +5,15 @@
 @font-face {
   font-family: 'Kantumruy Pro';
   src: url('/assets/font/KantumruyPro-VariableFont_wght.ttf');
-  unicode-range: U+0000-00FF; /* Latin characters */
+  unicode-range: U+0000-00FF;
+  /* Latin characters */
 }
 
 @font-face {
   font-family: 'Siemreap';
   src: url('/assets/font/Siemreap-Regular.ttf') format('truetype');
-  unicode-range: U+1780-17FF, U+19E0-19FF; /* Khmer script */
+  unicode-range: U+1780-17FF, U+19E0-19FF;
+  /* Khmer script */
 }
 
 body {
@@ -87,4 +89,38 @@ body {
 
 .btn_slide_course {
   @apply transition-all duration-300 hover:scale-110;
+}
+
+
+/* qr */
+@layer utilities {
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes zoom-in {
+    0% {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out forwards;
+  }
+
+  .animate-zoom-in {
+    animation: zoom-in 0.3s ease-out forwards;
+  }
 }

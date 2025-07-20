@@ -1,5 +1,5 @@
 import React from 'react'
-import NewsComponent from '@/components/NewsComponent';
+import NewsComponent from '@/components/news/NewsComponent';
 
 export default function News() {
     return (

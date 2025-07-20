@@ -1,10 +1,10 @@
+import CurriculumsCom from '@/components/curriculums/CurriculumsCom'
 import React from 'react'
-import CoursesComponent from "@/components/CoursesComponent";
 
 export default function Courses() {
     return (
         <>
-            <CoursesComponent />
+            <CurriculumsCom />
         </>
     )
 }

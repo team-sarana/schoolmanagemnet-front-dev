@@ -372,37 +372,39 @@ li {
     opacity: 1;
 }
 
-.btn_slide_item { 
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  z-index: 99; 
-  display: flex;
-  justify-content: space-between;
-  transform: translateY(-50%);
+.btn_slide_item {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
 }
 
-.custom-nav-btn-prev { 
-  position: absolute;
-  top: 50%;
-  left: -45px;
+.custom-nav-btn-prev {
+    position: absolute;
+    top: 50%;
+    left: -45px;
 }
-.custom-nav-btn-next { 
-  position: absolute;
-  top: 50%;
-  right: -45px;
+
+.custom-nav-btn-next {
+    position: absolute;
+    top: 50%;
+    right: -45px;
 }
+
 .custom-nav-btn {
-  pointer-events: auto; 
-  background-color: white;
-  color: #2e73ba;
-  border-radius: 9999px;
-  padding: 0.5rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1),
-              0 1px 2px rgba(0, 0, 0, 0.06);
-  transition: background-color 0.2s ease-in-out;
-  cursor: pointer;
+    pointer-events: auto;
+    background-color: white;
+    color: #2e73ba;
+    border-radius: 9999px;
+    padding: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1),
+        0 1px 2px rgba(0, 0, 0, 0.06);
+    transition: background-color 0.2s ease-in-out;
+    cursor: pointer;
 }
 
 
@@ -732,8 +734,8 @@ li {
 
 /* new */
 .image_border img {
-    width: 300px;
-    height: 205px;
+    width: 170px;
+    height: 145px;
     object-fit: cover;
 }
 
@@ -849,23 +851,54 @@ li {
     }
 }
 
-.related_link{
+.related_link {
     color: #05073c;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 17px;
     border-bottom: 2px solid #05073c;
     display: block;
     width: 100%;
     margin-bottom: 16px;
 }
-.related_link:hover{
+
+.related_link:hover {
     color: #2e73ba !important;
 }
-.related_link.active{
+
+.related_link.active {
     color: #2e73ba !important;
 }
-.border_bottom{
+
+.border_bottom {
     margin-top: 12px;
     border: 1px solid #515151;
 }
+
+.custom-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.custom-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    position: relative;
+    margin-bottom: 0.75em;
+}
+
+.custom-list li::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background-color: #007bff;
+    border-radius: 50%;
+    margin-top: 0.45em;
+    flex-shrink: 0;
+}
+
+
+
+
 /* end about */

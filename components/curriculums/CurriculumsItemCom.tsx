@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-export default function CourseItemComponent() {
+export default function CurriculumsItemCom() {
     const courses = [
         {
             id: 1,
@@ -125,7 +125,7 @@ export default function CourseItemComponent() {
                 {currentCourses.map((course) => (
                     <div
                         key={course.id}
-                        className={`col-lg-3 col-md-6 wow fadeInUp`}
+                        className={`col-lg-4 col-md-6 wow fadeInUp`}
                     // data-wow-delay={course.delay}
                     >
                         <div className="courses-item d-flex flex-column bg-white overflow-hidden h-100">
@@ -140,9 +140,9 @@ export default function CourseItemComponent() {
                                     alt={course.title}
                                 />
                                 <div className="courses-overlay">
-                                    <a className="btn btn-outline-primary border-2" href="/">
+                                    <Link className="btn btn-outline-primary border-2" href="/">
                                         Read More
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                             <div className="text-center p-4 pt-2 dec-item-course relative">
@@ -150,7 +150,7 @@ export default function CourseItemComponent() {
                                 <p className="des mt-2">{course.description}</p>
                                 <div className="absolute bottom-[16px] right-[17px] w-[88%]">
                                     <div className="border-line"></div>
-                                    <a className="detail_item" href="/happening-now-detail?id=50">View Detail</a>
+                                    <Link className="detail_item" href="/happening-now-detail?id=50">View Detail</Link>
                                 </div>
                             </div>
                         </div>
