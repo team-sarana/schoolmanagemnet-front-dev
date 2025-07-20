@@ -1,5 +1,4 @@
-import HomeIndexComponent from "@/components/HomeIndexComponent";
-import Image from "next/image";
+import HomeIndexComponent from "@/components/home/HomeIndexComponent";
 
 export default function Home() {
   return (

@@ -42,7 +42,7 @@ export default function Appointment() {
                                                     id="cname"
                                                     placeholder="Child Name"
                                                 />
-                                                <label htmlFor="cname">Phone Number</label>
+                                                <label htmlFor="cname">Telegram Number</label>
                                             </div>
                                         </div>
                                         <div className="col-sm-6">
