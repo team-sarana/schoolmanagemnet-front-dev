@@ -15,14 +15,14 @@ export default function RecongnitionPage() {
         },
         {
             id: 2,
-            title: 'លិខិតអនុញ្ញាតអភិបាល នៃគណះកម្មអភិបាលក្រុងសៀមរាប',
+            title: 'អាជ្ញាបណ្ណអប់រំ',
             publishedDate: 'ថ្ងៃទី០៤ កក្កដា ២០២៤',
             image: '/assets/img/recongnition/លិខិអនុញ្ញាត.jpg',
             pdfUrl: '/files/education-recognition.pdf',
         },
         {
             id: 3,
-            title: 'វិញ្ញាបនបត្របញ្ជិកាសគ្រាស គ្រឹះស្ថាន',
+            title: 'បេឡាជាតិសន្តិសុខសង្គម',
             publishedDate: 'ថ្ងៃទី០១ មីនា ២០២៤',
             image: '/assets/img/recongnition/National-Socail-Security-Fund.jpg',
             pdfUrl: '/files/education-recognition.pdf',
