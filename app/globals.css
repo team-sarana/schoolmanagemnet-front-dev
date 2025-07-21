@@ -124,3 +124,40 @@ body {
     animation: zoom-in 0.3s ease-out forwards;
   }
 }
+
+/* gallery */
+.fancybox-zoomIn {
+  animation: zoomIn 0.35s ease;
+}
+
+.fancybox-zoomOut {
+  animation: zoomOut 0.25s ease;
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes zoomOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+.fancybox__container,
+.fancybox__slide {
+  transition-duration: 0.7s !important;
+  transition-timing-function: ease-in-out !important;
+}

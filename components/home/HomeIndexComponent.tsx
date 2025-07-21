@@ -3,10 +3,8 @@ import React from 'react'
 import SlideHome from './SlideHome'
 import AboutIndroduction from './AboutIndroduction'
 import CourseItemHome from '../curriculums/CourseItemHome'
-import ClientsSay from './ClientsSay'
 import PartnerComponent from './PartnerComponent'
-import TeacherComponent from '../about/TeacherComponent'
-import Appointment from '../Appointment'
+import Appointment from './Appointment'
 
 
 export default function HomeIndexComponent() {
@@ -16,7 +14,6 @@ export default function HomeIndexComponent() {
             <SlideHome />
             <AboutIndroduction />
             <CourseItemHome />
-            {/* <ClientsSay /> */}
             <PartnerComponent />
             <Appointment />
         </>

@@ -49,7 +49,7 @@ export default function VisionMissionCoreValueCom() {
 
                             {/* Core Values Section */}
                             <section className="mb-3">
-                                <h2 className="text-3xl font-bold text-yellow-600 mb-4 text-center">គុណតម្លៃ</h2>
+                                <h2 className="text-3xl font-bold text-yellow-600 mb-4">គុណតម្លៃ</h2>
                                 <p>សាលាជំនាញព័ត៌មានវិទ្យា អេស អាយ ធី អេស មានគោលបំណងក្នុងការផ្ដល់ការអប់រំដែលមានគុណភាពខ្ពស់ក្នុងវិស័យព័ត៌មានវិទ្យា និងភាសាអង់គ្លេស ដើម្បីបណ្ដុះបណ្ដាលសិស្សឱ្យក្លាយជាបុគ្គលមានសមត្ថភាព និងមានចក្ខុវិស័យក្នុងសង្គមឌីជីថល។ នៅក្នុងដំណើរការចម្រើសេវាក្នុង
                                     វិស័យអប់រំ សាលាបង្ហាញអត្តសញ្ញាណតាមរយៈគុណតម្លៃសំខាន់ៗដូចជា៖
                                 </p>
