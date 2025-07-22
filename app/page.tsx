@@ -1,8 +1,27 @@
+import Head from "next/head";
 import HomeIndexComponent from "@/components/home/HomeIndexComponent";
+
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "";
+
+export const metadata = {
+  title: "Home - SITS Information Technology School",
+  description: "ស្វែងយល់អំពី SITS Information Technology School",
+  openGraph: {
+    title: "Home - SITS Information Technology School",
+    description: "ស្វែងយល់អំពី SITS Information Technology School",
+    url: `${baseUrl}/`,
+    siteName: "SITS Information Technology School",
+    locale: "en_US",
+    type: "website",
+  },
+};
 
 export default function Home() {
   return (
     <>
+      <Head>
+        <meta name="keywords" content="Siem Reap, History, Cambodia, Travel" />
+      </Head>
       <HomeIndexComponent />
     </>
   );

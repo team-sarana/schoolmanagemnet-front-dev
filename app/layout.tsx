@@ -8,9 +8,12 @@ import ReactQueryProvider from "./lib/ReactQueryProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "SITS Information Technology School",
-  description: "SITS Information Technology School",
+export const metadata = {
+  title: {
+    template: "%s - SITS Information Technology School",
+    default: "SITS Information Technology School",
+  },
+  description: "Welcome to SITS — the leading Information Technology School in Siem Reap.",
 };
 
 export default function RootLayout({
