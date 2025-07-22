@@ -25,7 +25,7 @@ export default function FormContact() {
     
     👤 Name: ${form.name}
     📧 Email: ${form.email}
-    📱 Telegram: ${form.telegram}
+    📱 Phone Number: ${form.telegram}
     📚 Course: ${form.course}
     📝 Message: ${form.message}
             `
@@ -94,7 +94,7 @@ export default function FormContact() {
                                 onChange={handleChange}
                                 required
                             />
-                            <label htmlFor="cname">Telegram Number</label>
+                            <label htmlFor="cname">Phone Number</label>
                         </div>
                     </div>
                     <div className="col-sm-6">
@@ -109,7 +109,7 @@ export default function FormContact() {
                                 onChange={handleChange}
                                 required
                             />
-                            <label htmlFor="cage">Courses</label>
+                            <label htmlFor="cage">Telegram Username</label>
                         </div>
                     </div>
                     <div className="col-12">
@@ -124,7 +124,7 @@ export default function FormContact() {
                                 onChange={handleChange}
                                 required
                             />
-                            <label htmlFor="message">Message</label>
+                            <label htmlFor="message">I want to know about your course</label>
                         </div>
                     </div>
                     <div className="col-12">

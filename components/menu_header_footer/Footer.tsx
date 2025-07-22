@@ -55,11 +55,11 @@ export default function Footer() {
                             <div className="d-flex flex-column gap-1">
                                 <div className="d-flex justify-content-between">
                                     <p>Mon - Fri</p>
-                                    <p>8:00am - 5:00pm</p>
+                                    <p>7:00am - 9:00pm</p>
                                 </div>
                                 <div className="d-flex justify-content-between">
                                     <p>Sat - Sun</p>
-                                    <p>8:00am - 5:00pm</p>
+                                    <p>8:00am - 6:00pm</p>
                                 </div>
                             </div>
                         </div>
