@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import QuickChat from '../contact/QuickChat'
 
 // Menu links array
 const links = [
@@ -26,6 +27,7 @@ export default function Footer() {
     return (
         <>
             {/* Main Footer */}
+            {/* <QuickChat /> */}
             <div className="container-fluid bg_footer text-light py-4 my-2 mb-0 wow fadeIn" data-wow-delay="0.1s">
                 <div className="container">
                     <div className="row">

@@ -52,6 +52,23 @@ export default function RootLayout({
       <Script src="/assets/lib/owlcarousel/owl.carousel.min.js" />
       <Script src="/assets/js/main.js" />
 
+      {/* <Script
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+          window.$crisp = [];
+          window.CRISP_WEBSITE_ID = "YOUR_CRISP_ID";
+          (function () {
+            var d = document;
+            var s = d.createElement("script");
+            s.src = "https://client.crisp.chat/l.js";
+            s.async = 1;
+            d.getElementsByTagName("head")[0].appendChild(s);
+          })();
+        `,
+        }}
+      /> */}
+
 
 
     </html>
