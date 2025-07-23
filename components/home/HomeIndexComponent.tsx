@@ -2,9 +2,12 @@
 import React from 'react'
 import SlideHome from './SlideHome'
 import AboutIndroduction from './AboutIndroduction'
-import CourseItemHome from '../curriculums/CourseItemHome'
 import PartnerComponent from './PartnerComponent'
 import Appointment from './Appointment'
+import WelcomHome from './WelcomHome'
+import WhyStudy from './WhyStudy'
+import CurriculumsItemHome from '../curriculums/CurriculumsItemHome'
+import News from './News'
 
 
 export default function HomeIndexComponent() {
@@ -12,9 +15,12 @@ export default function HomeIndexComponent() {
 
         <>
             <SlideHome />
+            <WelcomHome />
             <AboutIndroduction />
-            <CourseItemHome />
+            <WhyStudy />
             <PartnerComponent />
+            <CurriculumsItemHome />
+            <News />
             <Appointment />
         </>
 

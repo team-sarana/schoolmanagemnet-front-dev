@@ -73,10 +73,11 @@ export default function Footer() {
                                 {/* QR Code 1 */}
                                 <div onClick={() => setShowQR1Popup(true)} className="cursor-pointer">
                                     <Image
-                                        src="/assets/qr.jpg"
+                                        src="/assets/qr-telegram.jpg"
                                         width={100}
                                         height={100}
-                                        alt="QR Code 1"
+                                        alt="qr-telegram"
+                                        style={{ height: "99px" }}
                                         className="rounded-[10px]"
                                     />
                                 </div>
@@ -84,10 +85,10 @@ export default function Footer() {
                                 {/* QR Code 2 */}
                                 <div onClick={() => setShowQR2Popup(true)} className="cursor-pointer">
                                     <Image
-                                        src="/assets/qr.jpg"
+                                        src="/assets/qr-facebook.jpg"
                                         width={100}
                                         height={100}
-                                        alt="QR Code 2"
+                                        alt="qr-facebook"
                                         className="rounded-[10px]"
                                     />
                                 </div>
@@ -120,10 +121,10 @@ export default function Footer() {
                         onClick={(e) => e.stopPropagation()}
                     >
                         <Image
-                            src="/assets/qr.jpg"
+                            src="/assets/qr-telegram.jpg"
                             width={300}
                             height={300}
-                            alt="QR Code 1 Enlarged"
+                            alt="qr-telegram"
                             className="rounded-[10px]"
                         />
                     </div>
@@ -141,10 +142,10 @@ export default function Footer() {
                         onClick={(e) => e.stopPropagation()}
                     >
                         <Image
-                            src="/assets/qr.jpg"
+                            src="/assets/qr-facebook.jpg"
                             width={300}
                             height={300}
-                            alt="QR Code 2 Enlarged"
+                            alt="qr-facebook"
                             className="rounded-[10px]"
                         />
                     </div>

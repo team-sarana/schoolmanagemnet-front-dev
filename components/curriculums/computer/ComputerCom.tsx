@@ -130,11 +130,10 @@ export default function ComputerCom() {
                                 className={`col-lg-3 col-md-6 wow fadeInUp`}
                             // data-wow-delay={course.delay}
                             >
-                                <div className="banner_border shadow-md">
-                                    <div className="position-relative img-course mt-auto">
+                                <div className="banner_curric shadow-md">
+                                    <div className="position-relative img-curric mt-auto mb-2">
 
                                         <Image
-                                            className="img-fluid"
                                             src={course.image}
                                             fill
                                             alt={course.title}
@@ -145,7 +144,10 @@ export default function ComputerCom() {
                                             </Link>
                                         </div>
                                     </div>
-                                    <Link href="" className="mb-3 des-title">{course.title}</Link>
+                                    <Link href="" className="text-center">
+                                        <h5>
+                                            {course.title}</h5>
+                                    </Link>
                                 </div>
                             </div>
                         ))}

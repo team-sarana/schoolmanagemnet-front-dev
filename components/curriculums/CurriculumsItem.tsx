@@ -13,7 +13,7 @@ import "swiper/css/navigation";
 
 // CSS is assumed to be added for .custom-nav-btn and .btn_slide_item
 
-export default function CourseItem() {
+export default function CurriculumsItem() {
     const prevRef = useRef<HTMLButtonElement | null>(null);
     const nextRef = useRef<HTMLButtonElement | null>(null);
     const [swiperReady, setSwiperReady] = useState(false);

@@ -16,7 +16,7 @@ export default function TopNavbarMenu() {
                         <div className="h-100 d-inline-flex align-items-center me-4">
                             <span>
                                 <i className="fa fa-envelope me-2" />
-                                info@example.com
+                                rousmab9999@gmail.com
                             </span>
                         </div>
                     </div>

@@ -7,7 +7,7 @@ export default function Appointment() {
 
     return (
         <>
-            <div className="container-xxl courses">
+            <div className="courses">
                 <div className="container">
                     <div className="row g-4 justify-content-center pb-5">
                         <div className="col-lg-8 my-6 mb-0 wow fadeInUp" data-wow-delay="0.1s">
