@@ -1,6 +1,6 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
 
 
 @font-face {
@@ -88,9 +88,9 @@ body {
   animation-delay: 0.2s;
 }
 
-.btn_slide_course {
+/* .btn_slide_course {
   @apply transition-all duration-300 hover:scale-110;
-}
+} */
 
 
 /* qr */
