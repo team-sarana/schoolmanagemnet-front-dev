@@ -971,4 +971,13 @@ li {
     height: 150px !important;
     border-radius: 8px 8px 0px 0px;
 }
+.banner_title {
+    color: #2e73ba;
+    font-size: 29px;
+    font-weight: 700;
+    padding: 17px 25px;
+    margin-bottom: 18px;
+    text-align: center;
+    text-decoration: underline;
+}
 /*end curriculum */

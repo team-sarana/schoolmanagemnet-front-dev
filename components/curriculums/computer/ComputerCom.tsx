@@ -123,31 +123,34 @@ export default function ComputerCom() {
         <>
             <div className="section-padding">
                 <div className="container">
+                    <div className="banner_title">
+                        Computer Course
+                    </div>
                     <div className="row g-4">
                         {currentCourses.map((course) => (
                             <div
                                 key={course.id}
-                                className={`col-lg-3 col-md-6 wow fadeInUp`}
-                            // data-wow-delay={course.delay}
+                                className={`col-lg-3 col-md-3 col-sm-6 wow fadeInUp`}
                             >
-                                <div className="banner_curric shadow-md">
-                                    <div className="position-relative img-curric mt-auto mb-2">
-
+                                <div className="courses-item d-flex flex-column bg-white overflow-hidden h-full rounded shadow-sm">
+                                    <div className="relative w-full h-[200px]">
                                         <Image
                                             src={course.image}
-                                            fill
                                             alt={course.title}
+                                            fill
+                                            className="object-cover"
                                         />
-                                        <div className="courses-overlay">
+                                        <div className="courses-overlay absolute inset-0 flex justify-center items-center bg-black bg-opacity-30 opacity-0 hover:opacity-100 transition-opacity duration-300">
                                             <Link className="btn btn-outline-primary border-2" href="/">
-                                                Read More
+                                                View Detail
                                             </Link>
                                         </div>
                                     </div>
-                                    <Link href="" className="text-center">
-                                        <h5>
-                                            {course.title}</h5>
-                                    </Link>
+                                    <div className="p-4 pt-2 relative">
+                                        <Link href="/" className="mb-3 des-title">
+                                            <span>{course.title}</span>
+                                        </Link>
+                                    </div>
                                 </div>
                             </div>
                         ))}
