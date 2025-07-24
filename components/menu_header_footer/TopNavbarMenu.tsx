@@ -31,7 +31,7 @@ export default function TopNavbarMenu() {
                                     <Link href="/faq">FAQ</Link>
                                 </li>
                                 <li>
-                                    <Link href="/privacy">Privacy Policy</Link>
+                                    <Link href="/privacy-policy">Privacy Policy</Link>
                                 </li>
                                 <li>
                                     <Link href="/term-condition">Term & Condition</Link>

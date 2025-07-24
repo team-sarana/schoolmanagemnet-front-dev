@@ -52,9 +52,9 @@ export default function NavbarMenu() {
       },
       { id: 4, label: "News", href: "/news" },
       { id: 5, label: "Gallerys", href: "/gallery" },
-      { id: 6, label: "Facility", href: "/facility" },
+      // { id: 6, label: "Facility", href: "/facility" },
       // { id: 7, label: "Partner", href: "/partner" },
-      { id: 7, label: "Contact", href: "/contact" },
+      { id: 6, label: "Contact", href: "/contact" },
     ];
     setMenuItems(data);
   }, []);

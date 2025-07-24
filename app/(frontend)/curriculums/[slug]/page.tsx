@@ -1,10 +1,10 @@
-import NewsDetail from '@/components/news/NewsDetail'
+import CurriculumDetail from '@/components/curriculums/CurriculumDetail'
 import React from 'react'
 
 export default function page() {
     return (
         <div>
-            <NewsDetail />
+            <CurriculumDetail />
         </div>
     )
 }

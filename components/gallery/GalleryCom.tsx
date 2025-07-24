@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import useFancybox from '@/store/FancyBoxGallery';
+import { motion, AnimatePresence } from 'framer-motion';
 
 type GalleryItem = {
     src: string;
@@ -24,11 +25,12 @@ const filterTabs = ['all', 'computer', 'english', 'chinese', 'thai'] as const;
 
 export default function GalleryCom() {
     const [fancyboxRef] = useFancybox();
-    const [activeFilter, setActiveFilter] = useState<'all' | 'computer' | 'english' | 'chinese' | 'thai'>('all');
+    const [activeFilter, setActiveFilter] = useState<(typeof filterTabs)[number]>('all');
 
-    const filteredImages = activeFilter === 'all'
-        ? allGalleryImages
-        : allGalleryImages.filter((img) => img.type === activeFilter);
+    const filteredImages =
+        activeFilter === 'all'
+            ? allGalleryImages
+            : allGalleryImages.filter((img) => img.type === activeFilter);
 
     return (
         <div className="section-padding">
@@ -42,7 +44,7 @@ export default function GalleryCom() {
                             key={tab}
                             onClick={() => setActiveFilter(tab)}
                             className={`px-4 py-1.5 text-sm rounded-full border ${activeFilter === tab
-                                ? 'bg-[#653332] text-white border-[#653332]'
+                                ? 'bg-[#2e73ba] text-white border-[#653332]'
                                 : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-100'
                                 }`}
                         >
@@ -57,23 +59,30 @@ export default function GalleryCom() {
                         className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 lg:gap-6"
                         ref={fancyboxRef}
                     >
-                        {filteredImages.map((img, index) => (
-                            <a
-                                key={index}
-                                href={img.src}
-                                data-fancybox="gallery"
-                                className="relative overflow-hidden rounded-2xl cursor-pointer group shadow-md block"
-                            >
-                                <Image
-                                    src={img.src}
-                                    alt={`gallery-${index}`}
-                                    width={640}
-                                    height={360}
-                                    loading="lazy"
-                                    className="w-full h-48 md:h-56 object-cover transition-transform duration-300 transform group-hover:scale-105"
-                                />
-                            </a>
-                        ))}
+                        <AnimatePresence mode="popLayout">
+                            {filteredImages.map((img, index) => (
+                                <motion.a
+                                    key={img.src + index}
+                                    href={img.src}
+                                    data-fancybox="gallery"
+                                    className="relative overflow-hidden rounded-2xl cursor-pointer group shadow-md block"
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 0.9 }}
+                                    transition={{ duration: 0.3 }}
+                                    layout
+                                >
+                                    <Image
+                                        src={img.src}
+                                        alt={`gallery-${index}`}
+                                        width={640}
+                                        height={360}
+                                        loading="lazy"
+                                        className="w-full h-48 md:h-56 object-cover transition-transform duration-300 transform group-hover:scale-105"
+                                    />
+                                </motion.a>
+                            ))}
+                        </AnimatePresence>
                     </div>
                 </div>
             </div>

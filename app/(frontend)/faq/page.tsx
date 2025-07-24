@@ -1,4 +1,4 @@
-import FAQCom from '@/components/faq/FAQCom'
+import FAQCom from '@/components/faq/FAQCom';
 import React from 'react'
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "";
@@ -15,6 +15,8 @@ export const metadata = {
         type: "website",
     },
 };
+
+
 
 export default function page() {
     return (

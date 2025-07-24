@@ -20,7 +20,7 @@ export default function ContactComponent() {
                             />
                         </div>
                     </div>
-                    <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                         <h6 className="text-primary text-uppercase mb-2">Contact Us</h6>
                         <h5 className="mb-4">If You Have Any Question, Please Contact</h5>
                         {/* Form Contact */}

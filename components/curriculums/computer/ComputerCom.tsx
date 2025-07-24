@@ -141,13 +141,13 @@ export default function ComputerCom() {
                                             className="object-cover"
                                         />
                                         <div className="courses-overlay absolute inset-0 flex justify-center items-center bg-black bg-opacity-30 opacity-0 hover:opacity-100 transition-opacity duration-300">
-                                            <Link className="btn btn-outline-primary border-2" href="/">
+                                            <Link className="btn btn-outline-primary border-2" href="/curriculums/science-101">
                                                 View Detail
                                             </Link>
                                         </div>
                                     </div>
                                     <div className="p-4 pt-2 relative">
-                                        <Link href="/" className="mb-3 des-title">
+                                        <Link href="/curriculums/science-101" className="mb-3 des-title">
                                             <span>{course.title}</span>
                                         </Link>
                                     </div>

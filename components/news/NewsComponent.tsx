@@ -59,15 +59,15 @@ export default async function NewsPage() {
         <>
             <div className="section-padding">
                 <div className="container">
-                    <div className="banner_title">
+                    <div className="banner_title wow fadeInUp">
                         News
                     </div>
                     <div className="row">
                         {currentNews?.map((post) => (
-                            <div className="col-lg-6 mt-3">
+                            <div className="col-lg-6 mt-3 wow fadeInUp">
                                 <div className="banner_border shadow-md" key={post.id}>
                                     <div className="flex flex-col lg:flex-row gap-4">
-                                        <Link href={`news}`} className="image_border">
+                                        <Link href="/news/one" className="image_border">
                                             {post.image && (
                                                 <Image
                                                     src={post.image}
@@ -79,7 +79,7 @@ export default async function NewsPage() {
                                             )}
                                         </Link>
                                         <div className="lg:w-2/3  leading-relaxed">
-                                            <Link href={`news}`}>
+                                            <Link href="/news/one">
                                                 <h3>{post.title}</h3>
                                             </Link>
                                             <div className="desc khmer-text">{post.description}</div>
