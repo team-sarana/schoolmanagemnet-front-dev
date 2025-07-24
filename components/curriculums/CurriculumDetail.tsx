@@ -94,7 +94,7 @@ export default function CurriculumDetail() {
                                 >
                                     {images.map((src, index) => (
                                         <SwiperSlide key={index}>
-                                            <img
+                                            <Image
                                                 src={src}
                                                 alt={`Slide ${index + 1}`}
                                                 className="w-full object-cover rounded-lg h-full"
@@ -127,7 +127,7 @@ export default function CurriculumDetail() {
                                     className={`cursor-pointer rounded-md overflow-hidden ${activeIndex === index ? "ring-2 ring-blue-500" : ""
                                         }`}
                                 >
-                                    <img
+                                    <Image
                                         src={src}
                                         alt={`Thumbnail ${index + 1}`}
                                         className="object-cover w-full h-20"

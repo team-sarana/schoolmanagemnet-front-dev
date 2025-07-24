@@ -37,7 +37,7 @@ const newsItems = [
 
 
 
-export default async function NewsPage() {
+export default function NewsPage() {
 
     const itemsPerPage = 8; // Number of items per page
     const [currentPage, setCurrentPage] = useState(1);
@@ -64,8 +64,8 @@ export default async function NewsPage() {
                     </div>
                     <div className="row">
                         {currentNews?.map((post) => (
-                            <div className="col-lg-6 mt-3 wow fadeInUp">
-                                <div className="banner_border shadow-md" key={post.id}>
+                            <div key={post.id} className="col-lg-6 mt-3 wow fadeInUp">
+                                <div className="banner_border shadow-md" >
                                     <div className="flex flex-col lg:flex-row gap-4">
                                         <Link href="/news/one" className="image_border">
                                             {post.image && (

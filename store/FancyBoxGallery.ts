@@ -10,19 +10,18 @@ export default function useFancybox() {
   useEffect(() => {
     if (!ref.current) return;
 
-    Fancybox.bind(
-      ref.current,
-      '[data-fancybox="gallery"]',
-      {
-        animated: true,
-        showClass: 'fancybox-zoomIn',
-        hideClass: 'fancybox-zoomOut',
-        Images: { zoom: true },
-        Carousel: {
-          transition: 'fade', // valid option
+    Fancybox.bind(ref.current, '[data-fancybox="gallery"]', {
+      showClass: 'fancybox-zoomIn',
+      hideClass: 'fancybox-zoomOut',
+      Carousel: {
+        transition: 'fade',
+      },
+      on: {
+        init: (fancybox:any) => {
+          fancybox.plugins.Zoom?.enable();
         },
-      }
-    );
+      },
+    });
 
     return () => {
       Fancybox.unbind(ref.current, '[data-fancybox="gallery"]');

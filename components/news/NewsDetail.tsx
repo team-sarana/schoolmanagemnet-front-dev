@@ -94,8 +94,10 @@ export default function NewsDetail() {
                                 >
                                     {images.map((src, index) => (
                                         <SwiperSlide key={index}>
-                                            <img
+                                            <Image
                                                 src={src}
+                                                width={500}
+                                                height={350}
                                                 alt={`Slide ${index + 1}`}
                                                 className="w-full object-cover rounded-lg h-full"
                                                 style={{ maxHeight: "450px" }}
@@ -127,8 +129,10 @@ export default function NewsDetail() {
                                     className={`cursor-pointer rounded-md overflow-hidden ${activeIndex === index ? "ring-2 ring-blue-500" : ""
                                         }`}
                                 >
-                                    <img
+                                    <Image
                                         src={src}
+                                        width={100}
+                                        height={100}
                                         alt={`Thumbnail ${index + 1}`}
                                         className="object-cover w-full h-20"
                                     />
