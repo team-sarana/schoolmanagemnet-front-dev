@@ -58,20 +58,24 @@ export default function SlideHome() {
     }, []);
 
     return (
-        <div className="container relative w-full h-[80vh] overflow-hidden">
+        <div className="relative w-full h-[400px] overflow-hidden">
             {/* Custom Navigation Buttons */}
-            <button
-                ref={prevRef}
-                className="absolute btn_slide_home left-4 top-1/2 z-20 transform -translate-y-1/2 "
-            >
-                <GrFormPrevious size={30} />
-            </button>
-            <button
-                ref={nextRef}
-                className="absolute btn_slide_home right-4 top-1/2 z-20 transform -translate-y-1/2"
-            >
-                <MdNavigateNext size={30} />
-            </button>
+            <div className="absolute inset-0 z-20 pointer-events-none">
+                <div className="container h-full relative">
+                    <button
+                        ref={prevRef}
+                        className="absolute left-4 top-1/2 -translate-y-1/2 btn_slide_home pointer-events-auto"
+                    >
+                        <GrFormPrevious size={30} />
+                    </button>
+                    <button
+                        ref={nextRef}
+                        className="absolute right-4 top-1/2 -translate-y-1/2 btn_slide_home pointer-events-auto"
+                    >
+                        <MdNavigateNext size={30} />
+                    </button>
+                </div>
+            </div>
 
             <Swiper
                 modules={[Autoplay, Navigation, EffectFade]}
@@ -97,7 +101,7 @@ export default function SlideHome() {
             >
                 {slides.map((slide, index) => (
                     <SwiperSlide key={slide.id}>
-                        <div className="relative w-full h-[90vh]">
+                        <div className="relative w-full h-[400px]">
                             <Image
                                 src={slide.image}
                                 alt={slide.title}

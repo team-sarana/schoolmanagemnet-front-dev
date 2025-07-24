@@ -42,19 +42,19 @@ export default function NavbarMenu() {
       {
         id: 3,
         label: "Curriculums",
-        href: "/courses",
+        href: "/curriculums",
         submenu: [
-          { id: 1, label: "Computer Course", href: "/courses" },
-          { id: 2, label: "English Course", href: "/courses" },
-          { id: 3, label: "Chinese Course", href: "/courses" },
-          { id: 4, label: "Thai Course", href: "/courses" },
+          { id: 1, label: "Computer Course", href: "/curriculums/computer" },
+          { id: 2, label: "English Course", href: "/curriculums/english" },
+          { id: 3, label: "Chinese Course", href: "/curriculums/chinese" },
+          { id: 4, label: "Thai Course", href: "/curriculums/thai" },
         ],
       },
       { id: 4, label: "News", href: "/news" },
       { id: 5, label: "Gallerys", href: "/gallery" },
-      { id: 6, label: "Facility", href: "/facility" },
+      // { id: 6, label: "Facility", href: "/facility" },
       // { id: 7, label: "Partner", href: "/partner" },
-      { id: 7, label: "Contact", href: "/contact" },
+      { id: 6, label: "Contact", href: "/contact" },
     ];
     setMenuItems(data);
   }, []);

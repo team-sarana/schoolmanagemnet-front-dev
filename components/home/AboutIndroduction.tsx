@@ -76,7 +76,7 @@ export default function AboutIndroduction() {
     return (
         <>
             <div className="section-padding">
-                <div className="container">
+                <div className="container wow fadeInUp" data-wow-delay="0.1s">
                     <div className="row">
                         {/* Left: Swiper Slider */}
                         <div className="col-lg-6 relative h-[400px]">

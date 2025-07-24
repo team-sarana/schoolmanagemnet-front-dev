@@ -1,30 +1,50 @@
-"use client"
+"use client";
+
 import React from "react";
 import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+
+import "swiper/css";
 
 const partners = [
-    { name: "Facebook", src: "/assets/img/icon_image/facebook.jpg" },
-    { name: "Instagram", src: "/assets/img/icon_image/instagram.jpg" },
-    { name: "TikTok", src: "/assets/img/icon_image/tiktok.png" },
-    { name: "TripAdvisor", src: "/assets/img/icon_image/trip_advisor.png" },
-    { name: "Twitter", src: "/assets/img/icon_image/twitter.png" },
-    { name: "YouTube", src: "/assets/img/icon_image/youtube.jpg" },
+    { name: "CUS", image: "/assets/img/partner/cus.png" },
+    { name: "BCS", image: "/assets/img/partner/bcs.png" },
+    { name: "Teach Smart", image: "/assets/img/partner/teach-smart.png" },
+    { name: "IT", image: "/assets/img/partner/IT.png" },
 ];
 
 export default function PartnerComponent() {
     return (
-        <div className="container mx-auto mt-5 mb-5">
-            <h2 className="text-center text-2xl font-bold mb-10">Partnerships</h2>
-            <div className="grid grid-cols-6 sm:grid-cols-3 md:grid-cols-6 gap-2 place-items-center">
-                {partners.map((partner, index) => (
-                    <>
-                        <div key={index} className="text-center p-4 bg-white shadow-md rounded-lg">
-                            <Image src={partner.src} width={100} height={100} alt={partner.name} className="object-contain" />
-                            {/* <div>{partner.name}</div> */}
-                        </div>
-                    </>
-
-                ))}
+        <div className="section-padding">
+            <div className="container wow fadeInUp" data-wow-delay="0.1s">
+                <h2 className="mb-10 text-center">Partnerships</h2>
+                <Swiper
+                    slidesPerView={2}
+                    spaceBetween={20}
+                    autoplay={{ delay: 2500, disableOnInteraction: false }}
+                    breakpoints={{
+                        640: { slidesPerView: 2 },
+                        768: { slidesPerView: 3 },
+                        1024: { slidesPerView: 4 },
+                    }}
+                    loop={true}
+                    modules={[Autoplay]}
+                >
+                    {partners.map((partner, index) => (
+                        <SwiperSlide key={index}>
+                            <div className="d-flex justify-content-center py-2">
+                                <Image
+                                    src={partner.image}
+                                    alt={partner.name}
+                                    width={200}
+                                    height={120}
+                                    className="object-contain"
+                                />
+                            </div>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
             </div>
         </div>
     );

@@ -8,9 +8,12 @@ import ReactQueryProvider from "./lib/ReactQueryProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "SITS Information Technology School",
-  description: "SITS Information Technology School",
+export const metadata = {
+  title: {
+    template: "%s - SITS Information Technology School",
+    default: "SITS Information Technology School",
+  },
+  description: "Welcome to SITS — the leading Information Technology School in Siem Reap.",
 };
 
 export default function RootLayout({
@@ -48,6 +51,23 @@ export default function RootLayout({
       <Script src="/assets/lib/waypoints/waypoints.min.js" />
       <Script src="/assets/lib/owlcarousel/owl.carousel.min.js" />
       <Script src="/assets/js/main.js" />
+
+      {/* <Script
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+          window.$crisp = [];
+          window.CRISP_WEBSITE_ID = "YOUR_CRISP_ID";
+          (function () {
+            var d = document;
+            var s = d.createElement("script");
+            s.src = "https://client.crisp.chat/l.js";
+            s.async = 1;
+            d.getElementsByTagName("head")[0].appendChild(s);
+          })();
+        `,
+        }}
+      /> */}
 
 
 

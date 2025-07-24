@@ -11,12 +11,12 @@ export default function TopNavbarMenu() {
 
                         <div className="h-100 d-inline-flex align-items-center me-4">
                             <span className="fa fa-phone-alt text-white me-1" />
-                            <span>+855 12 345 67</span>
+                            <span>+855 86 33 50 50</span>
                         </div>
                         <div className="h-100 d-inline-flex align-items-center me-4">
                             <span>
                                 <i className="fa fa-envelope me-2" />
-                                info@example.com
+                                rousmab9999@gmail.com
                             </span>
                         </div>
                     </div>
@@ -24,22 +24,19 @@ export default function TopNavbarMenu() {
 
                         <div className="h-100 d-inline-flex align-items-center mx-n2">
                             <ul className='d-flex menu_header_top'>
-                                <li>
+                                {/* <li>
                                     <Link href="/partner">Partner</Link>
-                                </li>
+                                </li> */}
                                 <li>
                                     <Link href="/faq">FAQ</Link>
                                 </li>
                                 <li>
-                                    <Link href="/privacy">Privacy Policy</Link>
+                                    <Link href="/privacy-policy">Privacy Policy</Link>
                                 </li>
                                 <li>
                                     <Link href="/term-condition">Term & Condition</Link>
                                 </li>
                             </ul>
-                            {/* <span className='ms-2'>
-                                <LanguageSwitcher />
-                            </span> */}
                         </div>
                     </div>
                 </div>
