@@ -13,27 +13,25 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 
-const images = [
-    "/assets/img/course/course2.jpg",
-    "/assets/img/course/course3.jpg",
-    "/assets/img/course/course4.jpg",
-    "/assets/img/course/course5.jpg",
-];
+interface NewsItem {
+    id: number;
+    title: string;
+    description_en?: string;
+    description_kh?: string;
+    image?: string;
+    image_gallerys?: string[];
+}
 
-const sidebarItems = [
-    {
-        src: "/assets/img/course/course1.jpg",
-        title: "Computer",
-        href: "#",
-    },
-    {
-        src: "/assets/img/course/course2.jpg",
-        title: "Design",
-        href: "#",
-    },
-];
+interface NewsDetailProps {
+    id: string | string[] | undefined;
+}
 
-export default function NewsDetail() {
+export default function NewsDetail({ id }: NewsDetailProps) {
+    const [news, setNews] = useState<NewsItem | null>(null);
+    const [allNews, setAllNews] = useState<NewsItem[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
+
     const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass | null>(null);
     const [activeIndex, setActiveIndex] = useState(0);
 
@@ -42,20 +40,75 @@ export default function NewsDetail() {
 
     const [navigationReady, setNavigationReady] = useState(false);
 
-    // Set navigationReady after refs are attached to DOM
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
+    const STORAGE_URL = API_URL.replace(/\/api$/, "");
+
     useEffect(() => {
-        // Small delay to ensure refs are attached before Swiper uses them
         const timeout = setTimeout(() => setNavigationReady(true), 100);
         return () => clearTimeout(timeout);
     }, []);
+
+    useEffect(() => {
+        if (!id) return;
+
+        async function fetchNews() {
+            setLoading(true);
+            setError(null);
+            try {
+                const res = await fetch(`${API_URL}/news/${id}`);
+                if (!res.ok) throw new Error(`Failed to fetch news with id ${id}`);
+                const data = await res.json();
+                setNews(data);
+
+                const allRes = await fetch(`${API_URL}/news`);
+                if (!allRes.ok) throw new Error("Failed to fetch all news");
+                const allData: NewsItem[] = await allRes.json();
+
+                const filteredNews = allData.filter(item => String(item.id) !== String(id));
+                setAllNews(filteredNews);
+            } catch (err: any) {
+                console.error(err);
+                setError(err.message || "Unknown error");
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        fetchNews();
+    }, [id]);
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p className="text-red-600">Error: {error}</p>;
+    if (!news) return <p>News not found</p>;
+
+    const mainImageUrl = news.image?.startsWith("http")
+        ? news.image
+        : news.image
+            ? `${STORAGE_URL}/storage/news/${news.image}`
+            : null;
+
+    const sliderImages = mainImageUrl
+        ? [mainImageUrl, ...(news.image_gallerys || []).map((img) =>
+            img.startsWith("http")
+                ? img
+                : `${STORAGE_URL}/storage/news/gallery/${img}`
+        )]
+        : (news.image_gallerys || []).map((img) =>
+            img.startsWith("http")
+                ? img
+                : `${STORAGE_URL}/storage/news/gallery/${img}`
+        );
 
     return (
         <div className="section-padding">
             <div className="container">
                 <div className="row">
+                    {/* Main content */}
                     <div className="col-md-9">
-                        <div className="relative h-[450px] w-full">
-                            {/* Navigation Buttons */}
+                        <h1 className="text-3xl font-bold mb-6">{news.title}</h1>
+
+                        {/* Swiper Main */}
+                        <div className="relative h-[450px] w-full rounded-lg overflow-hidden">
                             <button
                                 ref={prevRef}
                                 className="absolute btn_slide_home left-4 top-1/2 z-20 transform -translate-y-1/2"
@@ -73,7 +126,6 @@ export default function NewsDetail() {
                                 <MdNavigateNext size={30} />
                             </button>
 
-                            {/* Main Swiper */}
                             {navigationReady && (
                                 <Swiper
                                     modules={[Navigation, Thumbs, Autoplay]}
@@ -89,17 +141,17 @@ export default function NewsDetail() {
                                     onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
                                     spaceBetween={10}
                                     slidesPerView={1}
-                                    loop
-                                    className="rounded-lg h-full"
+                                    loop={sliderImages.length > 1}
+                                    className="h-full rounded-lg"
                                 >
-                                    {images.map((src, index) => (
+                                    {sliderImages.map((src, index) => (
                                         <SwiperSlide key={index}>
                                             <Image
                                                 src={src}
-                                                width={500}
-                                                height={350}
                                                 alt={`Slide ${index + 1}`}
-                                                className="w-full object-cover rounded-lg h-full"
+                                                width={600}
+                                                height={400}
+                                                className="w-full h-full object-cover rounded-lg"
                                                 style={{ maxHeight: "450px" }}
                                             />
                                         </SwiperSlide>
@@ -108,63 +160,70 @@ export default function NewsDetail() {
                             )}
                         </div>
 
-                        {/* Thumbnail Swiper */}
-                        <Swiper
-                            modules={[Thumbs]}
-                            slidesPerView={4}
-                            spaceBetween={10}
-                            watchSlidesProgress
-                            slideToClickedSlide={true}
-                            className="mt-4"
-                            onSwiper={(swiper) => {
-                                // Only set thumbsSwiper once
-                                if (!thumbsSwiper) {
-                                    setThumbsSwiper(swiper);
-                                }
-                            }}
-                        >
-                            {images.map((src, index) => (
-                                <SwiperSlide
-                                    key={index}
-                                    className={`cursor-pointer rounded-md overflow-hidden ${activeIndex === index ? "ring-2 ring-blue-500" : ""
-                                        }`}
-                                >
-                                    <Image
-                                        src={src}
-                                        width={100}
-                                        height={100}
-                                        alt={`Thumbnail ${index + 1}`}
-                                        className="object-cover w-full h-20"
-                                    />
-                                </SwiperSlide>
-                            ))}
-                        </Swiper>
+                        {/* Thumbnails */}
+                        {sliderImages.length > 1 && (
+                            <Swiper
+                                modules={[Thumbs]}
+                                slidesPerView={4}
+                                spaceBetween={10}
+                                watchSlidesProgress
+                                slideToClickedSlide={true}
+                                className="mt-4"
+                                onSwiper={(swiper) => {
+                                    if (!thumbsSwiper) setThumbsSwiper(swiper);
+                                }}
+                            >
+                                {sliderImages.map((src, index) => (
+                                    <SwiperSlide
+                                        key={index}
+                                        className={`cursor-pointer rounded-md overflow-hidden ${activeIndex === index ? "ring-2 ring-blue-500" : ""}`}
+                                    >
+                                        <Image
+                                            src={src}
+                                            width={100}
+                                            height={100}
+                                            alt={`Thumbnail ${index + 1}`}
+                                            className="object-cover w-full h-20"
+                                        />
+                                    </SwiperSlide>
+                                ))}
+                            </Swiper>
+                        )}
 
-                        <h2 className="mt-4">Computer</h2>
-                        <div>Description</div>
+                        <div className="mt-6">
+                            <p>{news.description_en || news.description_kh}</p>
+                        </div>
                     </div>
 
-                    {/* Sidebar */}
+                    {/* Related News Sidebar */}
                     <div className="col-md-3">
-                        <h2 className="mb-4">Related Course</h2>
-                        {sidebarItems.map(({ src, title, href }, index) => (
-                            <div key={index} className="d-flex mb-3">
-                                <Image
-                                    src={src}
-                                    width={100}
-                                    height={80}
-                                    alt={title}
-                                    className="rounded-lg"
-                                />
-                                <Link href={href} className="ms-3">
-                                    <h5>{title}</h5>
-                                </Link>
-                            </div>
-                        ))}
-                    </div>
+                        <h2 className="mb-4">Related News</h2>
+                        {allNews.length === 0 && <p>No related news found.</p>}
+                        {allNews.map(({ id, title, image }) => {
+                            const imageUrl = image?.startsWith("http")
+                                ? image
+                                : image
+                                    ? `${STORAGE_URL}/storage/news/${image}`
+                                    : "/placeholder-image.png";
 
+                            return (
+                                <div key={id} className="d-flex mb-3">
+                                    <Image
+                                        src={imageUrl}
+                                        width={100}
+                                        height={80}
+                                        alt={title}
+                                        className="rounded-lg"
+                                    />
+                                    <Link href={`/news/${id}`} className="ms-3">
+                                        <h5>{title}</h5>
+                                    </Link>
+                                </div>
+                            );
+                        })}
+                    </div>
                 </div>
             </div>
-        </div >
+        </div>
     );
 }
