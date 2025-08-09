@@ -13,11 +13,8 @@ export default function LocationCom() {
                             {/* Location Section */}
                             <section className="mb-5 text-center">
                                 <h1 className="mb-4">Our Location</h1>
-                                <p className="text-gray-700 text-lg">Visit our school at:</p>
-                                <p className="text-gray-800 font-semibold mt-2">
-                                    ABC International School
-                                    123 Education Lane, Cityville, State, Country
-                                    ZIP Code: 123456
+                                <p className="khmer-text mt-2">
+                                    បច្ចុប្បន្ននេះសាលាជំនាញព័ត៌មានវិទ្យា អេស អាយ ធី អេស មានទីតាំងស្ថិតនៅ ភូមិវត្តបូព៌ សង្កាត់សាលាកំរើក ក្រុងសៀមរាប ខេត្តសៀមរាប ។
                                 </p>
                             </section>
 

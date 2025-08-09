@@ -1,57 +1,50 @@
-"use client"
+'use client'
+
 import React from 'react'
 import Image from 'next/image'
 import RelatedMenu from './RelatedMenu'
 
 export default function HistoryCom() {
     return (
-        <>
-            <div className='section-padding'>
-                <div className='container'>
-                    <div className="row">
-                        <div className='col-md-9'>
-                            {/* History Section */}
-                            <section className="khmer-text">
-                                <h2>ប្រវត្តិរបស់យើង</h2>
-                                <p className="text-gray-700">
-                                    បង្កើតឡើងក្នុងឆ្នាំ <strong>1985</strong> ស្ថាប័នរបស់យើងបានឧទ្ទិសខ្លួនដល់អប់រំដែលមានគុណភាពខ្ពស់ និងការអប់រំផ្លូវមនុស្សធម៌។ នៅអំឡុងពេលឆ្នាំកន្លងមក យើងបានលូតលាស់ពីវិទ្យាស្ថានតូចមួយទៅជាស្ថាប័នអប់រំដែលមានឈ្មោះល្បីល្បាញ ដោយលើកកម្ពស់នវានុវត្តន៍ ភាពជាអ្នកដឹកនាំ និងក្តីស្រលាញ់ក្នុងការរៀន។
-                                </p>
-                                <p className="mt-2 text-gray-700">
-                                    អ្នកស្ថិតក្នុងបំណុលនៃស្ថាប័នរបស់យើងមានដូចជា៖
-                                </p>
+        <div className="section-padding py-10">
+            <div className="container">
+                <div className="row">
+                    {/* Main Content */}
+                    <div className="col-md-9">
+                        {/* History Section */}
+                        <section className="khmer-text mb-10">
+                            <h2 className="text-2xl font-semibold mb-4">ប្រវត្តិរបស់យើង</h2>
+                            <p className="text-gray-700 leading-relaxed">
+                                សាលាជំនាញព័ត៌មានវិទ្យា អេស អាយ ធី អេស គឺជាស្ថាប័នអប់រំឯកជនមួយដែលត្រូវបានបង្កើតឡើងនៅថ្ងៃទី០១ ខែវិច្ឆិកា ឆ្នាំ២០១៨។ សាលាមានអាស័យដ្ឋានស្ថិតនៅភូមិវត្តបូព៌ សង្កាត់សាលាកំរើក ក្រុងសៀមរាប ខេត្តសៀមរាប។ សាលាមានបេសកកម្មបណ្ដុះបណ្ដាលជំនាញកុំព្យូទ័រ ដូចជា៖ ថ្នាក់មូលដ្ឋានគ្រឹះកុំព្យូទ័រ, វគ្គ Advance Excel, វគ្គក្រាហ្វិចឌីហ្សាញ និងបោះពុម្ព, វគ្គកាត់តវីឌីអូ និងផលិតវីឌីអូ, វគ្គគូសប្លង់, វគ្គតុក្កតា, វគ្គ Facebook Page និងការបង្រៀនភាសាបរទេស។ ការអប់រំទាំងនេះប្រកបដោយគុណភាព ប្រសិទ្ធភាព សីលធម៌ និងឥរិយាបថល្អ ដើម្បីអភិវឌ្ឍធនធានមនុស្សដ៏មានតម្លៃសម្រាប់សង្គមជាតិ។
+                            </p>
+                        </section>
 
-                            </section>
+                        {/* Logo Meaning Section */}
+                        <section className="khmer-text">
+                            <h2 className="text-2xl font-semibold mb-4">អត្ថន័យនៃឡូហ្គោ</h2>
+                            <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
+                                <Image
+                                    src="/assets/img/logo.png"
+                                    alt="School Logo"
+                                    width={150}
+                                    height={150}
+                                />
+                                <p className="text-gray-700 leading-relaxed">
+                                    ស្លាកសញ្ញារបស់សាលាជំនាញព័ត៌មានវិទ្យា អេស អាយ ធី អេស ត្រូវបានបែងចែកជាបីផ្នែក៖ <br />
+                                    <span className="block mt-2">- ផ្នែកខាងលើ៖ ជាឈ្មោះសាលា សរសេរជាភាសាខ្មែរ។</span>
+                                    <span className="block">- ផ្នែកកណ្ដាល៖ រូបកុំព្យូទ័រ និងក្បាលមនុស្ស តំណាងឱ្យការរីកចម្រើននៃបច្ចេកវិទ្យា និងអក្សរខ្មែរ "អេស អាយ ធី អេស"។</span>
+                                    <span className="block">- ផ្នែកខាងក្រោម៖ ជាឈ្មោះសាលា សរសេរជាភាសាអង់គ្លេស។</span>
+                                </p>
+                            </div>
+                        </section>
+                    </div>
 
-                            {/* Logo Meaning Section */}
-                            <section className="mt-5 khmer-text">
-                                <h2>អត្ថន័យនៃឡូហ្គោ</h2>
-                                <div className="flex flex-col md:flex-row items-center">
-                                    <Image
-                                        src="/assets/img/logo.png"
-                                        alt="School Logo"
-                                        width={150}
-                                        height={150}
-                                    />
-                                    <div className="ml-6 mt-4 md:mt-0">
-                                        <p className="text-gray-700">
-                                            ឡូហ្គោរបស់យើងសម្គាល់អំពីតម្លៃ និងបេសកកម្មរបស់សាលារៀន៖
-                                        </p>
-                                        <ul className="list-disc ml-6 mt-2 text-gray-700">
-                                            <li><strong>សៀវភៅ និងពន្លឺ:</strong> បង្ហាញពីចំណេះដឹង និងការបំភ្លឺវិចារ។</li>
-                                            <li><strong>ពណ៌បៃតង និងខៀវ:</strong> សម្គាល់អំពីការលូតលាស់ ប្រាជ្ញា និងសុខភាព។</li>
-                                            <li><strong>ដាប់សៀល:</strong> បង្ហាញអំពីការការពារ និងសុចរិតភាព។</li>
-                                            <li><strong>គោលបំណងសាលារៀន:</strong> &quot;ចំណេះដឹង សុចរិតភាព ភាពជាអ្នកដឹកនាំ&quot;</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </section>
-                        </div>
-                        <div className='col-md-3'>
-                            <RelatedMenu />
-                        </div>
+                    {/* Related Menu */}
+                    <div className="col-md-3">
+                        <RelatedMenu />
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
