@@ -104,9 +104,9 @@ export default function FacilityComponent() {
                     </div>
 
                     {/* Sidebar */}
-                    <div className="col-md-3">
+                    {/* <div className="col-md-3">
                         <RelatedMenu />
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>

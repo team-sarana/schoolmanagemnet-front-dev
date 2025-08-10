@@ -9,7 +9,7 @@ export default function SchoolStructureCom() {
       <div className="section-padding">
         <div className='container'>
           <div className='row'>
-            <div className='col-md-9 khmer-text'>
+            <div className='col-md-12 khmer-text'>
               {/* រចនាសម្ព័ន្ធការគ្រប់គ្រង */}
               <section className="mb-4">
                 <h1 className="text-3xl font-bold text-blue-600 mb-4">រចនាសម្ព័ន្ធការគ្រប់គ្រង</h1>
@@ -18,9 +18,9 @@ export default function SchoolStructureCom() {
                 </div>
               </section>
             </div>
-            <div className='col-md-3'>
+            {/* <div className='col-md-3'>
               <RelatedMenu />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

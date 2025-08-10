@@ -10,7 +10,7 @@ export default function HistoryCom() {
             <div className="container">
                 <div className="row">
                     {/* Main Content */}
-                    <div className="col-md-9">
+                    <div className="col-md-12">
                         {/* History Section */}
                         <section className="khmer-text mb-10">
                             <h2 className="text-2xl font-semibold mb-4">ប្រវត្តិរបស់យើង</h2>
@@ -40,9 +40,9 @@ export default function HistoryCom() {
                     </div>
 
                     {/* Related Menu */}
-                    <div className="col-md-3">
+                    {/* <div className="col-md-3">
                         <RelatedMenu />
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>

@@ -96,6 +96,8 @@ export default function CurriculumDetail() {
                                         <SwiperSlide key={index}>
                                             <Image
                                                 src={src}
+                                                width={500}
+                                                height={500}
                                                 alt={`Slide ${index + 1}`}
                                                 className="w-full object-cover rounded-lg h-full"
                                                 style={{ maxHeight: "450px" }}
@@ -129,6 +131,8 @@ export default function CurriculumDetail() {
                                 >
                                     <Image
                                         src={src}
+                                        width={300}
+                                        height={300}
                                         alt={`Thumbnail ${index + 1}`}
                                         className="object-cover w-full h-20"
                                     />

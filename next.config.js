@@ -6,6 +6,7 @@ module.exports = {
     },
 
     images: {
-        domains: ['sits.local'],
+        // domains: ['sits.local'],
+        domains: ['127.0.0.1', 'localhost'], // add all hostnames your images come from
     }
 }

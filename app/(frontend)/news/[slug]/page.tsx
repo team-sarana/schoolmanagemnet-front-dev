@@ -1,10 +1,12 @@
-import NewsDetail from '@/components/news/NewsDetail'
-import React from 'react'
+// app/(frontend)/news/[slug]/page.tsx
+import NewsDetail from '@/components/news/NewsDetail';
 
-export default function page() {
-    return (
-        <div>
-            <NewsDetail />
-        </div>
-    )
+interface PageProps {
+    params: {
+        slug: string;
+    };
+}
+
+export default function NewsPage({ params }: PageProps) {
+    return <NewsDetail id={params.slug} />;
 }
