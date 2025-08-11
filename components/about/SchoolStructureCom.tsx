@@ -1,0 +1,71 @@
+"use client"
+import React from 'react'
+import Image from 'next/image'
+import RelatedMenu from './RelatedMenu'
+
+export default function SchoolStructureCom() {
+  return (
+    <>
+      <div className="section-padding">
+        <div className='container'>
+          <div className='row'>
+            <div className='col-md-9 khmer-text'>
+              {/* រចនាសម្ព័ន្ធការគ្រប់គ្រង */}
+              <section className="mb-4">
+                <h1 className="text-3xl font-bold text-blue-600 mb-4">រចនាសម្ព័ន្ធការគ្រប់គ្រង</h1>
+                <p className="text-gray-700">
+                  សាលារបស់យើងដឹកនាំដោយក្រុមអ្នកជំនាញដែលមានបទពិសោធន៍ជាច្រើនឆ្នាំ ខិតខំដើម្បីផ្តល់ការអប់រំប្រកបដោយគុណភាព។
+                </p>
+                <ul className="list-disc ml-6 mt-4 text-gray-700">
+                  <li><strong>នាយកសាលា:</strong> គ្រប់គ្រងការប្រតិបត្តិទាំងអស់ និងគោលនយោបាយរបស់សាលា។</li>
+                  <li><strong>នាយិការង:</strong> ជួយក្នុងការគ្រប់គ្រងទូទៅ និងវិន័យ។</li>
+                  <li><strong>គ្រូបង្រៀន និងបុគ្គលិក:</strong> ជាអ្នកបង្រៀន និងជួយដល់ការរៀនសូត្ររបស់សិស្សានុសិស្សឱ្យមានគុណភាព និងប្រសិទ្ធភាពខ្ពស់។</li>
+                </ul>
+              </section>
+
+              {/* ផ្នែកសិក្សា */}
+              <section className="mb-4">
+                <h1 className="text-3xl font-bold text-green-600 mb-4">ផ្នែកសិក្សា</h1>
+                <p className="text-gray-700">
+                  សាលាមានបង្រៀនវគ្គសិក្សាជាច្រើនដូចជា៖
+                </p>
+                <ul className="list-disc ml-6 mt-4 text-gray-700">
+                  <li>- ភាសាអង់គ្លេសសម្រាប់កុមារ</li>
+                  <li>- ភាសាអង់គ្លេសសម្រាប់មនុស្សធំ</li>
+                  <li>- ភាសាចិន</li>
+                  <li>- ភាសាថៃ</li>
+                  <li>- វគ្គសិក្សាជំនាញកុំព្យូទ័រគ្រប់កម្រិត</li>
+                </ul>
+              </section>
+
+              {/* សេវាកម្ម និងសម្ភារៈ */}
+              <section className="mb-4">
+                <h1 className="text-3xl font-bold text-indigo-600 mb-4">បរិក្ខារ និងសេវាកម្ម</h1>
+                <p className="text-gray-700">វិស័យសិក្សារបស់យើងបំពាក់ដោយសម្ភារៈទំនើបសម្រាប់ការរៀនសូត្រ។</p>
+                <ul className="list-disc ml-6 mt-4 text-gray-700">
+                  <li>ថ្នាក់រៀនធំទូលាយមានក្តារចងចាំឆ្លាតវៃ</li>
+                  <li>មន្ទីរពិសោធន៍វិទ្យាសាស្ត្រ និងកុំព្យូទ័របំពេញលម្អិត</li>
+                  <li>បណ្ណាល័យមានសៀវភៅរាប់ពាន់ និងឯកសារស្រាវជ្រាវ</li>
+                  <li>ទីលានកីឡា និងមជ្ឈមណ្ឌលសកម្មភាពក្នុងផ្ទះ</li>
+                  <li>បន្ទប់តន្ត្រី សិល្បៈ និងរបាំ</li>
+                </ul>
+              </section>
+
+              {/* តារាងរចនាសម្ព័ន្ធ */}
+              <section className="mb-4">
+                <h1 className="text-3xl font-bold text-purple-600 mb-4">តារាងរចនាសម្ព័ន្ធ</h1>
+                <p className="text-gray-700">ប្រព័ន្ធដំណើរការរបស់សាលារបស់យើងត្រូវបានបង្ហាញខាងក្រោម។</p>
+                <div className="flex justify-center mt-6">
+                  <Image src="/assets/img/SITS_structure.png" alt="រចនាសម្ព័ន្ធសាលា" width={600} height={400} className="rounded-lg" />
+                </div>
+              </section>
+            </div>
+            {/* <div className='col-md-3'>
+              <RelatedMenu />
+            </div> */}
+          </div>
+        </div>
+      </div>
+    </>
+  )
+}
