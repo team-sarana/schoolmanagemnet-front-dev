@@ -34,21 +34,35 @@ export default function SlideHome() {
         const data: Slide[] = [
             {
                 id: 1,
-                image: "/assets/img/course/course2.jpg",
+                image: "/assets/img/course/course1.jpg",
                 title: "Learn To Study With Confidence",
                 description: "Achieve your goals with our top-notch courses.",
                 buttons: [{ text: "Our Courses", href: "#courses", style: "btn-light" }],
             },
             {
                 id: 2,
-                image: "/assets/img/course/course9.jpg",
+                image: "/assets/img/course/course2.jpg",
                 title: "Study Is Our Top Priority",
                 description: "Empowering students through knowledge.",
                 buttons: [{ text: "Explore More", href: "#courses", style: "btn-primary" }],
             },
             {
                 id: 3,
-                image: "/assets/img/course/course7.jpg",
+                image: "/assets/img/course/course3.jpg",
+                title: "Your Future Begins Here",
+                description: "Join thousands of learners.",
+                buttons: [{ text: "Explore More", href: "#courses", style: "btn-success" }],
+            },
+            {
+                id: 4,
+                image: "/assets/img/course/course4.jpg",
+                title: "Your Future Begins Here",
+                description: "Join thousands of learners.",
+                buttons: [{ text: "Explore More", href: "#courses", style: "btn-success" }],
+            },
+            {
+                id: 5,
+                image: "/assets/img/course/course5.jpg",
                 title: "Your Future Begins Here",
                 description: "Join thousands of learners.",
                 buttons: [{ text: "Get Started", href: "#courses", style: "btn-success" }],

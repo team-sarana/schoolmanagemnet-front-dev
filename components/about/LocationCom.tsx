@@ -11,13 +11,14 @@ export default function LocationCom() {
                     <div className='row'>
                         <div className="col-md-9">
                             {/* Location Section */}
-                            <section className="mb-5 text-center">
-                                <h1 className="mb-4">Our Location</h1>
+                            <section className="mb-5 text-center ">
+                                <h1 className="mb-4 ">Our Location</h1>
                                 <p className="text-gray-700 text-lg">Visit our school at:</p>
-                                <p className="text-gray-800 font-semibold mt-2">
-                                    ABC International School
-                                    123 Education Lane, Cityville, State, Country
-                                    ZIP Code: 123456
+                                <p className="text-gray-800 font-semibold mt-2 khmer-text text-[18px]">
+                                    សាលាមានទីតាំងស្ថិតនៅខាងត្បូងសាលារៀនគួរបៃតងចម្ងាយ៥០ម៉ែត្រ 
+                                </p>
+                                <p className="text-gray-800 font-semibold mt-2 khmer-text text-[18px]">
+                                    ភូមិវត្តបូព៌ សង្កាត់សាលាកំរើក ក្រុងសៀមរាប ខេត្តសៀមរាប។
                                 </p>
                             </section>
 
