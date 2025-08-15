@@ -158,35 +158,31 @@ export default function AboutIndroduction() {
                         </div>
 
                         {/* Right: Content */}
-                        <div className="col-lg-6">
-                            <h6 className="text-primary text-uppercase mb-2 mt-3">About Us</h6>
-                            <h3 className="mb-4">We Help Students To Pass</h3>
+                        <div className="col-lg-6 khmer-text">
+                            <h6 className="text-primary text-uppercase mb-2 mt-3">អំពីយើង</h6>
+
                             <p>
-                                Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita
-                                erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet.
+                                សាលាជំនាញព័ត៌មានវិទ្យា អេស អាយ ធី អេស​ ត្រូវបានបង្កើតឡើងក្នុងឆ្នាំ 2018 សាលាមានបង្រៀនថ្នាក់ភាសាអង់គ្លេសសម្រាប់កុមារចាប់ពីអាយុ៧ឆ្នាំឡើងទៅ ភាសាអង់គ្លេសសម្រាប់មនុស្សធំ ភាសាចិន ភាសាថៃ និងជំនាញកុំព្យូទ័រជាច្រើន។
                             </p>
-                            <p>
-                                Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita
-                                erat ipsum et lorem et sit, sed stet lorem sit clita.
-                            </p>
+                            <p>សាលាមានបេសកកម្ម តម្រង់ទិស លើកកម្ពស់ ផ្ដល់សេវាអប់រំមានគុណភាពខ្ពស់ និងលើកកម្ពស់សិស្សឱ្យមានចំណេះដឹង សីលធម៌ និងជំនាញទាំងផ្នែករឹង និងផ្នែកទន់ឱ្យបានច្បាស់លាស់ និងទទួលបានជំនាញមួយពិតប្រាកដដែលអាចយកទៅប្រើប្រាស់ប្រកបរបរចិញ្ចឹមជីវិតបានល្អប្រសើរ។</p>
 
                             {/* Course List */}
                             <div className="row g-2 mb-4 pb-2">
                                 <div className="col-sm-6">
                                     <i className="fa fa-check text-primary me-2" />
-                                    Computer Course
+                                    ថ្នាក់កុំព្យូទ៍រ
                                 </div>
                                 <div className="col-sm-6">
                                     <i className="fa fa-check text-primary me-2" />
-                                    English Course
+                                    ថ្នាក់ភាសាអង់គ្លេស
                                 </div>
                                 <div className="col-sm-6">
                                     <i className="fa fa-check text-primary me-2" />
-                                    Chinese Course
+                                    ថ្នាក់ភាសាចិន
                                 </div>
                                 <div className="col-sm-6">
                                     <i className="fa fa-check text-primary me-2" />
-                                    Thai Course
+                                    ថ្នាក់ភាសាថៃ
                                 </div>
                             </div>
 
@@ -194,7 +190,7 @@ export default function AboutIndroduction() {
                             <div className="row g-4">
                                 <div className="col-sm-6">
                                     <a className="btn btn-primary py-3 px-5" href="/about">
-                                        Read More
+                                        ព័ត៌មានបន្ថែម
                                     </a>
                                 </div>
                                 <div className="col-sm-6">
@@ -205,7 +201,7 @@ export default function AboutIndroduction() {
                                         <span className="flex-shrink-0 btn-square bg-primary">
                                             <i className="fa fa-phone-alt text-white" />
                                         </span>
-                                        <span className="px-3">+012 345 6789</span>
+                                        <span className="px-3">+855 86 33 50 50</span>
                                     </a>
                                 </div>
                             </div>

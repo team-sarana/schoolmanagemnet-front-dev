@@ -3,6 +3,7 @@ import { useBreadcrumbStore } from '@/app/lib/BreadCrumb';
 import { usePathname } from 'next/navigation';
 import React, { useEffect } from 'react';
 import Link from 'next/link';
+import SlideHome from './home/SlideHome';
 
 export default function Breadcrumb() {
     const breadcrumb = useBreadcrumbStore((state) => state.breadcrumb);
@@ -60,7 +61,7 @@ export default function Breadcrumb() {
 
     return (
         <>
-            <div
+            {/* <div
                 className="container-fluid page-header py-6 mt-0 wow fadeIn"
                 data-wow-delay="0.1s"
                 style={{
@@ -90,7 +91,8 @@ export default function Breadcrumb() {
                         </ol>
                     </nav>
                 </div>
-            </div>
+            </div> */}
+            <SlideHome />
         </>
     );
 }

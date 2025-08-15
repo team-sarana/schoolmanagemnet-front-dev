@@ -7,99 +7,99 @@ export default function ComputerCom() {
     const courses = [
         {
             id: 1,
-            title: "Automatic Lessons",
+            title: "វគ្គមូលដ្ឋានគ្រឹះកុំព្យូទ័រ",
             description: "Learn the basics of English with our expert instructors.",
             level: "Beginner",
             duration: "3 Week",
-            image: "/assets/img/course/course1.jpg",
+            image: "/assets/img/course/computer/course1.jpg",
         },
         {
             id: 2,
-            title: "Highway Lessons",
+            title: "វគ្គក្រាហ្វិចឌីហ្សាញ និងបោះពុម្ភ",
             description: "Learn the basics of English with our expert instructors.",
             level: "Intermediate",
             duration: "4 Week",
-            image: "/assets/img/course/course2.jpg",
+            image: "/assets/img/course/computer/course2.jpg",
         },
         {
             id: 3,
-            title: "International Lessons",
+            title: "វគ្គកាត់តវីដេអូ និងផលិតវីដេអូ",
             description: "Learn the basics of English with our expert instructors.",
             level: "Advanced",
             duration: "5 Week",
-            image: "/assets/img/course/course3.jpg",
+            image: "/assets/img/course/computer/course3.jpg",
         },
         {
             id: 4,
-            title: "Automatic Lessons",
+            title: "វគ្គគ្រប់គ្រងការងាររដ្ឋបាល",
             description: "Learn the basics of English with our expert instructors.",
             level: "Beginner",
             duration: "3 Week",
-            image: "/assets/img/course/course4.jpg",
+            image: "/assets/img/course/computer/course4.jpg",
         },
         {
             id: 5,
-            title: "Highway Lessons",
+            title: "វគ្គគូសប្លង់ AutoCAD 2D",
             description: "Learn the basics of English with our expert instructors.",
             level: "Intermediate",
             duration: "4 Week",
-            image: "/assets/img/course/course5.jpg",
+            image: "/assets/img/course/computer/course5.jpg",
         },
         {
             id: 6,
-            title: "International Lessons",
+            title: "វគ្គ Sketch UP Modeling 3D",
             description: "Learn the basics of English with our expert instructors.",
             level: "Advanced",
             duration: "5 Week",
-            image: "/assets/img/course/course6.jpg",
+            image: "/assets/img/course/computer/course6.jpg",
         },
         {
             id: 7,
-            title: "Automatic Lessons",
+            title: "វគ្គគ្រប់គ្រង Facebook page និង Boost page ស្តង់ដារ",
             description: "Learn the basics of English with our expert instructors.",
             level: "Beginner",
             duration: "3 Week",
-            image: "/assets/img/course/course7.jpg",
+            image: "/assets/img/course/computer/course7.jpg",
         },
         {
             id: 8,
-            title: "Highway Lessons",
+            title: "វគ្គជួសជុលកុំព្យូទ័រកម្រិតដំបូង",
             description: "Learn the basics of English with our expert instructors.",
             level: "Intermediate",
             duration: "4 Week",
-            image: "/assets/img/course/course8.jpg",
+            image: "/assets/img/course/computer/course8.jpg",
         },
         {
             id: 9,
-            title: "International Lessons",
+            title: "វគ្គ Advanced Excel",
             description: "Learn the basics of English with our expert instructors.",
             level: "Advanced",
             duration: "5 Week",
-            image: "/assets/img/course/course9.jpg",
+            image: "/assets/img/course/computer/course9.jpg",
         },
         {
             id: 10,
-            title: "Automatic Lessons",
+            title: "វគ្គ Cartoon and Animation",
             description: "Learn the basics of English with our expert instructors.",
             level: "Beginner",
             duration: "3 Week",
-            image: "/assets/img/course/course10.jpg",
+            image: "/assets/img/course/computer/course10.jpg",
         },
         {
             id: 11,
-            title: "Highway Lessons",
+            title: "វគ្គរកលុយតាម Facebook page",
             description: "Learn the basics of English with our expert instructors.",
             level: "Intermediate",
             duration: "4 Week",
-            image: "/assets/img/course/course1.jpg",
+            image: "/assets/img/course/computer/course11.jpg",
         },
         {
             id: 12,
-            title: "International Lessons",
+            title: "វគ្គ Boost តាម Tiktok",
             description: "Learn the basics of English with our expert instructors.",
             level: "Advanced",
             duration: "5 Week",
-            image: "/assets/img/course/course2.jpg",
+            image: "/assets/img/course/computer/course12.jpg",
         },
     ];
 
@@ -122,9 +122,9 @@ export default function ComputerCom() {
     return (
         <>
             <div className="section-padding">
-                <div className="container">
+                <div className="container khmer-text">
                     <div className="banner_title">
-                        Computer Course
+                        វគ្គសិក្សាកុំព្យូទ័រ
                     </div>
                     <div className="row g-4">
                         {currentCourses.map((course) => (

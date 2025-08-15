@@ -21,33 +21,33 @@ export default function CurriculumsItem() {
     const courses = [
         {
             id: 1,
-            title: "Automatic Lessons",
-            description: "Learn the basics of English with our expert instructors.",
-            image: "/assets/img/course/course1.jpg",
+            title: "ភាសាចិនកម្រិត ១",
+            description: "ភាសាចិនកម្រិត 1",
+            image: "/assets/img/course/chinese/course1.jpg",
         },
         {
             id: 2,
-            title: "Highway Lessons",
-            description: "It is a long established fact that a reader will be distracted by the readable.",
-            image: "/assets/img/course/course2.jpg",
+            title: "ភាសាចិនកម្រិត ២",
+            description: "ភាសាចិនកម្រិត ២",
+            image: "/assets/img/course/chinese/course2.jpg",
         },
         {
             id: 3,
-            title: "International Lessons",
-            description: "Contrary to popular belief, Lorem Ipsum is not simply random text.",
-            image: "/assets/img/course/course3.jpg",
+            title: "វគ្គមូលដ្ឋានគ្រឹះកុំព្យូទ័រ",
+            description: "វគ្គមូលដ្ឋានគ្រឹះកុំព្យូទ័រ",
+            image: "/assets/img/course/computer/course1.jpg",
         },
         {
             id: 4,
-            title: "International Lessons",
-            description: "Contrary to popular belief, Lorem Ipsum is not simply random text.",
-            image: "/assets/img/course/course4.jpg",
+            title: "វគ្គក្រាហ្វិចឌីហ្សាញ និងបោះពុម្ភ",
+            description: "វគ្គក្រាហ្វិចឌីហ្សាញ និងបោះពុម្ភ",
+            image: "/assets/img/course/computer/course2.jpg",
         },
         {
             id: 5,
-            title: "International Lessons",
-            description: "Contrary to popular belief, Lorem Ipsum is not simply random text.",
-            image: "/assets/img/course/course4.jpg",
+            title: "ថ្នាក់ភាសាអង់គ្លេសសម្រាប់កុមារ",
+            description: "ថ្នាក់ភាសាអង់គ្លេសសម្រាប់កុមារ",
+            image: "/assets/img/course/english/course5.jpg",
         },
     ];
 

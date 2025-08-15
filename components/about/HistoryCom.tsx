@@ -6,37 +6,47 @@ import RelatedMenu from './RelatedMenu'
 
 export default function HistoryCom() {
     return (
-        <div className="section-padding py-10">
-            <div className="container">
-                <div className="row">
-                    {/* Main Content */}
-                    <div className="col-md-12">
-                        {/* History Section */}
-                        <section className="khmer-text mb-10">
-                            <h2 className="text-2xl font-semibold mb-4">ប្រវត្តិរបស់យើង</h2>
-                            <p className="text-gray-700 leading-relaxed">
-                                សាលាជំនាញព័ត៌មានវិទ្យា អេស អាយ ធី អេស គឺជាស្ថាប័នអប់រំឯកជនមួយដែលត្រូវបានបង្កើតឡើងនៅថ្ងៃទី០១ ខែវិច្ឆិកា ឆ្នាំ២០១៨។ សាលាមានអាស័យដ្ឋានស្ថិតនៅភូមិវត្តបូព៌ សង្កាត់សាលាកំរើក ក្រុងសៀមរាប ខេត្តសៀមរាប។ សាលាមានបេសកកម្មបណ្ដុះបណ្ដាលជំនាញកុំព្យូទ័រ ដូចជា៖ ថ្នាក់មូលដ្ឋានគ្រឹះកុំព្យូទ័រ, វគ្គ Advance Excel, វគ្គក្រាហ្វិចឌីហ្សាញ និងបោះពុម្ព, វគ្គកាត់តវីឌីអូ និងផលិតវីឌីអូ, វគ្គគូសប្លង់, វគ្គតុក្កតា, វគ្គ Facebook Page និងការបង្រៀនភាសាបរទេស។ ការអប់រំទាំងនេះប្រកបដោយគុណភាព ប្រសិទ្ធភាព សីលធម៌ និងឥរិយាបថល្អ ដើម្បីអភិវឌ្ឍធនធានមនុស្សដ៏មានតម្លៃសម្រាប់សង្គមជាតិ។
-                            </p>
-                        </section>
-
-                        {/* Logo Meaning Section */}
-                        <section className="khmer-text">
-                            <h2 className="text-2xl font-semibold mb-4">អត្ថន័យនៃឡូហ្គោ</h2>
-                            <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
-                                <Image
-                                    src="/assets/img/logo.png"
-                                    alt="School Logo"
-                                    width={150}
-                                    height={150}
-                                />
-                                <p className="text-gray-700 leading-relaxed">
-                                    ស្លាកសញ្ញារបស់សាលាជំនាញព័ត៌មានវិទ្យា អេស អាយ ធី អេស ត្រូវបានបែងចែកជាបីផ្នែក៖ <br />
-                                    <span className="block mt-2">- ផ្នែកខាងលើ៖ ជាឈ្មោះសាលា សរសេរជាភាសាខ្មែរ។</span>
-                                    <span className="block">- ផ្នែកកណ្ដាល៖ រូបកុំព្យូទ័រ និងក្បាលមនុស្ស តំណាងឱ្យការរីកចម្រើននៃបច្ចេកវិទ្យា និងអក្សរខ្មែរ "អេស អាយ ធី អេស"។</span>
-                                    <span className="block">- ផ្នែកខាងក្រោម៖ ជាឈ្មោះសាលា សរសេរជាភាសាអង់គ្លេស។</span>
+        <>
+            <div className='section-padding'>
+                <div className='container'>
+                    <div className="row">
+                        <div className='col-md-9'>
+                            {/* History Section */}
+                            <section className="khmer-text">
+                                <h2>ប្រវត្តិរបស់​ សាលាជំនាញព័ត៌មានវិទ្យា អេស អាយ ធី អេស</h2>
+                                <p className="text-gray-700">
+                                    <b>សាលាជំនាញព័ត៌មានវិទ្យា អេស អាយ ធី អេស</b>​ ត្រូវបានបង្កើតឡើងក្នុងឆ្នាំ <strong>2018</strong> សាលាមានបង្រៀនថ្នាក់ភាសាអង់គ្លេសសម្រាប់កុមារចាប់ពីអាយុ៧ឆ្នាំឡើងទៅ ភាសាអង់គ្លេសសម្រាប់មនុស្សធំ ភាសាចិន ភាសាថៃ និងជំនាញកុំព្យូទ័រជាច្រើន។​ សាលាមានបេសកកម្ម តម្រង់ទិស លើកកម្ពស់ ផ្ដល់សេវាអប់រំមានគុណភាពខ្ពស់ និងលើកកម្ពស់សិស្សឱ្យមានចំណេះដឹង សីលធម៌ និងជំនាញទាំងផ្នែករឹង និងផ្នែកទន់ឱ្យបានច្បាស់លាស់ និងទទួលបានជំនាញមួយពិតប្រាកដដែលអាចយកទៅប្រើប្រាស់ប្រកបរបរចិញ្ចឹមជីវិតបានល្អប្រសើរ។
                                 </p>
-                            </div>
-                        </section>
+
+
+                            </section>
+
+                            {/* Logo Meaning Section */}
+                            <section className="mt-5 khmer-text">
+                                <h2>អត្ថន័យនៃឡូហ្គោ</h2>
+                                <div className="flex flex-col md:flex-row items-center">
+                                    <Image
+                                        src="/assets/img/logo.png"
+                                        alt="School Logo"
+                                        width={150}
+                                        height={150}
+                                    />
+                                    <div className="ml-6 mt-4 md:mt-0">
+                                        <p className="text-gray-700">
+                                            ស្លាកសញ្ញារបស់សាលាជំនាញព័ត៌មានវិទ្យា អេស អាយ ធី អេស ត្រូវបានបែងចែកជាបីផ្នែកគឺ៖
+                                        </p>
+                                        <ul className="list-disc ml-6 mt-2 text-gray-700">
+                                            <li><strong>ផ្នែកខាងលើ​ :</strong>ជាឈ្មោះរបស់សាលាដែលសរសេរជាខេមរភាសា</li>
+                                            <li><strong>ផ្នែកកណ្ដាល :</strong> ជារូបកុំព្យូទ័រ និងក្បាលមនុស្ស ដែលតំណាងឱ្យ ការរីកចម្រើននៃបច្ចេកវិទ្យា និងមានសរសេរអក្សរខ្មែរ អេស អាយ ធី អេស ដែលជាឈ្មោះហៅកាត់របស់សាលា</li>
+                                            <li><strong>ផ្នែកខាងក្រោម :</strong> ជាឈ្មោះរបស់សាលារៀនដែលសរសេរជាភាសាអង់គ្លេស។</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        {/* <div className='col-md-3'>
+                            <RelatedMenu />
+                        </div> */}
                     </div>
 
                     {/* Related Menu */}
@@ -45,6 +55,6 @@ export default function HistoryCom() {
                     </div> */}
                 </div>
             </div>
-        </div>
+        </>
     )
 }

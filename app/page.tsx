@@ -1,4 +1,5 @@
 import HomeIndexComponent from "@/components/home/HomeIndexComponent";
+import Head from "next/head";
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "";
 
@@ -23,5 +24,13 @@ export const metadata = {
 };
 
 export default function Home() {
-  return <HomeIndexComponent />;
+  return (
+    <>
+      <Head>
+        <meta name="keywords" content="Siem Reap, History, Cambodia, Travel" />
+      </Head>
+      <HomeIndexComponent />
+
+    </>
+  );
 }

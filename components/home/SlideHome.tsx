@@ -46,7 +46,6 @@ export default function SlideHome() {
                 description: "Empowering students through knowledge.",
                 buttons: [{ text: "Explore More", href: "#courses", style: "btn-primary" }],
             },
-
         ];
         setSlides(data);
     }, []);

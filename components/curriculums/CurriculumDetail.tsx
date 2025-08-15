@@ -22,15 +22,30 @@ const images = [
 
 const sidebarItems = [
     {
-        src: "/assets/img/course/course1.jpg",
-        title: "Computer",
+        src: "/assets/img/course/computer/course2.jpg",
+        title: "វគ្គក្រាហ្វិចឌីហ្សាញ និងបោះពុម្ភ",
         href: "#",
     },
     {
-        src: "/assets/img/course/course2.jpg",
-        title: "Design",
+        src: "/assets/img/course/computer/course8.jpg",
+        title: "វគ្គជួសជុលកុំព្យូទ័រកម្រិតដំបូង",
         href: "#",
     },
+    {
+        src: "/assets/img/course/computer/course6.jpg",
+        title: "វគ្គ Sketch UP Modeling 3D",
+        href: "#",
+    },
+    {
+        src: "/assets/img/course/computer/course9.jpg",
+        title: "វគ្គ Advanced Excel",
+        href: "#",
+    },
+    // {
+    //     src: "/assets/img/course/computer/course10.jpg",
+    //     title: "វគ្គ Cartoon and Animation",
+    //     href: "#",
+    // },
 ];
 
 export default function CurriculumDetail() {
@@ -51,7 +66,7 @@ export default function CurriculumDetail() {
 
     return (
         <div className="section-padding">
-            <div className="container">
+            <div className="container khmer-text">
                 <div className="row">
                     <div className="col-md-9">
                         <div className="relative h-[450px] w-full">
@@ -140,8 +155,8 @@ export default function CurriculumDetail() {
                             ))}
                         </Swiper>
 
-                        <h2 className="mt-4">Computer</h2>
-                        <div>Description</div>
+                        <h2 className="mt-4">វគ្គមូលដ្ឋានគ្រឹះកុំព្យូទ័រ</h2>
+                        <div>វគ្គមូលដ្ឋានគ្រឹះកុំព្យូទ័រ គឺជាវគ្គសិក្សាដែលបង្កើតឡើងសម្រាប់ជួយឱ្យអ្នកចាប់ផ្ដើមទើបស្គាល់កុំព្យូទ័រ អាចយល់ដឹងពីគោលគំនិតសំខាន់ៗ និងបច្ចេកទេសមូលដ្ឋានដែលត្រូវការក្នុងការប្រើប្រាស់កុំព្យូទ័រ។</div>
                     </div>
 
                     {/* Sidebar */}
@@ -151,13 +166,13 @@ export default function CurriculumDetail() {
                             <div key={index} className="d-flex mb-3">
                                 <Image
                                     src={src}
-                                    width={100}
-                                    height={80}
+                                    width={150}
+                                    height={200}
                                     alt={title}
                                     className="rounded-lg"
                                 />
                                 <Link href={href} className="ms-3">
-                                    <h5>{title}</h5>
+                                    <p className="text-[#2e73ba]">{title}</p>
                                 </Link>
                             </div>
                         ))}
