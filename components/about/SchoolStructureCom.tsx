@@ -9,18 +9,17 @@ export default function SchoolStructureCom() {
       <div className="section-padding">
         <div className='container'>
           <div className='row'>
-            <div className='col-md-9 khmer-text'>
+            <div className='col-md-12 khmer-text'>
               {/* រចនាសម្ព័ន្ធការគ្រប់គ្រង */}
               <section className="mb-4">
                 <h1 className="text-3xl font-bold text-blue-600 mb-4">រចនាសម្ព័ន្ធការគ្រប់គ្រង</h1>
                 <p className="text-gray-700">
-                  សាលារបស់យើងដឹកនាំដោយក្រុមអ្នកជំនាញដែលមានបទពិសោធន៍ ខិតខំដើម្បីផ្តល់ការអប់រំមានគុណភាព។
+                  សាលារបស់យើងដឹកនាំដោយក្រុមអ្នកជំនាញដែលមានបទពិសោធន៍ជាច្រើនឆ្នាំ ខិតខំដើម្បីផ្តល់ការអប់រំប្រកបដោយគុណភាព។
                 </p>
                 <ul className="list-disc ml-6 mt-4 text-gray-700">
                   <li><strong>នាយកសាលា:</strong> គ្រប់គ្រងការប្រតិបត្តិទាំងអស់ និងគោលនយោបាយរបស់សាលា។</li>
-                  <li><strong>អនុនាយកសាលា:</strong> ជួយក្នុងការគ្រប់គ្រង និងវិន័យ។</li>
-                  <li><strong>ប្រធានដេប៉ាតឺម៉ង់:</strong> ជាអ្នកដឹកនាំវិញ្ញាសាជាក់លាក់ (វិទ្យាសាស្ត្រ សិល្បៈ កីឡា ល។)</li>
-                  <li><strong>គ្រូបង្រៀន និងបុគ្គលិក:</strong> ជាអ្នកបង្រៀន និងជួយដល់ការរៀនសូត្រ។</li>
+                  <li><strong>នាយិការង:</strong> ជួយក្នុងការគ្រប់គ្រងទូទៅ និងវិន័យ។</li>
+                  <li><strong>គ្រូបង្រៀន និងបុគ្គលិក:</strong> ជាអ្នកបង្រៀន និងជួយដល់ការរៀនសូត្ររបស់សិស្សានុសិស្សឱ្យមានគុណភាព និងប្រសិទ្ធភាពខ្ពស់។</li>
                 </ul>
               </section>
 
@@ -28,13 +27,14 @@ export default function SchoolStructureCom() {
               <section className="mb-4">
                 <h1 className="text-3xl font-bold text-green-600 mb-4">ផ្នែកសិក្សា</h1>
                 <p className="text-gray-700">
-                  ស្ថាប័នរបស់យើងផ្តល់នូវផ្លូវការរៀនសូត្រដែលមានរចនាសម្ព័ន្ធច្បាស់លាស់។
+                  សាលាមានបង្រៀនវគ្គសិក្សាជាច្រើនដូចជា៖
                 </p>
                 <ul className="list-disc ml-6 mt-4 text-gray-700">
-                  <li><strong>មត្តេយ្យ:</strong> ថ្នាក់កុមារចាប់ផ្តើម និងការរៀនដំបូង។</li>
-                  <li><strong>បឋមសិក្សា:</strong> ថ្នាក់ទី ១-៥ (ជាមូលដ្ឋានសិក្សាដំបូង។)</li>
-                  <li><strong>មធ្យមសិក្សា:</strong> ថ្នាក់ទី ៦-១០ (វិញ្ញាសាកម្រិតខ្ពស់ និងបណ្ដុះបណ្ដាលជំនាញ។)</li>
-                  <li><strong>អនុវិទ្យាល័យ:</strong> ថ្នាក់ទី ១១-១២ (ជម្រើសផ្នែកជំនាញ: វិទ្យាសាស្ត្រ ពាណិជ្ជកម្ម សិល្បៈ។)</li>
+                  <li>- ភាសាអង់គ្លេសសម្រាប់កុមារ</li>
+                  <li>- ភាសាអង់គ្លេសសម្រាប់មនុស្សធំ</li>
+                  <li>- ភាសាចិន</li>
+                  <li>- ភាសាថៃ</li>
+                  <li>- វគ្គសិក្សាជំនាញកុំព្យូទ័រគ្រប់កម្រិត</li>
                 </ul>
               </section>
 
@@ -56,13 +56,13 @@ export default function SchoolStructureCom() {
                 <h1 className="text-3xl font-bold text-purple-600 mb-4">តារាងរចនាសម្ព័ន្ធ</h1>
                 <p className="text-gray-700">ប្រព័ន្ធដំណើរការរបស់សាលារបស់យើងត្រូវបានបង្ហាញខាងក្រោម។</p>
                 <div className="flex justify-center mt-6">
-                  <Image src="/assets/img/school_structure.png" alt="រចនាសម្ព័ន្ធសាលា" width={600} height={400} className="rounded-lg" />
+                  <Image src="/assets/img/SITS_structure.png" alt="រចនាសម្ព័ន្ធសាលា" width={600} height={400} className="rounded-lg" />
                 </div>
               </section>
             </div>
-            <div className='col-md-3'>
+            {/* <div className='col-md-3'>
               <RelatedMenu />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

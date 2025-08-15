@@ -34,31 +34,24 @@ export default function SlideHome() {
         const data: Slide[] = [
             {
                 id: 1,
-                image: "/assets/img/course/course2.jpg",
+                image: "/assets/img/slidehome/slide1.jpg",
                 title: "Learn To Study With Confidence",
                 description: "Achieve your goals with our top-notch courses.",
                 buttons: [{ text: "Our Courses", href: "#courses", style: "btn-light" }],
             },
             {
                 id: 2,
-                image: "/assets/img/course/course9.jpg",
+                image: "/assets/img/slidehome/slide2.jpg",
                 title: "Study Is Our Top Priority",
                 description: "Empowering students through knowledge.",
                 buttons: [{ text: "Explore More", href: "#courses", style: "btn-primary" }],
-            },
-            {
-                id: 3,
-                image: "/assets/img/course/course7.jpg",
-                title: "Your Future Begins Here",
-                description: "Join thousands of learners.",
-                buttons: [{ text: "Get Started", href: "#courses", style: "btn-success" }],
             },
         ];
         setSlides(data);
     }, []);
 
     return (
-        <div className="relative w-full h-[400px] overflow-hidden">
+        <div className="relative w-full h-[500px] overflow-hidden">
             {/* Custom Navigation Buttons */}
             <div className="absolute inset-0 z-20 pointer-events-none">
                 <div className="container h-full relative">
@@ -101,17 +94,17 @@ export default function SlideHome() {
             >
                 {slides.map((slide, index) => (
                     <SwiperSlide key={slide.id}>
-                        <div className="relative w-full h-[400px]">
+                        <div className="relative w-full h-[500px]">
                             <Image
                                 src={slide.image}
                                 alt={slide.title}
                                 fill
-                                className={`object-cover ${index === activeIndex ? "animate-zoom-fade" : ""}`}
+                                className={`${index === activeIndex ? "animate-zoom-fade" : ""}`}
                                 priority
                             />
-                            <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-start text-white px-10 z-10">
+                            <div className="absolute inset-0 flex flex-col justify-center items-start text-white px-10 z-10">
                                 <div className="container">
-                                    <h2
+                                    {/* <h2
                                         className={`text-white font-bold mb-4 ${index === activeIndex ? "animate-fade-up" : ""
                                             }`}
                                     >
@@ -124,7 +117,7 @@ export default function SlideHome() {
                                         >
                                             {slide.description}
                                         </p>
-                                    )}
+                                    )} */}
                                     {/* <div className={`flex gap-4 ${index === activeIndex ? "animate-fade-up delay-200" : ""}`}>
                                         {slide.buttons.map((btn, btnIndex) => (
                                             <a

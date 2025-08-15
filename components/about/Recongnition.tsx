@@ -104,9 +104,9 @@ export default function RecongnitionPage() {
                     </div>
 
                     {/* Sidebar */}
-                    <div className="col-md-3">
+                    {/* <div className="col-md-3">
                         <RelatedMenu />
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>

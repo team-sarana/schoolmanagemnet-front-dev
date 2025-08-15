@@ -11,14 +11,14 @@ type GalleryItem = {
 };
 
 const allGalleryImages: GalleryItem[] = [
-    { src: '/assets/img/course/course1.jpg', type: 'computer' },
-    { src: '/assets/img/course/course2.jpg', type: 'english' },
-    { src: '/assets/img/course/course3.jpg', type: 'chinese' },
-    { src: '/assets/img/course/course4.jpg', type: 'thai' },
-    { src: '/assets/img/course/course1.jpg', type: 'english' },
-    { src: '/assets/img/course/course2.jpg', type: 'computer' },
-    { src: '/assets/img/course/course3.jpg', type: 'thai' },
-    { src: '/assets/img/course/course4.jpg', type: 'chinese' },
+    { src: '/assets/img/course/computer/course1.jpg', type: 'computer' },
+    { src: '/assets/img/course/english/course1.jpg', type: 'english' },
+    { src: '/assets/img/course/chinese/course1.jpg', type: 'chinese' },
+    { src: '/assets/img/course/thai/course1.jpg', type: 'thai' },
+    { src: '/assets/img/course/english/course2.jpg', type: 'english' },
+    { src: '/assets/img/course/computer/course2.jpg', type: 'computer' },
+    { src: '/assets/img/course/thai/course2.jpg', type: 'thai' },
+    { src: '/assets/img/course/chinese/course2.jpg', type: 'chinese' },
 ];
 
 const filterTabs = ['all', 'computer', 'english', 'chinese', 'thai'] as const;

@@ -9,7 +9,7 @@ export default function VisionMissionCoreValueCom() {
             <div className='section-padding'>
                 <div className='container'>
                     <div className='row'>
-                        <div className="col-md-9 khmer-text">
+                        <div className="col-md-12 khmer-text">
                             {/* Vision Section */}
                             <section className='mb-3'>
                                 <h2 className="text-3xl font-bold text-blue-600 mb-4">ចក្ខុវិស័យ</h2>
@@ -100,9 +100,9 @@ export default function VisionMissionCoreValueCom() {
                                 </div>
                             </section>
                         </div>
-                        <div className='col-md-3'>
+                        {/* <div className='col-md-3'>
                             <RelatedMenu />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
