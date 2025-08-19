@@ -10,7 +10,7 @@ const STORAGE_URL = API_URL.replace(/\/api$/, "");
 export default async function NewsPage() {
     // Fetch news on the server
     const res = await post({
-        endpoint: "/news/listall",
+        endpoint: "/news",
         data: { title: "" },
     });
 

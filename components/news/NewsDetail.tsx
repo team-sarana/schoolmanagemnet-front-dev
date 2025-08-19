@@ -40,7 +40,8 @@ export default function NewsDetail({ id }: NewsDetailProps) {
 
     const [navigationReady, setNavigationReady] = useState(false);
 
-    const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
+    // Use your Laravel API base
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000/api";
     const STORAGE_URL = API_URL.replace(/\/api$/, "");
 
     useEffect(() => {
@@ -55,15 +56,18 @@ export default function NewsDetail({ id }: NewsDetailProps) {
             setLoading(true);
             setError(null);
             try {
+                // Fetch single news
                 const res = await fetch(`${API_URL}/news/${id}`);
                 if (!res.ok) throw new Error(`Failed to fetch news with id ${id}`);
                 const data = await res.json();
                 setNews(data);
 
+                // Fetch all news
                 const allRes = await fetch(`${API_URL}/news`);
                 if (!allRes.ok) throw new Error("Failed to fetch all news");
                 const allData: NewsItem[] = await allRes.json();
 
+                // Remove current news from related list
                 const filteredNews = allData.filter(item => String(item.id) !== String(id));
                 setAllNews(filteredNews);
             } catch (err: any) {
@@ -81,6 +85,7 @@ export default function NewsDetail({ id }: NewsDetailProps) {
     if (error) return <p className="text-red-600">Error: {error}</p>;
     if (!news) return <p>News not found</p>;
 
+    // Handle images
     const mainImageUrl = news.image?.startsWith("http")
         ? news.image
         : news.image
@@ -203,7 +208,7 @@ export default function NewsDetail({ id }: NewsDetailProps) {
                             const imageUrl = image?.startsWith("http")
                                 ? image
                                 : image
-                                    ? `${STORAGE_URL}/storage/news/${image}`
+                                    ? `${STORAGE_URL}/${image}`
                                     : "/placeholder-image.png";
 
                             return (
