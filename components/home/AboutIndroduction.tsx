@@ -1,192 +1,191 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
+import { GrFormPrevious } from "react-icons/gr";
+import { MdNavigateNext } from "react-icons/md";
+import { useQuery } from "@tanstack/react-query";
+import { post } from "@/app/lib/api";
+import { BASE_URL } from "@/app/lib/constant";
 
 import "swiper/css";
 import "swiper/css/navigation";
 
-import { GrFormPrevious } from "react-icons/gr";
-import { MdNavigateNext } from "react-icons/md";
+interface SlideVideo {
+    id: number;
+    title_kh: string;
+    title_en: string;
+    link_video: string;
+    image: string | null;
+}
 
-export default function AboutIndroduction() {
+// Normalize image path
+function normalizeImage(p?: string | null) {
+    if (!p) return "/placeholder-image.png";
+    if (p.startsWith("http")) return p;
+    return `${BASE_URL.replace(/\/$/, "")}/${p.replace(/^\/+/, "")}`;
+}
+
+export default function SlideVideoHome() {
+    const prevRef = useRef<HTMLButtonElement>(null);
+    const nextRef = useRef<HTMLButtonElement>(null);
+
     const [showVideo, setShowVideo] = useState(false);
     const [fadeOut, setFadeOut] = useState(false);
-
-    // Video ID for YouTube iframe, set when modal opens
     const [videoId, setVideoId] = useState<string | null>(null);
 
-    // Open modal with videoId
-    const openModal = (id: string) => {
-        setVideoId(id);
+    const { data, isLoading, isError } = useQuery({
+        queryKey: ["slides-video"],
+        queryFn: async () => {
+            const res = await post({ endpoint: "/slides-video/list", data: {} });
+            return res.data as SlideVideo[];
+        },
+        staleTime: 60_000,
+    });
+
+    const slides = Array.isArray(data) ? data : [];
+
+    const openModal = (link: string) => {
+        try {
+            const url = new URL(link);
+            const id = url.searchParams.get("v") || link.split("youtu.be/")[1];
+            setVideoId(id ?? link);
+        } catch {
+            setVideoId(link);
+        }
         setFadeOut(false);
         setShowVideo(true);
     };
 
-    // Start fade out on close
-    const closeModal = () => {
-        setFadeOut(true);
-    };
+    const closeModal = () => setFadeOut(true);
 
-    // Remove modal after fade out animation
     useEffect(() => {
         if (fadeOut) {
             const timeout = setTimeout(() => {
                 setShowVideo(false);
                 setFadeOut(false);
                 setVideoId(null);
-            }, 300); // Match CSS transition duration
+            }, 300);
             return () => clearTimeout(timeout);
         }
     }, [fadeOut]);
 
-    // Slides: images + YouTube video IDs
-    const slides = [
-        {
-            image: "/assets/img/course/course5.jpg",
-            videoId: "dQw4w9WgXcQ",
-        },
-        {
-            image: "/assets/img/course/course2.jpg",
-            videoId: "oHg5SJYRHA0",
-        },
-        {
-            image: "/assets/img/course/course9.jpg",
-            videoId: "kJQP7kiw5Fk",
-        },
-        {
-            image: "/assets/img/course/course7.jpg",
-            videoId: "3JZ_D3ELwOQ",
-        },
-    ];
-
-    // Navigation refs for custom buttons
-    const prevRef = useRef<HTMLButtonElement | null>(null);
-    const nextRef = useRef<HTMLButtonElement | null>(null);
-    const [navigationReady, setNavigationReady] = useState(false);
-
-    useEffect(() => {
-        if (prevRef.current && nextRef.current) {
-            setNavigationReady(true);
-        }
-    }, []);
+    if (isLoading)
+        return <div className="w-full h-[400px] bg-gray-200 animate-pulse" />;
+    if (isError)
+        return (
+            <div className="w-full h-[400px] flex items-center justify-center text-red-600">
+                Failed to load slides.
+            </div>
+        );
+    if (!slides.length)
+        return (
+            <div className="w-full h-[400px] flex items-center justify-center">
+                No slides found.
+            </div>
+        );
 
     return (
         <>
             <div className="section-padding">
-                <div className="container wow fadeInUp" data-wow-delay="0.1s">
+                <div className="container">
                     <div className="row">
-                        {/* Left: Swiper Slider */}
+                        {/* Swiper */}
                         <div className="col-lg-6 relative h-[400px]">
-                            {/* Custom Navigation Buttons */}
                             <button
                                 ref={prevRef}
-                                className="absolute btn_slide_home left-4 top-1/2 z-20 transform -translate-y-1/2"
-                                aria-label="Previous slide"
-                                type="button"
+                                className="btn_slide_home absolute left-4 top-1/2 z-20 transform -translate-y-1/2"
                             >
                                 <GrFormPrevious size={30} />
                             </button>
                             <button
                                 ref={nextRef}
-                                className="absolute btn_slide_home right-4 top-1/2 z-20 transform -translate-y-1/2"
-                                aria-label="Next slide"
-                                type="button"
+                                className="btn_slide_home absolute right-4 top-1/2 z-20 transform -translate-y-1/2"
                             >
                                 <MdNavigateNext size={30} />
                             </button>
 
-                            {navigationReady && (
-                                <Swiper
-                                    modules={[Navigation, Autoplay]}
-                                    navigation={{
-                                        prevEl: prevRef.current,
-                                        nextEl: nextRef.current,
-                                    }}
-                                    effect="fade"
-                                    fadeEffect={{ crossFade: true }}
-                                    speed={1000}
-                                    autoplay={{ delay: 3500, disableOnInteraction: false }}
-                                    loop={true}
-                                    className="h-full"
-                                >
-                                    {slides.map((slide, idx) => (
-                                        <SwiperSlide key={idx}>
+                            <Swiper
+                                modules={[Navigation, Autoplay]}
+                                navigation={{
+                                    prevEl: prevRef.current,
+                                    nextEl: nextRef.current,
+                                }}
+                                onSwiper={(swiper) => {
+                                    // Fix for Swiper navigation refs
+                                    setTimeout(() => {
+                                        if (prevRef.current && nextRef.current) {
+                                            swiper.params.navigation.prevEl = prevRef.current;
+                                            swiper.params.navigation.nextEl = nextRef.current;
+                                            swiper.navigation.init();
+                                            swiper.navigation.update();
+                                        }
+                                    });
+                                }}
+                                speed={1000}
+                                autoplay={{ delay: 3500, disableOnInteraction: false }}
+                                loop={true}
+                                className="h-full"
+                            >
+                                {slides.map((slide) => (
+                                    <SwiperSlide key={slide.id}>
+                                        <div
+                                            onClick={() => openModal(slide.link_video)}
+                                            role="button"
+                                            tabIndex={0}
+                                            className="relative w-full h-[400px] cursor-pointer"
+                                            onKeyDown={(e) => {
+                                                if (e.key === "Enter" || e.key === " ")
+                                                    openModal(slide.link_video);
+                                            }}
+                                        >
+                                            <Image
+                                                src={normalizeImage(slide.image)}
+                                                alt={slide.title_en}
+                                                fill
+                                                style={{ objectFit: "cover" }}
+                                            />
                                             <div
-                                                onClick={() => openModal(slide.videoId)}
-                                                role="button"
-                                                tabIndex={0}
+                                                className="absolute top-1/2 left-1/2 text-red-600 opacity-80"
                                                 style={{
-                                                    cursor: "pointer",
-                                                    position: "relative",
-                                                    width: "100%",
-                                                    height: "400px",
+                                                    transform: "translate(-50%, -50%)",
+                                                    fontSize: "4rem",
+                                                    pointerEvents: "none",
                                                 }}
-                                                onKeyDown={(e) => {
-                                                    if (e.key === "Enter" || e.key === " ") openModal(slide.videoId);
-                                                }}
-                                                aria-label="Open video popup"
                                             >
-                                                <Image
-                                                    src={slide.image}
-                                                    alt={`Slide image ${idx + 1}`}
-                                                    fill
-                                                    style={{ objectFit: "cover" }}
-                                                />
-                                                <div
-                                                    className="youtube-icon"
-                                                    style={{
-                                                        position: "absolute",
-                                                        top: "50%",
-                                                        left: "50%",
-                                                        transform: "translate(-50%, -50%)",
-                                                        fontSize: "4rem",
-                                                        color: "red",
-                                                        opacity: 0.8,
-                                                        pointerEvents: "none",
-                                                    }}
-                                                >
-                                                    <i className="fab fa-youtube"></i>
-                                                </div>
+                                                <i className="fab fa-youtube"></i>
                                             </div>
-                                        </SwiperSlide>
-                                    ))}
-                                </Swiper>
-                            )}
+                                        </div>
+                                    </SwiperSlide>
+                                ))}
+                            </Swiper>
                         </div>
 
-                        {/* Right: Content */}
-                        <div className="col-lg-6">
-                            <h6 className="text-primary text-uppercase mb-2 mt-3">About Us</h6>
-                            <h3 className="mb-4">We Help Students To Pass</h3>
-                            <p>
-                                Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita
-                                erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet.
-                            </p>
-                            <p>
-                                Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita
-                                erat ipsum et lorem et sit, sed stet lorem sit clita.
-                            </p>
+                        {/* Right content */}
+                        <div className="col-lg-6 khmer-text">
+                            <h6 className="text-primary text-uppercase mb-2 mt-3">អំពីយើង</h6>
 
-                            {/* Course List */}
+                            <p>
+                                សាលាជំនាញព័ត៌មានវិទ្យា អេស អាយ ធី អេស​ ត្រូវបានបង្កើតឡើងក្នុងឆ្នាំ 2018 សាលាមានបង្រៀនថ្នាក់ភាសាអង់គ្លេសសម្រាប់កុមារចាប់ពីអាយុ៧ឆ្នាំឡើងទៅ ភាសាអង់គ្លេសសម្រាប់មនុស្សធំ ភាសាចិន ភាសាថៃ និងជំនាញកុំព្យូទ័រជាច្រើន។
+                            </p>
+                            <p>សាលាមានបេសកកម្ម តម្រង់ទិស លើកកម្ពស់ ផ្ដល់សេវាអប់រំមានគុណភាពខ្ពស់ និងលើកកម្ពស់សិស្សឱ្យមានចំណេះដឹង សីលធម៌ និងជំនាញទាំងផ្នែករឹង និងផ្នែកទន់ឱ្យបានច្បាស់លាស់ និងទទួលបានជំនាញមួយពិតប្រាកដដែលអាចយកទៅប្រើប្រាស់ប្រកបរបរចិញ្ចឹមជីវិតបានល្អប្រសើរ។</p>
+
+
+                            {/* Course list */}
                             <div className="row g-2 mb-4 pb-2">
                                 <div className="col-sm-6">
-                                    <i className="fa fa-check text-primary me-2" />
-                                    Computer Course
+                                    <i className="fa fa-check text-primary me-2" /> ថ្នាក់កុំព្យូទ៍រ
                                 </div>
                                 <div className="col-sm-6">
-                                    <i className="fa fa-check text-primary me-2" />
-                                    English Course
+                                    <i className="fa fa-check text-primary me-2" /> ថ្នាក់ភាសាអង់គ្លេស
                                 </div>
                                 <div className="col-sm-6">
-                                    <i className="fa fa-check text-primary me-2" />
-                                    Chinese Course
+                                    <i className="fa fa-check text-primary me-2" /> ថ្នាក់ភាសាចិន
                                 </div>
                                 <div className="col-sm-6">
-                                    <i className="fa fa-check text-primary me-2" />
-                                    Thai Course
+                                    <i className="fa fa-check text-primary me-2" /> ថ្នាក់ភាសាថៃ
                                 </div>
                             </div>
 
@@ -194,7 +193,7 @@ export default function AboutIndroduction() {
                             <div className="row g-4">
                                 <div className="col-sm-6">
                                     <a className="btn btn-primary py-3 px-5" href="/about">
-                                        Read More
+                                        ព័ត៌មានបន្ថែម
                                     </a>
                                 </div>
                                 <div className="col-sm-6">
@@ -205,7 +204,7 @@ export default function AboutIndroduction() {
                                         <span className="flex-shrink-0 btn-square bg-primary">
                                             <i className="fa fa-phone-alt text-white" />
                                         </span>
-                                        <span className="px-3">+012 345 6789</span>
+                                        <span className="px-3">+855 86 33 50 50</span>
                                     </a>
                                 </div>
                             </div>
@@ -214,27 +213,32 @@ export default function AboutIndroduction() {
                 </div>
             </div>
 
-            {/* Modal Popup */}
+            {/* Video Modal */}
             {showVideo && videoId && (
                 <div
-                    className={`modal-overlay ${fadeOut ? "fade-out" : "fade-in"}`}
+                    className={`fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 ${fadeOut
+                        ? "opacity-0 transition-opacity duration-300"
+                        : "opacity-100 transition-opacity duration-300"
+                        }`}
                     onClick={closeModal}
-                    role="dialog"
-                    aria-modal="true"
                 >
-                    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-                        <button className="close-btn" onClick={closeModal} aria-label="Close video popup">
+                    <div
+                        className="relative w-[90%] h-[60%] md:w-[800px] md:h-[450px]"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <button
+                            className="absolute top-2 right-2 text-white text-3xl font-bold z-10"
+                            onClick={closeModal}
+                        >
                             &times;
                         </button>
-                        <div className="video-wrapper" style={{ width: "100%", height: "100%" }}>
-                            <iframe
-                                src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
-                                title="YouTube video"
-                                allow="autoplay; encrypted-media"
-                                allowFullScreen
-                                style={{ width: "100%", height: "100%" }}
-                            />
-                        </div>
+                        <iframe
+                            src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
+                            title="YouTube video"
+                            allow="autoplay; encrypted-media"
+                            allowFullScreen
+                            className="w-full h-full"
+                        />
                     </div>
                 </div>
             )}

@@ -1,59 +1,66 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { motion, AnimatePresence } from "framer-motion";
+import { post } from "@/app/lib/api";
 
 type FAQItem = {
-    question: string;
-    answer: string;
+    id: number;
+    title_kh: string;
+    title_en: string;
+    description_kh: string;
+    description_en: string;
 };
-
-const faqs: FAQItem[] = [
-    {
-        question: 'តើខ្ញុំអាចចុះឈ្មោះសិក្សាដោយរបៀបអនឡាញបានដែរឬទេ?',
-        answer:
-            'បាន។ សាលារបស់យើងផ្ដល់ជូនប្រព័ន្ធចុះឈ្មោះតាមអនឡាញ។ អ្នកអាចបំពេញពាក្យតាមទំព័រចុះឈ្មោះ ហើយបញ្ជាក់ព័ត៌មានឲ្យគ្រប់គ្រាន់។',
-    },
-    {
-        question: 'តើមានវគ្គសិក្សាអ្វីខ្លះដែលអាចជ្រើសរើស?',
-        answer:
-            'យើងមានវគ្គសិក្សាជាច្រើន រួមមាន៖ កុំព្យូទ័រ ភាសាអង់គ្លេស ភាសាចិន ភាសាថៃ និងវគ្គអនុវត្តន៍ជាច្រើនទៀត។',
-    },
-    {
-        question: 'តើសាលាធ្វើការថ្ងៃណាខ្លះ?',
-        answer:
-            'សាលារួមមានម៉ោងសិក្សាពេញម៉ោង និងក្រៅម៉ោង។ យើងបើកចាប់ពីថ្ងៃចន្ទ ដល់ថ្ងៃសៅរ៍ (7:30 ព្រឹក - 5:30 ល្ងាច)។',
-    },
-    {
-        question: 'តើអាចបង់ថ្លៃសិក្សាដោយអនឡាញបានទេ?',
-        answer:
-            'បាន។ យើងគាំទ្រទូទាត់តាម ABA, Wing, និងប្រព័ន្ធអេឡិចត្រូនិកផ្សេងៗ។',
-    },
-];
 
 export default function FAQCom() {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+    // Fetch FAQs
+    const { data, isLoading, error } = useQuery({
+        queryKey: ["faqs"],
+        queryFn: async () => {
+            const res = await post({
+                endpoint: "/admin/faq/list",
+                data: { search: "" }, // optional search
+            });
+            return res?.data || {}; // IMPORTANT: get the full pagination object
+        },
+    });
+
+    // Extract actual FAQ array safely
+    const faqs: FAQItem[] = Array.isArray(data?.data) ? data.data : [];
 
     const toggleFAQ = (index: number) => {
         setOpenIndex(openIndex === index ? null : index);
     };
 
+    if (isLoading) return <p>Loading FAQs...</p>;
+    if (error) return <p className="text-red-500">Failed to load FAQs</p>;
+    if (faqs.length === 0) return <p>No FAQs found</p>;
+
     return (
         <div className="container max-w-3xl mx-auto px-4 py-10 khmer-text">
-            <div className="banner_title">
+            <div className="banner_title text-2xl font-bold mb-6">
                 សំណួរញឹកញាប់ (FAQs)
             </div>
+
             <div className="space-y-4">
-                {faqs.map((faq, index) => {
+                {faqs?.map((faq, index) => {
                     const isOpen = openIndex === index;
                     return (
-                        <div key={index} className="border border-gray-300 rounded-xl bg-white shadow-sm">
+                        <div
+                            key={faq.id}
+                            className="border border-gray-300 rounded-xl bg-white shadow-sm"
+                        >
                             <button
                                 onClick={() => toggleFAQ(index)}
                                 className="flex justify-between items-center w-full px-5 py-4 text-left text-lg text-gray-800"
                             >
-                                <span>{faq.question}</span>
-                                <span className="text-2xl font-bold text-gray-500">{isOpen ? '-' : '+'}</span>
+                                <span>{faq.title_kh || faq.title_en}</span>
+                                <span className="text-2xl font-bold text-gray-500">
+                                    {isOpen ? "-" : "+"}
+                                </span>
                             </button>
 
                             <AnimatePresence initial={false}>
@@ -66,7 +73,7 @@ export default function FAQCom() {
                                         transition={{ duration: 0.3 }}
                                         className="px-5 pb-4 text-gray-600"
                                     >
-                                        <p>{faq.answer}</p>
+                                        <p>{faq.description_kh || faq.description_en}</p>
                                     </motion.div>
                                 )}
                             </AnimatePresence>

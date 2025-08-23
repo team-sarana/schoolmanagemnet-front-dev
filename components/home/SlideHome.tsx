@@ -1,9 +1,12 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, EffectFade } from "swiper/modules";
 import Image from "next/image";
+import { useQuery } from "@tanstack/react-query";
+import { post } from "@/app/lib/api";
+import { BASE_URL } from "@/app/lib/constant";
 
 import "swiper/css";
 import "swiper/css/effect-fade";
@@ -13,134 +16,100 @@ import { MdNavigateNext } from "react-icons/md";
 
 interface Slide {
     id: number;
-    image: string;
+    image: string | null;
     title: string;
-    description?: string;
-    buttons: {
-        text: string;
-        href: string;
-        style: string;
-    }[];
+    description?: string | null;
+}
+
+function normalizeImage(p?: string | null) {
+    if (!p) return null;
+    if (p.startsWith("http")) return p;
+    return `${BASE_URL.replace(/\/$/, "")}/${p.replace(/^\/+/, "")}`;
 }
 
 export default function SlideHome() {
-    const [slides, setSlides] = useState<Slide[]>([]);
-    const [activeIndex, setActiveIndex] = useState(0);
-
     const prevRef = useRef<HTMLButtonElement | null>(null);
     const nextRef = useRef<HTMLButtonElement | null>(null);
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [swiperInstance, setSwiperInstance] = useState<any>(null);
 
+    // Fetch slides
+    const { data: slidesRaw, isLoading, isError, error } = useQuery({
+        queryKey: ["slides-home"],
+        queryFn: async () => {
+            const res = await post({ endpoint: "/home/slides-home/list", data: {} });
+            console.log("Slides API response:", res);
+            return res.data; // should be the array
+        },
+        staleTime: 60_000,
+    });
+
+    const slides: Slide[] = Array.isArray(slidesRaw) ? slidesRaw : [];
+
+    // Fix navigation when swiperInstance is ready
     useEffect(() => {
-        const data: Slide[] = [
-            {
-                id: 1,
-                image: "/assets/img/course/course2.jpg",
-                title: "Learn To Study With Confidence",
-                description: "Achieve your goals with our top-notch courses.",
-                buttons: [{ text: "Our Courses", href: "#courses", style: "btn-light" }],
-            },
-            {
-                id: 2,
-                image: "/assets/img/course/course9.jpg",
-                title: "Study Is Our Top Priority",
-                description: "Empowering students through knowledge.",
-                buttons: [{ text: "Explore More", href: "#courses", style: "btn-primary" }],
-            },
-            {
-                id: 3,
-                image: "/assets/img/course/course7.jpg",
-                title: "Your Future Begins Here",
-                description: "Join thousands of learners.",
-                buttons: [{ text: "Get Started", href: "#courses", style: "btn-success" }],
-            },
-        ];
-        setSlides(data);
-    }, []);
+        if (swiperInstance && prevRef.current && nextRef.current) {
+            swiperInstance.params.navigation.prevEl = prevRef.current;
+            swiperInstance.params.navigation.nextEl = nextRef.current;
+            swiperInstance.navigation.init();
+            swiperInstance.navigation.update();
+        }
+    }, [swiperInstance]);
+
+    if (isLoading) return <div className="w-full h-[500px] bg-gray-200 animate-pulse" />;
+    if (isError) return <div className="w-full h-[500px] flex items-center justify-center text-red-600">Failed to load slides.</div>;
+    if (!slides.length) return <div className="w-full h-[500px] flex items-center justify-center">No slides found.</div>;
 
     return (
-        <div className="relative w-full h-[400px] overflow-hidden">
-            {/* Custom Navigation Buttons */}
+        <div className="relative w-full h-[500px] overflow-hidden">
+            {/* Navigation */}
             <div className="absolute inset-0 z-20 pointer-events-none">
                 <div className="container h-full relative">
-                    <button
-                        ref={prevRef}
-                        className="absolute left-4 top-1/2 -translate-y-1/2 btn_slide_home pointer-events-auto"
-                    >
+                    <button ref={prevRef} className="absolute left-4 top-1/2 -translate-y-1/2 btn_slide_home pointer-events-auto" aria-label="Previous slide">
                         <GrFormPrevious size={30} />
                     </button>
-                    <button
-                        ref={nextRef}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 btn_slide_home pointer-events-auto"
-                    >
+                    <button ref={nextRef} className="absolute right-4 top-1/2 -translate-y-1/2 btn_slide_home pointer-events-auto" aria-label="Next slide">
                         <MdNavigateNext size={30} />
                     </button>
                 </div>
             </div>
 
+            {/* Swiper */}
             <Swiper
                 modules={[Autoplay, Navigation, EffectFade]}
+                onSwiper={setSwiperInstance}
                 effect="fade"
                 fadeEffect={{ crossFade: true }}
                 speed={1000}
                 slidesPerView={1}
                 loop={true}
                 autoplay={{ delay: 4000, disableOnInteraction: false }}
-                pagination={false}
-                navigation={{
-                    prevEl: prevRef.current,
-                    nextEl: nextRef.current,
-                }}
-                onBeforeInit={(swiper) => {
-                    if (swiper.params.navigation && typeof swiper.params.navigation !== "boolean") {
-                        swiper.params.navigation.prevEl = prevRef.current;
-                        swiper.params.navigation.nextEl = nextRef.current;
-                    }
-                }}
-                onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
                 className="w-full h-full"
+                onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
             >
-                {slides.map((slide, index) => (
-                    <SwiperSlide key={slide.id}>
-                        <div className="relative w-full h-[400px]">
-                            <Image
-                                src={slide.image}
-                                alt={slide.title}
-                                fill
-                                className={`object-cover ${index === activeIndex ? "animate-zoom-fade" : ""}`}
-                                priority
-                            />
-                            <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-start text-white px-10 z-10">
-                                <div className="container">
-                                    <h2
-                                        className={`text-white font-bold mb-4 ${index === activeIndex ? "animate-fade-up" : ""
-                                            }`}
-                                    >
-                                        {slide.title}
-                                    </h2>
-                                    {slide.description && (
-                                        <p
-                                            className={`text-lg md:text-xl mb-6 max-w-xl ${index === activeIndex ? "animate-fade-up delay-100" : ""
-                                                }`}
-                                        >
-                                            {slide.description}
-                                        </p>
-                                    )}
-                                    {/* <div className={`flex gap-4 ${index === activeIndex ? "animate-fade-up delay-200" : ""}`}>
-                                        {slide.buttons.map((btn, btnIndex) => (
-                                            <a
-                                                key={btnIndex}
-                                                href={btn.href}
-                                                className={`px-6 py-2 rounded ${btn.style}`}
-                                            >
-                                                {btn.text}
-                                            </a>
-                                        ))}
-                                    </div> */}
+                {slides.map((slide, index) => {
+                    const img = normalizeImage(slide.image) || "/placeholder-image.png";
+                    return (
+                        <SwiperSlide key={slide.id}>
+                            <div className="relative w-full h-[500px]">
+                                <Image
+                                    src={img}
+                                    alt={slide.title || `Slide ${index + 1}`}
+                                    fill
+                                    className={`${index === activeIndex ? "animate-zoom-fade" : ""}`}
+                                    priority
+                                />
+                                <div className="absolute inset-0 flex flex-col justify-center items-start text-white px-10 z-10">
+                                    <div className="container">
+                                        {/* Optional overlay */}
+                                        {/* <h2 className={`text-white font-bold mb-4 ${index === activeIndex ? "animate-fade-up" : ""}`}>{slide.title}</h2>
+                                        {slide.description && <p className={`text-lg md:text-xl mb-6 max-w-xl ${index === activeIndex ? "animate-fade-up delay-100" : ""}`}>{slide.description}</p>} */}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </SwiperSlide>
-                ))}
+                        </SwiperSlide>
+                    );
+                })}
             </Swiper>
         </div>
     );
