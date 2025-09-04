@@ -9,10 +9,10 @@ import { MdNavigateNext } from "react-icons/md";
 import { useQuery } from "@tanstack/react-query";
 import { post } from "@/app/lib/api";
 import { BASE_URL } from "@/app/lib/constant";
+import { useTranslation } from "react-i18next";
 
 import "swiper/css";
 import "swiper/css/navigation";
-import { useTranslation } from "react-i18next";
 
 interface SlideVideo {
     id: number;
@@ -22,7 +22,6 @@ interface SlideVideo {
     image: string | null;
 }
 
-// Normalize image path
 function normalizeImage(p?: string | null) {
     if (!p) return "/placeholder-image.png";
     if (p.startsWith("http")) return p;
@@ -30,7 +29,7 @@ function normalizeImage(p?: string | null) {
 }
 
 export default function SlideVideoHome() {
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
     const prevRef = useRef<HTMLButtonElement>(null);
     const nextRef = useRef<HTMLButtonElement>(null);
 
@@ -116,7 +115,6 @@ export default function SlideVideoHome() {
                                     nextEl: nextRef.current,
                                 }}
                                 onSwiper={(swiper) => {
-                                    // Fix for Swiper navigation refs
                                     setTimeout(() => {
                                         if (prevRef.current && nextRef.current) {
                                             swiper.params.navigation.prevEl = prevRef.current;
@@ -165,57 +163,38 @@ export default function SlideVideoHome() {
                             </Swiper>
                         </div>
 
-<<<<<<< HEAD
                         {/* Right: Content */}
                         <div className="col-lg-6 khmer-text">
-                            <h6 className="text-primary text-uppercase mb-2 mt-3">អំពីយើង</h6>
+                            <h6 className="text-primary text-uppercase mb-2 mt-3">
+                                {t("homePage.about")}
+                            </h6>
 
+                            <p>{t("homePage.desc1")}</p>
+                            <p>{t("homePage.desc2")}</p>
                             <p>
-                                សាលាជំនាញព័ត៌មានវិទ្យា អេស អាយ ធី អេស​ ត្រូវបានបង្កើតឡើងក្នុងឆ្នាំ 2018 សាលាមានបង្រៀនថ្នាក់ភាសាអង់គ្លេសសម្រាប់កុមារចាប់ពីអាយុ៧ឆ្នាំឡើងទៅ ភាសាអង់គ្លេសសម្រាប់មនុស្សធំ ភាសាចិន ភាសាថៃ និងជំនាញកុំព្យូទ័រជាច្រើន។
-=======
-                        {/* Right content */}
-                        <div className="col-lg-6 khmer-text">
-                            <h6 className="text-primary text-uppercase mb-2 mt-3">{t("homePage.about")}</h6>
-
-                            <p>
-                                {t("homePage.desc1")}
+                                សាលាមានបេសកកម្ម តម្រង់ទិស លើកកម្ពស់ ផ្ដល់សេវាអប់រំមានគុណភាពខ្ពស់
+                                និងលើកកម្ពស់សិស្សឱ្យមានចំណេះដឹង សីលធម៌ និងជំនាញទាំងផ្នែករឹង
+                                និងផ្នែកទន់ឱ្យបានច្បាស់លាស់
+                                និងទទួលបានជំនាញមួយពិតប្រាកដដែលអាចយកទៅប្រើប្រាស់ប្រកបរបរចិញ្ចឹមជីវិតបានល្អប្រសើរ។
                             </p>
-                            <p>
-                                {t("homePage.desc2")}
->>>>>>> fe9ec78118d04507a7529e367b222d04db540f39
-                            </p>
-                            <p>សាលាមានបេសកកម្ម តម្រង់ទិស លើកកម្ពស់ ផ្ដល់សេវាអប់រំមានគុណភាពខ្ពស់ និងលើកកម្ពស់សិស្សឱ្យមានចំណេះដឹង សីលធម៌ និងជំនាញទាំងផ្នែករឹង និងផ្នែកទន់ឱ្យបានច្បាស់លាស់ និងទទួលបានជំនាញមួយពិតប្រាកដដែលអាចយកទៅប្រើប្រាស់ប្រកបរបរចិញ្ចឹមជីវិតបានល្អប្រសើរ។</p>
 
                             {/* Course list */}
                             <div className="row g-2 mb-4 pb-2">
                                 <div className="col-sm-6">
-<<<<<<< HEAD
-                                    <i className="fa fa-check text-primary me-2" />
-                                    ថ្នាក់កុំព្យូទ៍រ
+                                    <i className="fa fa-check text-primary me-2" />{" "}
+                                    {t("homePage.computer")}
                                 </div>
                                 <div className="col-sm-6">
-                                    <i className="fa fa-check text-primary me-2" />
-                                    ថ្នាក់ភាសាអង់គ្លេស
+                                    <i className="fa fa-check text-primary me-2" />{" "}
+                                    {t("homePage.english")}
                                 </div>
                                 <div className="col-sm-6">
-                                    <i className="fa fa-check text-primary me-2" />
-                                    ថ្នាក់ភាសាចិន
+                                    <i className="fa fa-check text-primary me-2" />{" "}
+                                    {t("homePage.chines")}
                                 </div>
                                 <div className="col-sm-6">
-                                    <i className="fa fa-check text-primary me-2" />
-                                    ថ្នាក់ភាសាថៃ
-=======
-                                    <i className="fa fa-check text-primary me-2" /> {t("homePage.computer")}
-                                </div>
-                                <div className="col-sm-6">
-                                    <i className="fa fa-check text-primary me-2" /> {t("homePage.english")}
-                                </div>
-                                <div className="col-sm-6">
-                                    <i className="fa fa-check text-primary me-2" /> {t("homePage.chines")}
-                                </div>
-                                <div className="col-sm-6">
-                                    <i className="fa fa-check text-primary me-2" /> {t("homePage.thai")}
->>>>>>> fe9ec78118d04507a7529e367b222d04db540f39
+                                    <i className="fa fa-check text-primary me-2" />{" "}
+                                    {t("homePage.thai")}
                                 </div>
                             </div>
 
@@ -223,11 +202,7 @@ export default function SlideVideoHome() {
                             <div className="row g-4">
                                 <div className="col-sm-6">
                                     <a className="btn btn-primary py-3 px-5" href="/about">
-<<<<<<< HEAD
-                                        ព័ត៌មានបន្ថែម
-=======
                                         {t("homePage.moreInfo")}
->>>>>>> fe9ec78118d04507a7529e367b222d04db540f39
                                     </a>
                                 </div>
                                 <div className="col-sm-6">
@@ -250,10 +225,11 @@ export default function SlideVideoHome() {
             {/* Video Modal */}
             {showVideo && videoId && (
                 <div
-                    className={`fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 ${fadeOut
-                        ? "opacity-0 transition-opacity duration-300"
-                        : "opacity-100 transition-opacity duration-300"
-                        }`}
+                    className={`fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 ${
+                        fadeOut
+                            ? "opacity-0 transition-opacity duration-300"
+                            : "opacity-100 transition-opacity duration-300"
+                    }`}
                     onClick={closeModal}
                 >
                     <div
