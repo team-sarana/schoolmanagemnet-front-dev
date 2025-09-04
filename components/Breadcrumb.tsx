@@ -61,6 +61,10 @@ export default function Breadcrumb() {
 
     return (
         <>
+<<<<<<< HEAD
+=======
+            <SlideHome />
+>>>>>>> fe9ec78118d04507a7529e367b222d04db540f39
             {/* <div
                 className="container-fluid page-header py-6 mt-0 wow fadeIn"
                 data-wow-delay="0.1s"
@@ -92,7 +96,10 @@ export default function Breadcrumb() {
                     </nav>
                 </div>
             </div> */}
+<<<<<<< HEAD
             <SlideHome />
+=======
+>>>>>>> fe9ec78118d04507a7529e367b222d04db540f39
         </>
     );
 }

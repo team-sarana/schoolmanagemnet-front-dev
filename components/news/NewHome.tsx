@@ -14,7 +14,7 @@ import { useTranslation } from "react-i18next";
 import "swiper/css";
 import "swiper/css/navigation";
 
-type CurriculumItem = {
+type NewsItem = {
     id: number;
     title_en?: string;
     title_kh?: string;
@@ -30,25 +30,22 @@ const normalizeImage = (img?: string | null) =>
             ? img
             : `${process.env.NEXT_PUBLIC_BACKEND_URL}/${img.replace(/^\/+/, "")}`;
 
-export default function CurriculumsItemHome() {
+export default function NewHome() {
     const { t, i18n } = useTranslation();
     const prevRef = useRef<HTMLButtonElement | null>(null);
     const nextRef = useRef<HTMLButtonElement | null>(null);
 
-    // ✅ Fetch curriculum items by type_id = 1
+    // ✅ Fetch all news
     const { data, isLoading, isError } = useQuery({
-        queryKey: ["curriculum-items-home"],
-        queryFn: () =>
-            post({
-                endpoint: "/curriculum-items/list-by-type",
-                data: { type_id: 1 },
-            }),
+        queryKey: ["news-home"],
+        queryFn: () => post({ endpoint: "/news/listall", data: {} }),
     });
 
-    const items: CurriculumItem[] = Array.isArray(data?.data) ? data.data : [];
+    const items: NewsItem[] = Array.isArray(data?.data) ? data.data : [];
+    const itemsToShow = items.slice(0, 5); // show first 5
 
     if (isLoading) return <div>Loading...</div>;
-    if (isError || !items.length) return <div>No curriculums found.</div>;
+    if (isError || !itemsToShow.length) return <div>No news found.</div>;
 
     const lang = i18n.language;
 
@@ -57,7 +54,7 @@ export default function CurriculumsItemHome() {
             <div className="container wow fadeInUp" data-wow-delay="0.1s">
                 <div className="text-center mx-auto mb-5" style={{ maxWidth: 500 }}>
                     <h2 className="text-primary mb-2 khmer-text">
-                        {t("homePage.programs")}
+                        {t("homePage.news")}
                     </h2>
                 </div>
 
@@ -67,7 +64,7 @@ export default function CurriculumsItemHome() {
                             <Swiper
                                 modules={[Navigation, Autoplay]}
                                 spaceBetween={20}
-                                loop={items.length > 1}
+                                loop={itemsToShow.length > 1}
                                 autoplay={{ delay: 5000 }}
                                 onSwiper={(swiper) => {
                                     setTimeout(() => {
@@ -86,10 +83,9 @@ export default function CurriculumsItemHome() {
                                     1280: { slidesPerView: 4 },
                                 }}
                             >
-                                {items.map((item) => {
+                                {itemsToShow.map((item) => {
                                     const img = normalizeImage(item.image);
-                                    const title =
-                                        lang === "kh" ? item.title_kh : item.title_en;
+                                    const title = lang === "kh" ? item.title_kh : item.title_en;
                                     const description =
                                         lang === "kh"
                                             ? item.short_description_kh
@@ -102,7 +98,7 @@ export default function CurriculumsItemHome() {
                                                     {img ? (
                                                         <Image
                                                             src={img}
-                                                            alt={title || "Curriculum"}
+                                                            alt={title || "News"}
                                                             fill
                                                             className="object-cover"
                                                         />
@@ -114,15 +110,15 @@ export default function CurriculumsItemHome() {
                                                     <div className="courses-overlay absolute inset-0 flex justify-center items-center bg-black bg-opacity-30 opacity-0 hover:opacity-100 transition-opacity duration-300">
                                                         <Link
                                                             className="btn btn-outline-primary border-2"
-                                                            href={`/curriculums/${item.id}`}
+                                                            href={`/news/${item.id}`}
                                                         >
-                                                            {t("homePage.viewDetail")}
+                                                            {t("viewDetail")}
                                                         </Link>
                                                     </div>
                                                 </div>
                                                 <div className="p-4 pt-2 dec-item-course relative">
                                                     <Link
-                                                        href={`/curriculums/${item.id}`}
+                                                        href={`/news/${item.id}`}
                                                         className="mb-3 des-title block text-lg font-semibold"
                                                     >
                                                         {title}
@@ -134,7 +130,7 @@ export default function CurriculumsItemHome() {
                                                         <div className="border-line"></div>
                                                         <Link
                                                             className="detail_item text-primary"
-                                                            href={`/curriculums/${item.id}`}
+                                                            href={`/news/${item.id}`}
                                                         >
                                                             {t("homePage.viewDetail")}
                                                         </Link>

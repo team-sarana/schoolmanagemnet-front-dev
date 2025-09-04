@@ -18,8 +18,10 @@ export const metadata = {
 
 export default function News() {
     return (
-        <div>
-            <NewsComponent />
+        <div className="section-padding">
+            <div className="container">
+                <NewsComponent />
+            </div>
         </div>
     )
 }

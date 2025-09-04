@@ -1,74 +1,72 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-
 export async function post({
   endpoint,
   data = null,
-  params = null,
   revalidate = 0,
+  params = null,
 }: {
   endpoint: string;
-  data?: Record<string, any> | null;
-  params?: Record<string, any> | null;
+  data?: any | null;
+  params?: any | null;
   revalidate?: number;
 }) {
-  let url = `${process.env.NEXT_PUBLIC_API_URL}${endpoint}`;
+  const url = `${process.env.NEXT_PUBLIC_API_URL}${endpoint}`;
 
   if (params) {
     const queryParams = new URLSearchParams(params).toString();
-    url += `?${queryParams}`;
+    endpoint += `?${queryParams}`;
   }
 
-  if (!data) {
-    return get({ endpoint, params, revalidate });
+  if (data == null) {
+    return get({ endpoint, revalidate });
   }
 
-  const options: RequestInit = {
+  if (data == null && params) {
+    return get({ endpoint, revalidate, params });
+  }
+
+  const option: any = {
     method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    headers: { "content-type": "application/x-www-form-urlencoded" },
     body: new URLSearchParams(data),
-    next: { revalidate } as any,
+    next: { revalidate },
   };
 
   try {
-    const res = await fetch(url, options);
+    const res = await fetch(url, option);
 
-    if (!res.ok) throw new Error(res.statusText);
-
+    if (!res.ok) {
+      throw new Error(res.statusText);
+    }
     return await res.json();
   } catch (error: any) {
-    return { error: error.message };
+    return error.message;
   }
 }
 
-export async function get({
-  endpoint,
-  params = null,
-  revalidate = 0,
-}: {
-  endpoint: string;
-  params?: Record<string, any> | null;
-  revalidate?: number;
-}) {
-  let url = `${process.env.NEXT_PUBLIC_API_URL}${endpoint}`;
-
-  if (params) {
-    const queryParams = new URLSearchParams(params).toString();
-    url += `?${queryParams}`;
-  }
-
-  const options: RequestInit = {
-    method: "GET",
-    headers: { "Content-Type": "application/json" },
-    next: { revalidate } as any,
-  };
-
+export async function get({ endpoint, params = null, revalidate = 0 }: { endpoint: string; params?: any | null; revalidate?: number }) {
   try {
-    const res = await fetch(url, options);
+    const url = `${process.env.NEXT_PUBLIC_API_URL}${endpoint}`;
 
-    if (!res.ok) throw new Error(res.statusText);
+    if (params) {
+      const queryParams = new URLSearchParams(params).toString();
+      endpoint += `?${queryParams}`;
+    }
+
+    const option: any = {
+      method: "POST",
+      headers: { "content-type": "application/x-www-form-urlencoded" },
+      next: { revalidate },
+    };
+
+    const res = await fetch(url, option);
+
+    if (!res.ok) {
+      throw new Error(res.statusText);
+    }
 
     return await res.json();
   } catch (error: any) {
-    return { error: error.message };
+    return error.message;
   }
 }
