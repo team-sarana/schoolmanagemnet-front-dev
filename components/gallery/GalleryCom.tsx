@@ -14,20 +14,6 @@ type GalleryType = {
     title_kh: string;
 };
 
-<<<<<<< HEAD
-const allGalleryImages: GalleryItem[] = [
-    { src: '/assets/img/course/computer/course1.jpg', type: 'computer' },
-    { src: '/assets/img/course/english/course1.jpg', type: 'english' },
-    { src: '/assets/img/course/chinese/course1.jpg', type: 'chinese' },
-    { src: '/assets/img/course/thai/course1.jpg', type: 'thai' },
-    { src: '/assets/img/course/english/course2.jpg', type: 'english' },
-    { src: '/assets/img/course/computer/course2.jpg', type: 'computer' },
-    { src: '/assets/img/course/thai/course2.jpg', type: 'thai' },
-    { src: '/assets/img/course/chinese/course2.jpg', type: 'chinese' },
-];
-
-const filterTabs = ['all', 'computer', 'english', 'chinese', 'thai'] as const;
-=======
 type GalleryItem = {
     id: number;
     title_en: string;
@@ -35,7 +21,6 @@ type GalleryItem = {
     gallery_type_id: number;
     image_gallerys: string[];
 };
->>>>>>> fe9ec78118d04507a7529e367b222d04db540f39
 
 export default function GalleryCom() {
     const { t, i18n } = useTranslation();

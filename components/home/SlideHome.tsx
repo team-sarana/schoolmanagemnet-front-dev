@@ -34,11 +34,10 @@ export default function SlideHome() {
     const [swiperInstance, setSwiperInstance] = useState<any>(null);
 
     // Fetch slides
-    const { data: slidesRaw, isLoading, isError, error } = useQuery({
+    const { data: slidesRaw, isLoading, isError } = useQuery({
         queryKey: ["slides-home"],
         queryFn: async () => {
             const res = await post({ endpoint: "/home/slides-home/list", data: {} });
-            console.log("Slides API response:", res);
             return res.data; // should be the array
         },
         staleTime: 60_000,
@@ -48,26 +47,6 @@ export default function SlideHome() {
 
     // Fix navigation when swiperInstance is ready
     useEffect(() => {
-<<<<<<< HEAD
-        const data: Slide[] = [
-            {
-                id: 1,
-                image: "/assets/img/slidehome/slide1.jpg",
-                title: "Learn To Study With Confidence",
-                description: "Achieve your goals with our top-notch courses.",
-                buttons: [{ text: "Our Courses", href: "#courses", style: "btn-light" }],
-            },
-            {
-                id: 2,
-                image: "/assets/img/slidehome/slide2.jpg",
-                title: "Study Is Our Top Priority",
-                description: "Empowering students through knowledge.",
-                buttons: [{ text: "Explore More", href: "#courses", style: "btn-primary" }],
-            },
-        ];
-        setSlides(data);
-    }, []);
-=======
         if (swiperInstance && prevRef.current && nextRef.current) {
             swiperInstance.params.navigation.prevEl = prevRef.current;
             swiperInstance.params.navigation.nextEl = nextRef.current;
@@ -76,20 +55,38 @@ export default function SlideHome() {
         }
     }, [swiperInstance]);
 
-    if (isLoading) return <div className="w-full h-[500px] bg-gray-200 animate-pulse" />;
-    if (isError) return <div className="w-full h-[500px] flex items-center justify-center text-red-600">Failed to load slides.</div>;
-    if (!slides.length) return <div className="w-full h-[500px] flex items-center justify-center">No slides found.</div>;
->>>>>>> fe9ec78118d04507a7529e367b222d04db540f39
+    if (isLoading)
+        return <div className="w-full h-[500px] bg-gray-200 animate-pulse" />;
+    if (isError)
+        return (
+            <div className="w-full h-[500px] flex items-center justify-center text-red-600">
+                Failed to load slides.
+            </div>
+        );
+    if (!slides.length)
+        return (
+            <div className="w-full h-[500px] flex items-center justify-center">
+                No slides found.
+            </div>
+        );
 
     return (
         <div className="relative w-full h-[500px] overflow-hidden">
             {/* Navigation */}
             <div className="absolute inset-0 z-20 pointer-events-none">
                 <div className="container h-full relative">
-                    <button ref={prevRef} className="absolute left-4 top-1/2 -translate-y-1/2 btn_slide_home pointer-events-auto" aria-label="Previous slide">
+                    <button
+                        ref={prevRef}
+                        className="absolute left-4 top-1/2 -translate-y-1/2 btn_slide_home pointer-events-auto"
+                        aria-label="Previous slide"
+                    >
                         <GrFormPrevious size={30} />
                     </button>
-                    <button ref={nextRef} className="absolute right-4 top-1/2 -translate-y-1/2 btn_slide_home pointer-events-auto" aria-label="Next slide">
+                    <button
+                        ref={nextRef}
+                        className="absolute right-4 top-1/2 -translate-y-1/2 btn_slide_home pointer-events-auto"
+                        aria-label="Next slide"
+                    >
                         <MdNavigateNext size={30} />
                     </button>
                 </div>
@@ -109,7 +106,8 @@ export default function SlideHome() {
                 onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
             >
                 {slides.map((slide, index) => {
-                    const img = normalizeImage(slide.image) || "/placeholder-image.png";
+                    const img =
+                        normalizeImage(slide.image) || "/placeholder-image.png";
                     return (
                         <SwiperSlide key={slide.id}>
                             <div className="relative w-full h-[500px]">
@@ -117,14 +115,16 @@ export default function SlideHome() {
                                     src={img}
                                     alt={slide.title || `Slide ${index + 1}`}
                                     fill
-                                    className={`${index === activeIndex ? "animate-zoom-fade" : ""}`}
+                                    className={`${
+                                        index === activeIndex
+                                            ? "animate-zoom-fade"
+                                            : ""
+                                    }`}
                                     priority
                                 />
                                 <div className="absolute inset-0 flex flex-col justify-center items-start text-white px-10 z-10">
                                     <div className="container">
-                                        {/* Optional overlay */}
-                                        {/* <h2 className={`text-white font-bold mb-4 ${index === activeIndex ? "animate-fade-up" : ""}`}>{slide.title}</h2>
-                                        {slide.description && <p className={`text-lg md:text-xl mb-6 max-w-xl ${index === activeIndex ? "animate-fade-up delay-100" : ""}`}>{slide.description}</p>} */}
+                                        {/* Overlay content if needed */}
                                     </div>
                                 </div>
                             </div>
