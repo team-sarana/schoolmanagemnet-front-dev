@@ -6,24 +6,6 @@ export default function LocationCom() {
     const { t } = useTranslation();
 
     return (
-<<<<<<< HEAD
-        <>
-            <div className='section-padding'>
-                <div className='container'>
-                    <div className='row'>
-                        <div className="col-md-12">
-                            {/* Location Section */}
-                            <section className="mb-5 text-center ">
-                                <h1 className="mb-4 ">Our Location</h1>
-                                <p className="text-gray-700 text-lg">Visit our school at:</p>
-                                <p className="text-gray-800 font-semibold mt-2 khmer-text text-[18px]">
-                                    សាលាមានទីតាំងស្ថិតនៅខាងត្បូងសាលារៀនគួរបៃតងចម្ងាយ៥០ម៉ែត្រ
-                                </p>
-                                <p className="text-gray-800 font-semibold mt-2 khmer-text text-[18px]">
-                                    ភូមិវត្តបូព៌ សង្កាត់សាលាកំរើក ក្រុងសៀមរាប ខេត្តសៀមរាប។
-                                </p>
-                            </section>
-=======
         <div className='section-padding'>
             <div className='container'>
                 <div className='row'>
@@ -35,7 +17,6 @@ export default function LocationCom() {
                                 {t('locationPage.desc')}
                             </p>
                         </section>
->>>>>>> 5e77397dfff4448e7658b2b912521768f8b22031
 
                         {/* Google Maps Embed */}
                         <section className="rounded-xl text-center">
