@@ -28,13 +28,13 @@ export default function SchoolStructureCom() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {/* Principal 1 */}
                   <div className="text-center">
-                    <div className="w-40 h-40 mx-auto mb-4 rounded-full overflow-hidden bg-blue-100 flex items-center justify-center">
+                    <div className="w-60 h-60 mx-auto mb-4 rounded-full overflow-hidden border-4 border-blue-600 shadow-lg hover:shadow-2xl bg-white flex items-center justify-center transition-shadow duration-300">
                       <Image 
                         src="/assets/img/team-1.jpg" 
                         alt="Mr. Lok Lundy" 
-                        width={160} 
-                        height={160} 
-                        className="w-full h-full object-cover"
+                        width={200} 
+                        height={200} 
+                        className="w-full h-full object-cover transition-transform duration-300 grayscale hover:grayscale-0 hover:scale-105"
                       />
                     </div>
                     <h3 className="font-semibold text-lg text-center">{t("principal1Name")}</h3>
@@ -44,13 +44,13 @@ export default function SchoolStructureCom() {
 
                   {/* Principal 2 */}
                   <div className="text-center">
-                    <div className="w-40 h-40 mx-auto mb-4 rounded-full overflow-hidden bg-blue-100 flex items-center justify-center">
+                    <div className="w-60 h-60 mx-auto mb-4 rounded-full overflow-hidden border-4 border-blue-600 shadow-lg hover:shadow-2xl bg-white flex items-center justify-center transition-shadow duration-300">
                       <Image 
                         src="/assets/img/team-2.jpg" 
                         alt="Mrs. Leak Malay" 
-                        width={160} 
-                        height={160} 
-                        className="w-full h-full object-cover"
+                        width={200} 
+                        height={200} 
+                        className="w-full h-full object-cover transition-transform duration-300 grayscale hover:grayscale-0 hover:scale-105"
                       />
                     </div>
                     <h3 className="font-semibold text-lg text-center">{t("principal2Name")}</h3>
@@ -60,13 +60,13 @@ export default function SchoolStructureCom() {
 
                   {/* Principal 3 */}
                   <div className="text-center">
-                    <div className="w-40 h-40 mx-auto mb-4 rounded-full overflow-hidden bg-blue-100 flex items-center justify-center">
+                    <div className="w-60 h-60 mx-auto mb-4 rounded-full overflow-hidden border-4 border-blue-600 shadow-lg hover:shadow-2xl bg-white flex items-center justify-center transition-shadow duration-300">
                       <Image 
                         src="/assets/img/team-3.jpg" 
                         alt="Mr. Hun Phanthang" 
-                        width={160} 
-                        height={160} 
-                        className="w-full h-full object-cover"
+                        width={200} 
+                        height={200} 
+                        className="w-full h-full object-cover transition-transform duration-300 grayscale hover:grayscale-0 hover:scale-105"
                       />
                     </div>
                     <h3 className="font-semibold text-lg text-center">{t("principal3Name")}</h3>
@@ -86,13 +86,13 @@ export default function SchoolStructureCom() {
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {/* Teacher 1 */}
                     <div className="text-center">
-                      <div className="w-40 h-40 mx-auto mb-4 rounded-full overflow-hidden bg-blue-100 flex items-center justify-center">
+                      <div className="w-50 h-60 mx-auto mb-4 rounded-lg overflow-hidden border-4 border-blue-600 shadow-lg hover:shadow-2xl bg-white flex items-center justify-center transition-shadow duration-300">
                         <Image 
                           src="/assets/img/team-1.jpg" 
                           alt="Mr. Grant" 
-                          width={160} 
-                          height={160} 
-                          className="w-full h-full object-cover"
+                          width={200} 
+                          height={200} 
+                          className="w-full h-full object-cover transition-transform duration-300 grayscale hover:grayscale-0 hover:scale-105"
                         />
                       </div>
                       <h4 className="font-semibold text-lg text-center">{t("teacher1Name")}</h4>
@@ -101,13 +101,13 @@ export default function SchoolStructureCom() {
 
                     {/* Teacher 2 */}
                     <div className="text-center">
-                      <div className="w-40 h-40 mx-auto mb-4 rounded-full overflow-hidden bg-blue-100 flex items-center justify-center">
+                      <div className="w-50 h-60 mx-auto mb-4 rounded-lg overflow-hidden border-4 border-blue-600 shadow-lg hover:shadow-2xl bg-white flex items-center justify-center transition-shadow duration-300">
                         <Image 
                           src="/assets/img/team-2.jpg" 
                           alt="Mr. John O'Leary" 
-                          width={160} 
-                          height={160} 
-                          className="w-full h-full object-cover"
+                          width={200} 
+                          height={200} 
+                          className="w-full h-full object-cover transition-transform duration-300 grayscale hover:grayscale-0 hover:scale-105"
                         />
                       </div>
                       <h4 className="font-semibold text-lg text-center">{t("teacher2Name")}</h4>
@@ -116,13 +116,13 @@ export default function SchoolStructureCom() {
 
                     {/* Teacher 3 */}
                     <div className="text-center">
-                      <div className="w-40 h-40 mx-auto mb-4 rounded-full overflow-hidden bg-blue-100 flex items-center justify-center">
+                      <div className="w-50 h-60 mx-auto mb-4 rounded-lg overflow-hidden border-4 border-blue-600 shadow-lg hover:shadow-2xl bg-white flex items-center justify-center transition-shadow duration-300">
                         <Image 
                           src="/assets/img/team-3.jpg" 
                           alt="Ms. Lauren Ellis" 
-                          width={160} 
-                          height={160} 
-                          className="w-full h-full object-cover"
+                          width={200} 
+                          height={200} 
+                          className="w-full h-full object-cover transition-transform duration-300 grayscale hover:grayscale-0 hover:scale-105"
                         />
                       </div>
                       <h4 className="font-semibold text-lg text-center">{t("teacher3Name")}</h4>
