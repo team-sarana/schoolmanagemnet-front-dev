@@ -9,10 +9,10 @@ import { MdNavigateNext } from "react-icons/md";
 import { useQuery } from "@tanstack/react-query";
 import { post } from "@/app/lib/api";
 import { BASE_URL } from "@/app/lib/constant";
+import { useTranslation } from "react-i18next";
 
 import "swiper/css";
 import "swiper/css/navigation";
-import { useTranslation } from "react-i18next";
 
 interface SlideVideo {
     id: number;
@@ -22,7 +22,6 @@ interface SlideVideo {
     image: string | null;
 }
 
-// Normalize image path
 function normalizeImage(p?: string | null) {
     if (!p) return "/placeholder-image.png";
     if (p.startsWith("http")) return p;
@@ -164,7 +163,7 @@ export default function SlideVideoHome() {
                             </Swiper>
                         </div>
 
-                        {/* Right content */}
+                        {/* Right: Content */}
                         <div className="col-lg-6 khmer-text">
                             <h6 className="text-primary text-uppercase mb-2 mt-3">
                                 {t("homePage.about")}

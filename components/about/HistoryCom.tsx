@@ -8,6 +8,7 @@ export default function HistoryCom() {
     const { t } = useTranslation();
 
     return (
+        <>
         <div className="section-padding py-10">
             <div className="container">
                 <div className="row">
@@ -42,10 +43,15 @@ export default function HistoryCom() {
                                     <span className="block">- {t("history.list3")}</span>
                                 </p>
                             </div>
-                        </section>
+
+                            </section>
+
+                            
+                        </div>
+                        
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }

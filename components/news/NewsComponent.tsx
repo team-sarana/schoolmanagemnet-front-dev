@@ -1,5 +1,4 @@
 "use client";
-
 import { useQuery } from "@tanstack/react-query";
 import { post } from "@/app/lib/api";
 import Image from "next/image";
@@ -16,7 +15,7 @@ type NewsItem = {
     image?: string | null;
 };
 
-export default function NewsListClient() {
+export default function NewsComponent() {
     const { t, i18n } = useTranslation();
     const lang = i18n.language; // "en" or "kh"
 
@@ -48,79 +47,81 @@ export default function NewsListClient() {
     if (!currentNews.length) return <div>{t("noNewsFound")}</div>;
 
     return (
-        <div>
-            <div className="banner_title wow fadeInUp">{t("news")}</div>
-            <div className="row">
-                {currentNews.map((item) => {
-                    const img = normalizeImage(item.image);
-                    const title = lang === "en" ? item.title_en : item.title_kh;
-                    const shortDescription =
-                        lang === "en" ? item.short_description_en : item.short_description_kh;
+        <div className="section-padding">
+            <div className="container khmer-text">
+                <div className="banner_title wow fadeInUp">{t("news")}</div>
+                <div className="row">
+                    {currentNews.map((item) => {
+                        const img = normalizeImage(item.image);
+                        const title = lang === "en" ? item.title_en : item.title_kh;
+                        const shortDescription =
+                            lang === "en" ? item.short_description_en : item.short_description_kh;
 
-                    return (
-                        <div key={item.id} className="col-lg-6 mt-3 wow fadeInUp">
-                            <div className="banner_border shadow-md flex flex-col lg:flex-row gap-4">
-                                <Link href={`/news/${item.id}`} className="image_border">
-                                    {img ? (
-                                        <Image
-                                            src={img}
-                                            alt={title || "News"}
-                                            width={300}
-                                            height={250}
-                                            className="rounded-md object-cover"
-                                        />
-                                    ) : (
-                                        <div className="w-72 h-60 bg-gray-200 rounded-md flex items-center justify-center">
-                                            {t("noImage")}
-                                        </div>
-                                    )}
-                                </Link>
-                                <div className="lg:w-2/3 leading-relaxed">
-                                    <Link href={`/news/${item.id}`}>
-                                        <h3>{title}</h3>
+                        return (
+                            <div key={item.id} className="col-lg-6 mt-3 wow fadeInUp">
+                                <div className="banner_border shadow-md flex flex-col lg:flex-row gap-4">
+                                    <Link href={`/news/${item.id}`} className="image_border">
+                                        {img ? (
+                                            <Image
+                                                src={img}
+                                                alt={title || "News"}
+                                                width={300}
+                                                height={250}
+                                                className="rounded-md object-cover"
+                                            />
+                                        ) : (
+                                            <div className="w-72 h-60 bg-gray-200 rounded-md flex items-center justify-center">
+                                                {t("noImage")}
+                                            </div>
+                                        )}
                                     </Link>
-                                    <p>{shortDescription}</p>
+                                    <div className="lg:w-2/3 leading-relaxed">
+                                        <Link href={`/news/${item.id}`}>
+                                            <h3>{title}</h3>
+                                        </Link>
+                                        <p>{shortDescription}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    );
-                })}
-            </div>
+                        );
+                    })}
+                </div>
 
-            {/* Pagination */}
-            <div className="pagination justify-content-end mt-4">
-                <nav>
-                    <ul className="pagination">
-                        <li className={`page-item ${currentPage === 1 ? "disabled" : ""}`}>
-                            <button
-                                className="page-link"
-                                onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-                                disabled={currentPage === 1}
-                            >
-                                {t("previous")}
-                            </button>
-                        </li>
-                        {Array.from({ length: totalPages }, (_, i) => (
-                            <li
-                                key={i + 1}
-                                className={`page-item ${currentPage === i + 1 ? "active" : ""}`}
-                            >
-                                <button className="page-link" onClick={() => setCurrentPage(i + 1)}>
-                                    {i + 1}
+                {/* Pagination */}
+                <div className="pagination justify-content-end mt-4">
+                    <nav>
+                        <ul className="pagination">
+                            <li className={`page-item ${currentPage === 1 ? "disabled" : ""}`}>
+                                <button
+                                    className="page-link"
+                                    onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                                    disabled={currentPage === 1}
+                                >
+                                    {t("previous")}
                                 </button>
                             </li>
-                        ))}
-                        <li className={`page-item ${currentPage === totalPages ? "disabled" : ""}`}>
-                            <button
-                                className="page-link"
-                                onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
-                                disabled={currentPage === totalPages}
-                            >
-                                {t("next")}
-                            </button>
-                        </li>
-                    </ul>
-                </nav>
+                            {Array.from({ length: totalPages }, (_, i) => (
+                                <li
+                                    key={i + 1}
+                                    className={`page-item ${currentPage === i + 1 ? "active" : ""}`}
+                                >
+                                    <button className="page-link" onClick={() => setCurrentPage(i + 1)}>
+                                        {i + 1}
+                                    </button>
+                                </li>
+                            ))}
+                            <li className={`page-item ${currentPage === totalPages ? "disabled" : ""}`}>
+                                <button
+                                    className="page-link"
+                                    onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+                                    disabled={currentPage === totalPages}
+                                >
+                                    {t("next")}
+                                </button>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </div>
     );

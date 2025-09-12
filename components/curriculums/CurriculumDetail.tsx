@@ -27,7 +27,39 @@ export default function CurriculumDetailClient() {
     const { t, i18n } = useTranslation();
     const lang = i18n.language; // "en" or "kh"
 
+<<<<<<< HEAD
+const sidebarItems = [
+    {
+        src: "/assets/img/course/computer/course2.jpg",
+        title: "វគ្គក្រាហ្វិចឌីហ្សាញ និងបោះពុម្ភ",
+        href: "#",
+    },
+    {
+        src: "/assets/img/course/computer/course8.jpg",
+        title: "វគ្គជួសជុលកុំព្យូទ័រកម្រិតដំបូង",
+        href: "#",
+    },
+    {
+        src: "/assets/img/course/computer/course6.jpg",
+        title: "វគ្គ Sketch UP Modeling 3D",
+        href: "#",
+    },
+    {
+        src: "/assets/img/course/computer/course9.jpg",
+        title: "វគ្គ Advanced Excel",
+        href: "#",
+    },
+    // {
+    //     src: "/assets/img/course/computer/course10.jpg",
+    //     title: "វគ្គ Cartoon and Animation",
+    //     href: "#",
+    // },
+];
+
+export default function CurriculumDetail() {
+=======
     const { id } = useParams<{ id: string }>();
+>>>>>>> fe9ec78118d04507a7529e367b222d04db540f39
     const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass | null>(null);
     const [activeIndex, setActiveIndex] = useState(0);
     const prevRef = useRef<HTMLButtonElement>(null);
@@ -81,7 +113,7 @@ export default function CurriculumDetailClient() {
 
     return (
         <div className="section-padding">
-            <div className="container">
+            <div className="container khmer-text">
                 <div className="row">
                     {/* Main content */}
                     <div className="col-md-9">
@@ -107,6 +139,27 @@ export default function CurriculumDetailClient() {
                                     <MdNavigateNext size={30} />
                                 </button>
 
+<<<<<<< HEAD
+                        <h2 className="mt-4">វគ្គមូលដ្ឋានគ្រឹះកុំព្យូទ័រ</h2>
+                        <div>វគ្គមូលដ្ឋានគ្រឹះកុំព្យូទ័រ គឺជាវគ្គសិក្សាដែលបង្កើតឡើងសម្រាប់ជួយឱ្យអ្នកចាប់ផ្ដើមទើបស្គាល់កុំព្យូទ័រ អាចយល់ដឹងពីគោលគំនិតសំខាន់ៗ និងបច្ចេកទេសមូលដ្ឋានដែលត្រូវការក្នុងការប្រើប្រាស់កុំព្យូទ័រ។</div>
+                    </div>
+
+                    {/* Sidebar */}
+                    <div className="col-md-3 ">
+                        <h2 className="mb-4">Related Course</h2>
+                        {sidebarItems.map(({ src, title, href }, index) => (
+                            <div key={index} className="d-flex mb-3">
+                                <Image
+                                    src={src}
+                                    width={150}
+                                    height={200}
+                                    alt={title}
+                                    className="rounded-lg"
+                                />
+                                <Link href={href} className="ms-3">
+                                    <p className="text-[#2e73ba]">{title}</p>
+                                </Link>
+=======
                                 {navigationReady && (
                                     <Swiper
                                         modules={[Navigation, Thumbs, Autoplay]}
@@ -133,6 +186,7 @@ export default function CurriculumDetailClient() {
                                         ))}
                                     </Swiper>
                                 )}
+>>>>>>> fe9ec78118d04507a7529e367b222d04db540f39
                             </div>
                         )}
 
